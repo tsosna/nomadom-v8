@@ -9,6 +9,154 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator zod {
+  provider = "pnpx zod-prisma-types"
+  output   = "../src/lib/schemas/generated/"
+}
+
+enum HouseType {
+  SINGLE_FAMILY
+  MULTI_FAMILY
+  SEMI_DETACHED
+  DETACHED
+  DUPLEX
+  APARTMENT
+  STUDIO
+  LOFT
+  PENTHOUSE
+  GARDEN_HOUSE
+  COTTAGE
+  BUNGALOW
+  VILLA
+  MANSION
+}
+
+enum RoofType {
+  FLAT
+  PITCHED
+}
+
+enum FacadeType {
+  SHEET_METAL
+  PLASTER
+  BRICK
+  WOOD_LIGHT
+  WOOD_DARK
+}
+
+enum DimensionType {
+  D2
+  D3
+}
+
+model Project {
+  id               String   @id @unique
+  name             String
+  icon             String
+  label            String
+  tags             String[]
+  shortDescription String
+  longDescription  String
+  mainBenefits     String
+  additionalInfo   String
+  usableArea       Float
+  numPeople        Int
+  roofType         RoofType
+  // flat, pitched
+
+  technicalInfo TechnicalInfo[]
+  elevation     Elevation[]
+  visualization Visualization[]
+  plan          Plan[]
+  interior      Interior[]
+  plotLocation  PlotLocation[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model TechnicalInfo {
+  id        String  @id @unique
+  key       String
+  value     String
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Elevation {
+  id         String     @id @unique
+  url        String
+  hash       String     @unique
+  alt        String?
+  caption    String?
+  projectId  String
+  project    Project    @relation(fields: [projectId], references: [id])
+  facadeType FacadeType
+  // sheet metal, plaster, brick, wood
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Visualization {
+  id         String     @id @unique
+  url        String
+  hash       String     @unique
+  alt        String?
+  caption    String?
+  projectId  String
+  project    Project    @relation(fields: [projectId], references: [id])
+  facadeType FacadeType
+  // sheet metal, plaster, brick, wood
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model PlotLocation {
+  id        String  @id @unique
+  url       String
+  hash      String  @unique
+  alt       String?
+  caption   String?
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Plan {
+  id        String  @id @unique
+  url       String
+  hash      String  @unique
+  alt       String?
+  caption   String?
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Interior {
+  id        String        @id @unique
+  url       String
+  hash      String        @unique
+  alt       String?
+  caption   String?
+  projectId String
+  project   Project       @relation(fields: [projectId], references: [id])
+  dimension DimensionType
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 }

@@ -26,6 +26,4 @@ export const handleError: HandleServerError = async ({ error}) => {
 	return { message: `Ups! Something went wrong. ${messageError.message}`, errorId: 'No. 125444' }
 }
 
-export const handle: Handle = sequence(theme)
-
-export const handle = sequence(i18n.handle())
+export const handle = sequence(i18n.handle(), theme)

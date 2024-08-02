@@ -10,11 +10,11 @@ declare global {
 			theme: string
 		}
 		// interface Error {}
-		// interface Locals {}
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
 	}
+	let __prisma: import('@prisma/client/edge').PrismaClient
 }
 
 export {}

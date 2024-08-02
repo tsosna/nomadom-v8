@@ -16,8 +16,6 @@
 
 	setToastState()
 </script>
-<ParaglideJS {i18n}>
-
 
 <svelte:head>
 	<link rel="icon" href="./favicon.png" />
@@ -26,9 +24,9 @@
 	<!-- <meta name="description" content={about_this_app()} /> -->
 </svelte:head>
 
+<ParaglideJS {i18n}>
 
 <Toaster />
 {@render children()}
 
-<slot/>
 </ParaglideJS>
