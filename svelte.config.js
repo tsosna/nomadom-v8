@@ -13,7 +13,13 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter(),
 		alias: {
-			'@/*': './src/lib/*'
+			'@/*': './src/lib/*',
+			$lib: './src/lib',
+			'$lib/*': './src/lib/*',
+			$components: 'src/lib/components',
+			'$components/*': 'src/lib/components/*',
+			$paraglide: 'src/paraglide',
+			'$paraglide/*': 'src/paraglide/*'
 		}
 	}
 }
