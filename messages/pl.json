@@ -3,5 +3,12 @@
   "currentLanguageTag": "Aktualny symbol języka to: {languageTag} .",
   "aboutThisApp": "Odkryj nasze innowacyjne projekty domów modułowych, zaprojektowane z myślą o szybkości budowy, prostocie budowy i oszczędności kosztów. Nasze domy oferują nie tylko szybką budowę, ale także ekonomiczne rozwiązania w porównaniu z tradycyjnymi metodami budowy. Zapraszamy do odkrywania przyszłości budownictwa!",
   "companyName": "Technologie Modułowe Sp. z o.o.",
-  "copyright": "Wszelkie prawa zastrzeżone"
+  "copyright": "Wszelkie prawa zastrzeżone",
+  "about": "O Nas",
+  "projects": "Projekty",
+  "changeLanguageTo": "Zmień język na {languageTag}",
+  "languageNamesEn": "angielski",
+  "languageNamesDe": "niemiecki",
+  "languageNamesFr": "francuski",
+  "languageNamesPl": "Polski"
 }
