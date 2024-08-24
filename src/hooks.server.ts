@@ -5,7 +5,7 @@ import {
 	sourceLanguageTag,
 	type AvailableLanguageTag,
 	availableLanguageTags
-} from './paraglide/runtime'
+} from '@/paraglide/runtime'
 import { langTag } from '@/i18n-routing'
 
 
@@ -42,6 +42,9 @@ export const lang: Handle = async ({ event, resolve }) => {
 
 	const langFromCookie = event.cookies.get('lang') as AvailableLanguageTag
 
+
+	console.log('langFromCookie', langFromCookie, event.url.pathname, locale, sourceLanguageTag);
+	
 	if (!langFromCookie) {
 		event.cookies.set('lang', langTag(event.url.pathname + '/') || locale || sourceLanguageTag, { path: '/' })
 		return await resolve(event)
@@ -88,4 +91,4 @@ export const lang: Handle = async ({ event, resolve }) => {
 }
 
 
-export const handle = sequence(i18n.handle(), theme)
+export const handle = sequence(i18n.handle(), theme, lang )

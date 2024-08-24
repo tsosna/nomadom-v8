@@ -66,7 +66,7 @@
 <Button onclick={add}>{sum} {length}</Button>
 
 <Theme />
-<Language label={false}/>
+<Language label={true}/>
 
 
 <Button

@@ -58,7 +58,7 @@
 		<Button builders={[builder]} {variant} role="combobox" type="button" class="gap-2">
 			<Languages />
 			{#if label}
-				{languageNames[languageTag()]}
+				{languageNames[languageTag()]} {$page.url.pathname}
 			{/if}
 		</Button>
 	</Trigger>
@@ -80,7 +80,7 @@
 							class="mr-3 flex items-center justify-between gap-2 pl-0"
 						>
 							<img src="./{language.flag}" alt={language.label} class="h-6 w-6" />
-							{language.label}
+							{language.label} {i18n.route($page.url.pathname + '/')}
 						</Button>
 					</Item>
 				{/each}
