@@ -1,4 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "currentLanguageTag": "Der aktuelle Sprachtag ist: {languageTag} ."
+  "currentLanguageTag": "Der aktuelle Sprachtag ist: {languageTag} .",
+  "aboutThisApp": "Entdecken Sie unsere innovativen modularen Hausdesigns, die auf schnelles, einfaches Bauen und Kosteneinsparungen ausgelegt sind. Unsere Häuser bieten nicht nur schnelles Bauen, sondern auch kostengünstige Lösungen im Vergleich zu herkömmlichen Baumethoden. Wir laden Sie ein, die Zukunft des Bauens zu erkunden!",
+  "companyName": "Modularen Technologien Gmbh.",
+  "copyright": "Alle Rechte vorbehalten"
 }

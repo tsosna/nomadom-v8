@@ -1,4 +1,7 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "currentLanguageTag": "La balise de langue actuelle est : {languageTag} ."
+  "currentLanguageTag": "La balise de langue actuelle est : {languageTag} .",
+  "aboutThisApp": "Découvrez nos conceptions de maisons modulaires innovantes, conçues pour une construction rapide, simple et économique. Nos maisons offrent non seulement une construction rapide, mais également des solutions rentables par rapport aux méthodes de construction traditionnelles. Nous vous invitons à explorer l'avenir de la construction !",
+  "companyName": "Technologies modulaires Ltée.",
+  "copyright": "Tous droits réservés"
 }

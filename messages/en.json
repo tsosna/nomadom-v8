@@ -1,7 +1,7 @@
 {
     "$schema": "https://inlang.com/schema/inlang-message-format",
     "currentLanguageTag": "The current language tag is: {languageTag}.",
-	"aboutThisApp": "Discover our innovative modular home designs, designed for speed of construction, simplicity of construction and cost savings. Our homes not only offer fast construction, but also cost-effective solutions compared to traditional construction methods. We invite you to explore the future of construction!",
-	"companyName": "Modular Technologies Ltd.",
-	"copyright": "All rights reserved"
+    "aboutThisApp": "Discover our innovative modular home designs, designed for speed of construction, simplicity of construction and cost savings. Our homes not only offer fast construction, but also cost-effective solutions compared to traditional construction methods. We invite you to explore the future of construction!",
+    "companyName": "Modular Technologies Ltd.",
+    "copyright": "All rights reserved"
 }
