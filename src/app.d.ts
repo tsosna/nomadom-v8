@@ -1,15 +1,20 @@
-import type { AvailableLanguageTag } from "../../lib/paraglide/runtime"
-import type { ParaglideLocals } from "@inlang/paraglide-sveltekit"
+import type { AvailableLanguageTag } from '../../lib/paraglide/runtime'
+import type { ParaglideLocals } from '@inlang/paraglide-sveltekit'
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare global {
 	namespace App {
 		interface Locals {
-    paraglide: ParaglideLocals<AvailableLanguageTag>,
-
+			paraglide: ParaglideLocals<AvailableLanguageTag>
 			theme: string
+			lang: AvailableLanguageTag
+
 		}
 		// interface Error {}
+		interface Error {
+			message: string;
+			errorId?: string;
+		}
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}

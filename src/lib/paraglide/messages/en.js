@@ -47,6 +47,30 @@ export const copyright = () => `All rights reserved`
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
+export const about = () => `About`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const projects = () => `Projects`
+
+
+/**
+ * @param {{ languageTag: NonNullable<unknown> }} params
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const changeLanguageTo = (params) => `Change language to ${params.languageTag}`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
 export const languageNamesEn = () => `English`
 
 
@@ -72,27 +96,3 @@ export const languageNamesFr = () => `French`
  */
 /* @__NO_SIDE_EFFECTS__ */
 export const languageNamesPl = () => `Polish`
-
-
-/**
- * 
- * @returns {string}
- */
-/* @__NO_SIDE_EFFECTS__ */
-export const about = () => `About`
-
-
-/**
- * 
- * @returns {string}
- */
-/* @__NO_SIDE_EFFECTS__ */
-export const projects = () => `Projects`
-
-
-/**
- * @param {{ languageTag: NonNullable<unknown> }} params
- * @returns {string}
- */
-/* @__NO_SIDE_EFFECTS__ */
-export const changeLanguageTo = (params) => `Change language to ${params.languageTag}`

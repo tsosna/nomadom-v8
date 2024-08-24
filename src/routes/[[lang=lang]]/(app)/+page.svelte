@@ -6,6 +6,7 @@
 	import { getToastState } from '@/components/ui/toast/toast-state.svelte'
 	import { Timer } from '@/utils.svelte'
 	import { Theme } from '@/components/ui/theme'
+	import { Language } from '@/components/ui/language'
 
 	function createCounter() {
 		let counter = $state({ count: 0 })
@@ -65,6 +66,8 @@
 <Button onclick={add}>{sum} {length}</Button>
 
 <Theme />
+<Language label={false}/>
+
 
 <Button
 	onclick={() =>

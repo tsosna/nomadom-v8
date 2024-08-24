@@ -16,10 +16,13 @@
 	} from '$paraglide/messages'
 
 	type Variant = VariantProps<typeof buttonVariants>['variant']
-	export let variant: Variant = 'ghost'
-	export let label: boolean = true
+	type Props = {
+		variant?: Variant
+		label?: boolean
+	}
 
-	let open = false
+	let { variant = 'ghost', label = false }: Props = $props()
+	let open = $state(false)
 
 	//TODO: prznieść closeAndFocusTrigger do pliku z funkcjami pomocniczymi
 	function closeAndFocusTrigger(triggerId: string) {
@@ -67,14 +70,14 @@
 						disabled={languageTag() === `${language.value}` ? true : false}
 						value={language.value}
 						onSelect={() => {
-							closeAndFocusTrigger(ids.trigger)
+							open = false
 						}}
 					>
 						<Button
 							{variant}
 							href={i18n.route($page.url.pathname + '/')}
 							hreflang={language.value}
-							class="gap-2 flex items-center justify-between pl-0 mr-3"
+							class="mr-3 flex items-center justify-between gap-2 pl-0"
 						>
 							<img src="./{language.flag}" alt={language.label} class="h-6 w-6" />
 							{language.label}
