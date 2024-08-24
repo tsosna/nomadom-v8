@@ -1,5 +1,5 @@
 <script lang="ts">
-	import {aboutThisApp} from '$paraglide/messages.js'
+	import * as m from '$paraglide/messages'
 	
 	import type { Snippet } from 'svelte'
 
@@ -15,7 +15,7 @@
 	<link rel="icon" href="./favicon.png" />
 	<title>nomadoM</title>
 	<meta name="application" content="nomadoM" />
-	<meta name="description" content={aboutThisApp()} />
+	<meta name="description" content={m.aboutThisApp()} />
 </svelte:head>
 
 

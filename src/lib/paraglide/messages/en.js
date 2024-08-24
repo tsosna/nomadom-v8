@@ -40,3 +40,59 @@ export const companyName = () => `Modular Technologies Ltd.`
  */
 /* @__NO_SIDE_EFFECTS__ */
 export const copyright = () => `All rights reserved`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const languageNamesEn = () => `English`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const languageNamesDe = () => `German`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const languageNamesFr = () => `French`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const languageNamesPl = () => `Polish`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const about = () => `About`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const projects = () => `Projects`
+
+
+/**
+ * @param {{ languageTag: NonNullable<unknown> }} params
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const changeLanguageTo = (params) => `Change language to ${params.languageTag}`
