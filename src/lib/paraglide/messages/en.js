@@ -10,4 +10,9 @@
  */
 
 
-export {};
+/**
+ * @param {{ languageTag: NonNullable<unknown> }} params
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const currentLanguageTag = (params) => `The current language tag is: ${params.languageTag}.`

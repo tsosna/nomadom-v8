@@ -5,12 +5,12 @@
 	import { getToastState } from './toast-state.svelte'
 	import Toast from './toast.svelte'
 
-	type Toast = {
+	type ToastPosition = {
 		position?: 't' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br'
 		duration?: number
 	}
 
-	let { position = 'b', duration = 150 }: Toast = $props()
+	let { position = 'b', duration = 150 }: ToastPosition = $props()
 
 	const cWrapper = 'flex fixed top-0 left-0 right-0 bottom-0 z-[888] pointer-events-none'
 	const cSnackbar = 'flex flex-col space-y-2'
