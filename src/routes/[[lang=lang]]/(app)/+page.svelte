@@ -6,6 +6,10 @@
 	import { getToastState } from '@/components/ui/toast/toast-state.svelte'
 	import { Timer } from '@/utils.svelte'
 	import { Theme } from '@/components/ui/theme'
+	import { goto } from '$app/navigation'
+	import { base } from '$app/paths'
+	import { i18n } from '$lib/i18n'
+	import {about} from '@/paraglide/messages'
 
 
 	function createCounter() {
@@ -81,3 +85,4 @@
 <h1>{$page.data.theme}</h1>
 
 
+<button onclick={() => goto(i18n.resolveRoute(base + '/about'))}> {about()}</button>

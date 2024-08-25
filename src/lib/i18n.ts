@@ -7,5 +7,7 @@ export const i18n = createI18n(runtime,{
   textDirection:{
     "en": "ltr",
     "pl": "ltr",
+    "de": "ltr",
+    "fr": "ltr",
   }
 })
