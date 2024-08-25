@@ -2,12 +2,12 @@
     "$schema": "https://inlang.com/schema/inlang-message-format",
     "currentLanguageTag": "The current language tag is: {languageTag}.",
     "copyright": "All rights reserved",
-	"companyName": "Modular Technologies Lt.",
-	"appName": "nomadoM",
-	"themeLight": "Light",
-	"themeDark": "Dark",
+    "companyName": "Modular Technologies Lt.",
+    "appName": "nomadoM",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "languageNamesEn": "English",
-	"languageNamesDe": "German",
-	"languageNamesFr": "French",
-	"languageNamesPl": "Polish"
+    "languageNamesDe": "German",
+    "languageNamesFr": "French",
+    "languageNamesPl": "Polish"
 }

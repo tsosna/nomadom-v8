@@ -1,12 +1,13 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "currentLanguageTag": "Der aktuelle Sprachtag ist: {languageTag} .",
   "copyright": "Alle Rechte vorbehalten",
-	"companyName": "Modular Technologies Gmbh.",
-	"appName": "nomadoM",
-	"themeLight": "Hell",
-	"themeDark": "Dunkel",
+  "companyName": "Modular Technologies Gmbh.",
+  "appName": "nomadoM",
+  "themeLight": "Hell",
+  "themeDark": "Dunkel",
   "languageNamesEn": "Englisch",
-	"languageNamesDe": "Deutsch",
-	"languageNamesFr": "Französisch",
-	"languageNamesPl": "Polieren"
+  "languageNamesDe": "Deutsch",
+  "languageNamesFr": "Französisch",
+  "languageNamesPl": "Polieren"
 }

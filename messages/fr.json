@@ -1,12 +1,13 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
+  "currentLanguageTag": "La balise de langue actuelle est : {languageTag} .",
   "copyright": "Tous droits réservés",
-	"companyName": "Technologies modulaires Ltd.",
-	"appName": "nomadoM",
-	"themeLight": "Lumière",
-	"themeDark": "Sombre",
+  "companyName": "Technologies modulaires Ltd.",
+  "appName": "nomadoM",
+  "themeLight": "Lumière",
+  "themeDark": "Sombre",
   "languageNamesEn": "Anglais",
-	"languageNamesDe": "Allemand",
-	"languageNamesFr": "Français",
-	"languageNamesPl": "polonais"
+  "languageNamesDe": "Allemand",
+  "languageNamesFr": "Français",
+  "languageNamesPl": "polonais"
 }
