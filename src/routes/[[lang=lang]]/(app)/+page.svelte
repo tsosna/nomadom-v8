@@ -7,8 +7,6 @@
 	import { Timer } from '@/utils.svelte'
 	import { Theme } from '@/components/ui/theme'
 
-	import { availableLanguageTags, languageTag } from "$lib/paraglide/runtime.js"
-	import { i18n } from '$lib/i18n.js'
 
 	function createCounter() {
 		let counter = $state({ count: 0 })
@@ -83,15 +81,3 @@
 <h1>{$page.data.theme}</h1>
 
 
-{languageTag()}
-
-{#each availableLanguageTags as lang}
-	<!-- the hreflang attribute decides which language the link points to -->
-	<a 
-		href={i18n.route($page.url.pathname)}
-		hreflang={lang}
-		aria-current={lang === languageTag() ? "page" : undefined}
-	>
-		{lang} |
-	</a>
-{/each}

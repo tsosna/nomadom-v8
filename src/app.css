@@ -123,6 +123,24 @@
 		@apply h-screen;
 	}
 	h1 {
-		@apply font-inter text-4xl font-extrabold uppercase tracking-tight lg:text-5xl;
+		@apply text-4xl font-extrabold tracking-tight lg:text-5xl uppercase font-inter;
+	}
+	h2 {
+		@apply border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0  font-inter;
+	}
+	h3 {
+		@apply text-2xl font-semibold tracking-tight  font-inter;
+	}
+	h4 {
+		@apply text-xl font-semibold tracking-tight  font-inter;
+	}
+	p {
+		@apply leading-7 [&:not(:first-child)]:mt-6 font-inter;
+	}
+	blockquote {
+		@apply mt-6 border-l-2 pl-6 italic font-inter;
+	}
+	ul {
+		@apply my-6 ml-6 list-disc [&>li]:mt-2 font-inter;
 	}
 }

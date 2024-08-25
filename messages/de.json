@@ -1,0 +1,12 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "copyright": "Alle Rechte vorbehalten",
+	"companyName": "Modular Technologies Gmbh.",
+	"appName": "nomadoM",
+	"themeLight": "Hell",
+	"themeDark": "Dunkel",
+  "languageNamesEn": "Englisch",
+	"languageNamesDe": "Deutsch",
+	"languageNamesFr": "Französisch",
+	"languageNamesPl": "Polieren"
+}

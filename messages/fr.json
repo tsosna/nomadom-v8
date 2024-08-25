@@ -1,0 +1,12 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "copyright": "Tous droits réservés",
+	"companyName": "Technologies modulaires Ltd.",
+	"appName": "nomadoM",
+	"themeLight": "Lumière",
+	"themeDark": "Sombre",
+  "languageNamesEn": "Anglais",
+	"languageNamesDe": "Allemand",
+	"languageNamesFr": "Français",
+	"languageNamesPl": "polonais"
+}
