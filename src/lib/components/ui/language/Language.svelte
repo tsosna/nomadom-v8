@@ -75,12 +75,12 @@
 					>
 						<Button
 							{variant}
-							href={i18n.route($page.url.pathname + '/')}
+							href={i18n.route($page.url.pathname )}
 							hreflang={language.value}
 							class="mr-3 flex items-center justify-between gap-2 pl-0"
 						>
 							<img src="./{language.flag}" alt={language.label} class="h-6 w-6" />
-							{language.label} {i18n.route($page.url.pathname + '/')}
+							{language.label} 
 						</Button>
 					</Item>
 				{/each}
