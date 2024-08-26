@@ -3,7 +3,7 @@ import type { Toast, ToastSettings } from './types'
 
 export class ToastState {
 	toasts = $state<Toast[]>([])
-	toastToTimeoutMap = new Map<string, number>()
+	toastToTimeoutMap = new Map<string, ReturnType<typeof setTimeout>>()
 
 	constructor() {
 		onDestroy(() => {
@@ -20,7 +20,7 @@ export class ToastState {
 		background = 'bg-primary',
 		classes = '',
 		autohide = true,
-		timeout = 5000
+		durationMs = 5000
 	}: ToastSettings) {
 		const id = crypto.randomUUID()
 		this.toasts.push({
@@ -37,7 +37,7 @@ export class ToastState {
 				() => {
 					this.remove(id)
 				},
-				autohide ? timeout : 5 * 60 * 1000 // 5 minutes
+				autohide ? durationMs : 5 * 60 * 1000 // 5 minutes
 			)
 		)
 	}

@@ -10,7 +10,7 @@ export interface ToastSettings {
 	/** Enables auto-hide after the timeout duration. */
 	autohide?: boolean
 	/** Set the auto-hide timeout duration. */
-	timeout?: number
+	durationMs?: number
 	/** Generate a custom action button UI. */
 	action?: {
 		/** The button label. Supports HTML. */
