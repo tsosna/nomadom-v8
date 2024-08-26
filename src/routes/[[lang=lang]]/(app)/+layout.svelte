@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href="./favicon.png" />
+	<link rel="icon" href="/favicon.png" />
 	<title>nomadoM</title>
 	<meta name="application" content="nomadoM" />
 	<!-- <meta name="description" content={about_this_app()} /> -->
