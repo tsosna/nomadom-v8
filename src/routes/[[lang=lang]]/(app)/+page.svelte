@@ -11,7 +11,6 @@
 	import { i18n } from '$lib/i18n'
 	import {about} from '@/paraglide/messages'
 
-
 	function createCounter() {
 		let counter = $state({ count: 0 })
 		return counter
@@ -83,6 +82,5 @@
 
 <h1>{timer.count * 10} second</h1>
 <h1>{$page.data.theme}</h1>
-
 
 <button onclick={() => goto(i18n.resolveRoute(base + '/about'))}> {about()}</button>

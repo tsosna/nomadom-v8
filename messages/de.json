@@ -1,17 +1,4 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format",
-  "currentLanguageTag": "Der aktuelle Sprachtag ist: {languageTag} .",
-  "copyright": "Alle Rechte vorbehalten",
-  "companyName": "Modular Technologies Gmbh.",
-  "appName": "nomadoM",
-  "themeLight": "Hell",
-  "themeDark": "Dunkel",
-  "languageNamesEn": "Englisch",
-  "languageNamesDe": "Deutsch",
-  "languageNamesFr": "Französisch",
-  "languageNamesPl": "Polieren",
-  "about": "Über",
-	"projects": "Projekte",
-  "home": "Startseite",
-	"aboutThisApp": "Entdecken Sie unser innovatives modulares Hausdesign, das für einen schnellen und einfachen Bau sowie für Kosteneinsparungen konzipiert ist. Unsere Häuser bieten nicht nur eine schnelle Bauweise, sondern auch kosteneffiziente Lösungen im Vergleich zu traditionellen Bauweisen. Wir laden Sie ein, die Zukunft des Bauens zu entdecken!"
+  "$schema": "https://inlang.com/schema/inlang-message-format"
 }
+ 

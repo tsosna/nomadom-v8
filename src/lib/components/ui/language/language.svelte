@@ -4,23 +4,33 @@
 	import { Button, buttonVariants } from '$lib/components/ui/button'
 	import { Popover, Trigger, Content } from '$lib/components/ui/popover'
 	import { Command, Group, Item } from '$lib/components/ui/command'
-	import { availableLanguageTags, languageTag } from '@/paraglide/runtime'
+	import { availableLanguageTags, languageTag } from '$paraglide/runtime'
 	import { i18n } from '$lib/i18n'
+	import { tick } from 'svelte'
 	import { Languages } from '$lib/components/ui/icon'
 	import {
 		languageNamesDe,
 		languageNamesEn,
 		languageNamesFr,
 		languageNamesPl
-	} from '@/paraglide/messages'
+	} from '$paraglide/messages'
 
 	type Variant = VariantProps<typeof buttonVariants>['variant']
 	type Props = {
 		variant?: Variant
 		label?: boolean
 	}
+
 	let { variant = 'ghost', label = false }: Props = $props()
 	let open = $state(false)
+
+	//TODO: prznieść closeAndFocusTrigger do pliku z funkcjami pomocniczymi
+	function closeAndFocusTrigger(triggerId: string) {
+		open = false
+		tick().then(() => {
+			document.getElementById(triggerId)?.focus()
+		})
+	}
 
 	// FIXME: languageNames wywołany z i18n nie zmienia języka na stronie
 	const languageNames: Record<(typeof availableLanguageTags)[number], string> = {
@@ -35,6 +45,7 @@
 		fr: 'flag-france.webp',
 		pl: 'flag-poland.webp'
 	}
+
 	// FIXME: languages też nie zmieniają języka na stronie
 	const languages = availableLanguageTags.map((tag) => ({
 		value: tag,
@@ -43,12 +54,12 @@
 	}))
 </script>
 
-<Popover bind:open let:ids>
+<Popover bind:open >
 	<Trigger asChild let:builder>
 		<Button builders={[builder]} {variant} role="combobox" type="button" class="gap-2">
 			<Languages />
 			{#if label}
-				{languageNames[languageTag()]}
+				{languageNames[languageTag()]} {$page.url.pathname}
 			{/if}
 		</Button>
 	</Trigger>
@@ -65,12 +76,12 @@
 					>
 						<Button
 							{variant}
-							href={i18n.route($page.url.pathname)}
+							href={i18n.route($page.url.pathname )}
 							hreflang={language.value}
 							class="mr-3 flex items-center justify-between gap-2 pl-0"
 						>
-							<img src="/{language.flag}" alt={language.label} class="h-6 w-6" />
-							{language.label}
+							<img src="./{language.flag}" alt={language.label} class="h-6 w-6" />
+							{language.label} 
 						</Button>
 					</Item>
 				{/each}

@@ -18,8 +18,8 @@ const config = {
 			'$lib/*': './src/lib/*',
 			$components: 'src/lib/components',
 			'$components/*': 'src/lib/components/*',
-			$paraglide: 'src/paraglide',
-			'$paraglide/*': 'src/paraglide/*'
+			$paraglide: 'src/lib/paraglide',
+			'$paraglide/*': 'src/lib/paraglide/*'
 		}
 	}
 }
