@@ -2,7 +2,7 @@
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "currentLanguageTag": "La balise de langue actuelle est : {languageTag} .",
   "copyright": "Tous droits réservés",
-  "companyName": "Technologies modulaires Ltd.",
+  "companyName": "Technologies modulaires SARL.",
   "appName": "nomadoM",
   "themeLight": "Lumière",
   "themeDark": "Sombre",
@@ -11,7 +11,7 @@
   "languageNamesFr": "Français",
   "languageNamesPl": "polonais",
   "about": "À propos",
-	"projects": "Proje",
+  "projects": "Proje",
   "home": "Accueil",
-	"aboutThisApp": "Découvrez nos maisons modulaires innovantes, conçues pour accélérer la construction, la simplifier et réduire les coûts. Nos maisons offrent non seulement une construction rapide, mais aussi des solutions rentables par rapport aux méthodes de construction traditionnelles. Nous vous invitons à explorer l'avenir de la construction !"
+  "aboutThisApp": "Découvrez nos maisons modulaires innovantes, conçues pour accélérer la construction, la simplifier et réduire les coûts. Nos maisons offrent non seulement une construction rapide, mais aussi des solutions rentables par rapport aux méthodes de construction traditionnelles. Nous vous invitons à explorer l'avenir de la construction !"
 }

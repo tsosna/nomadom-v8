@@ -1,4 +1,17 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format"
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "currentLanguageTag": "Der aktuelle Sprachtag ist: {languageTag} .",
+  "copyright": "Alle Rechte vorbehalten",
+  "companyName": "Modulare Technologien Gmbh.",
+  "appName": "nomadenM",
+  "themeLight": "Licht",
+  "themeDark": "Dunkel",
+  "languageNamesEn": "Englisch",
+  "languageNamesDe": "Deutsch",
+  "languageNamesFr": "Französisch",
+  "languageNamesPl": "Polieren",
+  "about": "Über",
+  "projects": "Projekte",
+  "home": "Startseite",
+  "aboutThisApp": "Entdecken Sie unsere innovativen modularen Hausdesigns, die auf schnelles, einfaches Bauen und Kosteneinsparungen ausgelegt sind. Unsere Häuser bieten nicht nur schnelles Bauen, sondern auch kostengünstige Lösungen im Vergleich zu herkömmlichen Baumethoden. Wir laden Sie ein, die Zukunft des Bauens zu erkunden!"
 }
- 
