@@ -11,14 +11,8 @@ import { langTag } from '@/i18n-routing'
 
 export const theme: Handle = async ({ event, resolve }) => {
   const theme = event.cookies.get('theme') || 'Sun'
-
-
-
   event.locals.theme = theme
-
-
   return await resolve(event)
-
 }
 
 export const handleError: HandleServerError = async ({ error}) => {
@@ -42,10 +36,7 @@ export const lang: Handle = async ({ event, resolve }) => {
 
 	const langFromCookie = event.cookies.get('lang') as AvailableLanguageTag
 
-
-	console.log('langFromCookie', langFromCookie, event.url.pathname, locale, sourceLanguageTag);
-	
-	if (!langFromCookie) {
+		if (!langFromCookie) {
 		event.cookies.set('lang', langTag(event.url.pathname + '/') || locale || sourceLanguageTag, { path: '/' })
 		return await resolve(event)
 	} 
@@ -53,17 +44,20 @@ export const lang: Handle = async ({ event, resolve }) => {
 		event.url.pathname.startsWith(`/${tag}`)
 	)
 
+
 	if (startsWithAvailableLanguageTag && !event.url.pathname.includes('favicon.png') ) {
 		event.cookies.set('lang', langTag(event.url.pathname + '/') || locale || sourceLanguageTag, { path: '/' })
 		return await resolve(event)		
 	}
+	
 	if (event.url.pathname=== '/' && !langFromCookie ) {
 		event.cookies.set('lang', locale || sourceLanguageTag, { path: '/' })
 		return await resolve(event)		
 	} 
-	if (!startsWithAvailableLanguageTag) {
+	if (!startsWithAvailableLanguageTag ) {
 		event.cookies.set('lang', sourceLanguageTag, { path: '/' })
 	}
+
 	if (event.url.pathname=== '/' && langFromCookie){
 		return await resolve(event)	
 	}
