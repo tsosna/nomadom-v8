@@ -21,7 +21,13 @@
 <ParaglideJS {i18n}>
 
 <Toaster />
+
+
+
 {@render children()}
+
+
+
 
 </ParaglideJS>
 

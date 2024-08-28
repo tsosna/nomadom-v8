@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Icon from './Icon.svelte'
 	let { ...props } = $props()
-	import { themeState } from '@/components/ui/theme/theme-state.svelte'
 </script>
 
 <!--  

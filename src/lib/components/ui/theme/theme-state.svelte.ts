@@ -1,17 +1,15 @@
-import { browser } from '$app/environment'
 import { Sun, Moon } from '$lib/components/ui/icon'
 
-export type Theme = 'Sun' | 'Moon'
+export type AvailableThemeTag = 'Sun' | 'Moon'
 
-class ThemeState {
-	private browser = browser;
-	private userTheme: Theme = 'Sun';
+export class ThemeState {
+	// FIXME: tu następuje błędna inicializacja userTheme powinna być pobierana z
+	//  localStorage, ale nie wiem jak zaimprtować tą klasę tylko w trybie browser
+	private userTheme: AvailableThemeTag =  'Sun'
 
-	constructor() {
-		this.userTheme = (this.browser && (localStorage.getItem('theme') ?? 'Sun')) as Theme
-	}
-
-	public availableThemesTags:Array<Theme> = ['Sun', 'Moon'];
+	// console.log(this.userTheme);
+	
+	public availableThemesTags:Array<AvailableThemeTag> = ['Sun', 'Moon'];
 	public Icon = { Sun, Moon };
 
 	public preferTheme = $state({

@@ -29,7 +29,9 @@
 <div id="appShell" class={cn(classesBase, className)} data-testid="app-shell">
 	<!-- Slot: Header -->
 	{#if $$slots.header}
-		<header id="shell-header" class="flex-none {classesheader}"><slot name="header" /></header>
+		<header id="shell-header" class="flex-none {classesheader}">
+			<slot name="header" />
+		</header>
 	{/if}
 
 	<!-- Content Area -->

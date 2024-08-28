@@ -7,15 +7,23 @@ import {
 	availableLanguageTags
 } from '@/paraglide/runtime'
 import { langTag } from '@/i18n-routing'
+import type { AvailableThemeTag } from './lib/components/ui/theme/theme-state.svelte'
 
-
+// FIXME: This is a workaround to get the theme cookie set on the first load
+// This should be change
 export const theme: Handle = async ({ event, resolve }) => {
-  const theme = event.cookies.get('theme') || 'Sun'
-  event.locals.theme = theme
-  return await resolve(event)
+	const theme: AvailableThemeTag = event.cookies.get('theme') as AvailableThemeTag
+	if (!theme) {
+		event.cookies.set('theme', 'Sun', { path: '/', maxAge: 60 * 60 * 24 * 7, httpOnly: false })
+		event.locals.theme = 'Sun'
+		return await resolve(event)
+	}
+
+	event.locals.theme = theme
+	return await resolve(event)
 }
 
-export const handleError: HandleServerError = async ({ error}) => {
+export const handleError: HandleServerError = async ({ error }) => {
 	interface localError extends Error {
 		message: string
 		errorId?: string
@@ -25,9 +33,7 @@ export const handleError: HandleServerError = async ({ error}) => {
 	return { message: `Ups! Something went wrong. ${messageError.message}`, errorId: 'No. 125444' }
 }
 
-
 export const lang: Handle = async ({ event, resolve }) => {
-	
 	const { headers } = event.request
 	const locale: AvailableLanguageTag = (headers
 		.get('Accept-Language')
@@ -36,30 +42,33 @@ export const lang: Handle = async ({ event, resolve }) => {
 
 	const langFromCookie = event.cookies.get('lang') as AvailableLanguageTag
 
-		if (!langFromCookie) {
-		event.cookies.set('lang', langTag(event.url.pathname + '/') || locale || sourceLanguageTag, { path: '/' })
+	if (!langFromCookie) {
+		event.cookies.set('lang', langTag(event.url.pathname + '/') || locale || sourceLanguageTag, {
+			path: '/'
+		})
 		return await resolve(event)
-	} 
+	}
 	const startsWithAvailableLanguageTag = availableLanguageTags.some((tag) =>
 		event.url.pathname.startsWith(`/${tag}`)
 	)
 
-
-	if (startsWithAvailableLanguageTag && !event.url.pathname.includes('favicon.png') ) {
-		event.cookies.set('lang', langTag(event.url.pathname + '/') || locale || sourceLanguageTag, { path: '/' })
-		return await resolve(event)		
+	if (startsWithAvailableLanguageTag && !event.url.pathname.includes('favicon.png')) {
+		event.cookies.set('lang', langTag(event.url.pathname + '/') || locale || sourceLanguageTag, {
+			path: '/'
+		})
+		return await resolve(event)
 	}
-	
-	if (event.url.pathname=== '/' && !langFromCookie ) {
+
+	if (event.url.pathname === '/' && !langFromCookie) {
 		event.cookies.set('lang', locale || sourceLanguageTag, { path: '/' })
-		return await resolve(event)		
-	} 
-	if (!startsWithAvailableLanguageTag ) {
+		return await resolve(event)
+	}
+	if (!startsWithAvailableLanguageTag) {
 		event.cookies.set('lang', sourceLanguageTag, { path: '/' })
 	}
 
-	if (event.url.pathname=== '/' && langFromCookie){
-		return await resolve(event)	
+	if (event.url.pathname === '/' && langFromCookie) {
+		return await resolve(event)
 	}
 
 	event.locals.lang = event.cookies.get('lang') as AvailableLanguageTag
@@ -84,5 +93,4 @@ export const lang: Handle = async ({ event, resolve }) => {
 	// return await resolve(event);
 }
 
-
-export const handle = sequence(i18n.handle(), theme, lang )
+export const handle = sequence(i18n.handle(), theme, lang)

@@ -1,13 +1,12 @@
 <script lang="ts">
-	import { page } from '$app/stores'
-
 	import type { VariantProps } from 'tailwind-variants'
 
 	import { Button, type buttonVariants } from '@/components/ui/button'
 	import { Command, Group, Item } from '@/components/ui/command'
 	import { Content, Popover, Trigger } from '@/components/ui/popover'
 	import { Sun, Moon } from '$lib/components/ui/icon'
-
+	import { themeState } from './theme-state.svelte'
+	import { setCookie } from '@/utils'
 
 	type Variant = VariantProps<typeof buttonVariants>['variant']
 	type Props = {
@@ -26,40 +25,39 @@
 			''
 		>
 	} = { Sun, Moon }
-	const availableThemesTags = ['Sun', 'Moon']
-	let preferTheme = $state({
-		icon: Icon[$page.data.theme as keyof typeof Icon],
-		tag: $page.data.theme
-	})
+
 	$effect(() => {
-		localStorage.setItem('theme', preferTheme.tag)
-		document.documentElement.setAttribute('class', preferTheme.tag)
+		setCookie('theme', themeState.preferTheme.tag, 7)
 	})
 </script>
 
-{preferTheme.tag}
-
 <Popover bind:open>
 	<Trigger asChild let:builder>
+		<!-- TODO: do poprawy inicializacja ikony - teraz przy ciemnym motywie ikona 
+		 jest biała -->
 		<Button {variant} builders={[builder]} class="gap-x-1">
-			<svelte:component this={preferTheme.icon} />
+			<svelte:component this={themeState.preferTheme.icon} />
 			{#if label}
-				{preferTheme.tag}
+				{themeState.preferTheme.tag}
 			{/if}</Button
 		></Trigger
 	>
 	<Content>
 		<Command>
 			<Group>
-				{#each availableThemesTags as themeTag}
+				{#each themeState.availableThemesTags as themeTag}
+					<!-- FIXME: linie w onSelect brzytko wyglądają i są 
+							do przeniesienia do osobnej funkcji	-->
 					<Item
 						value={themeTag}
 						onSelect={() => {
-							preferTheme.icon = Icon[themeTag]
-							preferTheme.tag = themeTag
+							themeState.preferTheme.icon = Icon[themeTag]
+							themeState.preferTheme.tag = themeTag
+							document.documentElement.setAttribute('class', themeState.preferTheme.tag)
+							localStorage.setItem('theme', themeState.preferTheme.tag)
 							open = false
 						}}
-						disabled={preferTheme.icon === Icon[themeTag] ? true : false}
+						disabled={themeState.preferTheme.icon === Icon[themeTag] ? true : false}
 						class="cursor-pointer"
 					>
 						<svelte:component this={Icon[themeTag]} />
