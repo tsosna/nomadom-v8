@@ -18,7 +18,7 @@ export class ToastState {
 		title,
 		message,
 		background = 'bg-primary',
-		classes = '',
+		CLASS = '',
 		autohide = true,
 		durationMs = 5000
 	}: ToastSettings) {
@@ -28,7 +28,7 @@ export class ToastState {
 			title,
 			message,
 			background,
-			classes
+			CLASS
 		})
 
 		this.toastToTimeoutMap.set(

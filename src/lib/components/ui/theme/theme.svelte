@@ -4,7 +4,7 @@
 	import { Button, type buttonVariants } from '@/components/ui/button'
 	import { Command, Group, Item } from '@/components/ui/command'
 	import { Content, Popover, Trigger } from '@/components/ui/popover'
-	import { Sun, Moon } from '$lib/components/ui/icon'
+	import { Sun, Moon } from '@/components/ui/icon'
 	import { themeState } from './theme-state.svelte'
 	import { setCookie } from '@/utils'
 
@@ -35,14 +35,14 @@
 	<Trigger asChild let:builder>
 		<!-- TODO: do poprawy inicializacja ikony - teraz przy ciemnym motywie ikona 
 		 jest biała -->
-		<Button {variant} builders={[builder]} class="gap-x-1">
+		<Button {variant} builders={[builder]} role="combobox" type="button" class="gap-x-1">
 			<svelte:component this={themeState.preferTheme.icon} />
 			{#if label}
 				{themeState.preferTheme.tag}
 			{/if}</Button
 		></Trigger
 	>
-	<Content>
+	<Content class="w-min p-1">
 		<Command>
 			<Group>
 				{#each themeState.availableThemesTags as themeTag}
@@ -60,6 +60,7 @@
 						disabled={themeState.preferTheme.icon === Icon[themeTag] ? true : false}
 						class="cursor-pointer"
 					>
+					
 						<svelte:component this={Icon[themeTag]} />
 					</Item>
 				{/each}

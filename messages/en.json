@@ -13,5 +13,9 @@
     "about": "About",
     "projects": "Projects",
     "home": "Home",
-    "aboutThisApp": "Discover our innovative modular home designs, designed for speed of construction, simplicity of construction and cost savings. Our homes not only offer fast construction, but also cost-effective solutions compared to traditional construction methods. We invite you to explore the future of construction!"
+    "aboutThisApp": "Discover our innovative modular home designs, designed for speed of construction, simplicity of construction and cost savings. Our homes not only offer fast construction, but also cost-effective solutions compared to traditional construction methods. We invite you to explore the future of construction!",
+	"clickContinue": "By clicking continue, you agree to our",
+	"previousPage": "Previous page",
+    "termsService": "Terms of Service",
+	"privacyPolicy": "Privacy Policy"
 }

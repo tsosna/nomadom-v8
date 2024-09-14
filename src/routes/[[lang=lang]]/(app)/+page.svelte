@@ -1,15 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores'
-	import Checkbox from '$lib/components/ui/checkbox/checkbox.svelte'
-	import Input from '$lib/components/ui/input/input.svelte'
-	import { Button } from '$lib/components/ui/button'
+	import Checkbox from '@/components/ui/checkbox/checkbox.svelte'
+	import Input from '@/components/ui/input/input.svelte'
+	import { Button } from '@/components/ui/button'
 	import { getToastState } from '@/components/ui/toast/toast-state.svelte'
 	import { Timer } from '@/utils.svelte'
-	import { Theme } from '@/components/ui/theme'
-	import { goto } from '$app/navigation'
-	import { base } from '$app/paths'
-	import { i18n } from '$lib/i18n'
-	import {about} from '@/paraglide/messages'
+
 
 	function createCounter() {
 		let counter = $state({ count: 0 })
@@ -68,7 +64,6 @@
 
 <Button onclick={add}>{sum} {length}</Button>
 
-<Theme />
 
 <Button
 	onclick={() =>
@@ -76,11 +71,9 @@
 			title: 'Success',
 			message: 'This is a success message',
 			background: 'bg-surface',
-			classes: 'text-surface-foreground'
+			CLASS: 'text-surface-foreground'
 		})}>Toast</Button
 >
 
 <h1>{timer.count * 10} second</h1>
 <h1>{$page.data.theme}</h1>
-
-<button onclick={() => goto(i18n.resolveRoute(base + '/about'))}> {about()}</button>

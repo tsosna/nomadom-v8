@@ -18,8 +18,8 @@ export interface ToastSettings {
 		/** The function triggered when the button is pressed. */
 		response: () => void
 	}
-	/** Provide arbitrary CSS classes to style the toast. */
-	classes?: string
+	/** Provide arbitrary CSS CLASS to style the toast. */
+	CLASS?: string
 	/** Callback function that fires on trigger and close. */
 	callback?: (response: { id: string; status: 'queued' | 'closed' }) => void
 }

@@ -34,23 +34,23 @@ The implementation of the single instance should be done in the main layout abov
  * @param {string} title? - The title of the toast message.
  * @param {string} message - The content of the toast message.
  * @param {string} background? = bg-primary - The background color of the toast message. 
- * @param {string} classes? - Additional CSS classes for the toast message.
+ * @param {string} CLASS? - Additional CSS CLASS for the toast message.
  * @param {boolean} autohide? = true - By default it hides after 5000 ms. Setting to false will hide after 5 minutes. 
  * @param {number} timeout = 5000 - The value should be specified in milliseconds
  */
 *Recommended colors:
 - for Error 
 background: 'bg-destructive',
-classes: 'text-destructive-foreground'
+CLASS: 'text-destructive-foreground'
 - for Success
 background: 'bg-success',
-classes: 'text-success-foreground'
+CLASS: 'text-success-foreground'
 - for Warning
 background: 'bg-warning',
-classes: 'text-warning-foreground'
+CLASS: 'text-warning-foreground'
 - for Info
 background: 'bg-info',
-classes: 'text-info-foreground'
+CLASS: 'text-info-foreground'
 *
 ```javascript
 <Button
@@ -59,7 +59,7 @@ classes: 'text-info-foreground'
       title: 'Success',
       message: 'This is a success message',
       background: 'bg-destructive',
-      classes: 'text-destructive-foreground'
+      CLASS: 'text-destructive-foreground'
     })}
 >
   Toast

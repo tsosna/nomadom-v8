@@ -56,7 +56,7 @@
 
 <Popover bind:open >
 	<Trigger asChild let:builder>
-		<Button builders={[builder]} {variant} role="combobox" type="button" class="gap-2">
+		<Button builders={[builder]} {variant} role="combobox" type="button" class="gap-x-1">
 			<Languages />
 			{#if label}
 				{languageNames[languageTag()]} {$page.url.pathname}

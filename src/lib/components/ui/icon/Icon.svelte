@@ -1,5 +1,4 @@
 <script lang="ts">
-
 	import type { Snippet } from 'svelte'
 	import defaultAttributes from './defaultAttributes'
 	import { cn } from '$lib/utils.js'
@@ -10,7 +9,7 @@
 		size?: number
 		strokeWidth?: number
 		absoluteStrokeWidth?: boolean
-		classes?: string
+		class?: string | undefined | null
 		children: Snippet
 	}
 	let {
@@ -19,10 +18,9 @@
 		size = 24,
 		strokeWidth = 2,
 		absoluteStrokeWidth = false,
-		classes='',
-		children,
-	}:Props = $props() 
-
+		class: CLASS,
+		children
+	}: Props = $props()
 </script>
 
 <!-- 
@@ -36,10 +34,9 @@
  - size: number = 24 - is the width and height of the svg
  - strokeWidth: number = 2 - is the thickness of the stroke
  - absoluteStrokeWidth: boolean = false - if true, the stroke width will be the same regardless of the size of the icon
- - classes: string (tailwindcss color format e.g. text-blue-500)
+ - CLASS: string (tailwindcss color format e.g. text-blue-500)
  - children: Snippet
  -->
-
 
 <svg
 	{...defaultAttributes}
@@ -49,9 +46,7 @@
 	stroke-width={absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth}
 	stroke-linecap="round"
 	stroke-linejoin="round"
-	class={cn(`lucide-icon lucide lucide-${name} `,classes)}
-	
+	class={cn(`lucide-icon lucide lucide-${name} `, CLASS)}
 >
 	{@render children()}
-
 </svg>

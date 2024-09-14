@@ -27,6 +27,8 @@ export { default as Pencil } from './Pencil.svelte'
 export { default as PlusSquare } from './PlusSquare.svelte'
 export { default as X } from './X.svelte'
 export { default as Youtube } from './Youtube.svelte'
+export { default as Hamburger } from './Hamburger.svelte'
+export { default as Burger } from './Burger.svelte'
 
 export type IconTYPE = {
 	Sun: typeof Sun

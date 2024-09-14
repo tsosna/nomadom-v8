@@ -18,8 +18,8 @@
 	let cAlign = ''
 	let animAxis = $state({ x: 0, y: 0 })
 
-	let classesWrapper = $derived(`${cWrapper} ${cPosition} `)
-	let classesSnackbar = $derived(`${cSnackbar} ${cAlign} `)
+	let CLASSWrapper = $derived(`${cWrapper} ${cPosition} `)
+	let CLASSSnackbar = $derived(`${cSnackbar} ${cAlign} `)
 
 	switch (position) {
 		case 't':
@@ -76,8 +76,8 @@
 
 
 -->
-<div class="{classesWrapper} ">
-	<div class={classesSnackbar} transition:fly={{ x: animAxis.x, y: animAxis.y, duration }}>
+<div class="{CLASSWrapper} ">
+	<div class={CLASSSnackbar} transition:fly={{ x: animAxis.x, y: animAxis.y, duration }}>
 		{#each toastState.toasts as toast, i (toast)}
 			<div animate:flip={{ duration }}>
 				<Toast {toast} />

@@ -8,6 +8,7 @@
 	import type { Snippet } from 'svelte'
 	import Toaster from '@/components/ui/toast/toaster.svelte'
 
+
 	let {
 		children
 	}: {
@@ -17,18 +18,8 @@
 	setToastState()
 </script>
 
-
 <ParaglideJS {i18n}>
+	<Toaster />
 
-<Toaster />
-
-
-
-{@render children()}
-
-
-
-
+	{@render children()}
 </ParaglideJS>
-
-

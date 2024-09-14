@@ -35,10 +35,10 @@
 		--nomadom-foreground: 210 40% 98%;
 
 		--creating: 142, 76%, 36%; /* ⬅ #16a34a */
-		--creating-foreground: 163, 94%, 24%; /* ⬅ #047857 */
+		--creating-foreground: 142, 77%, 73%; /* ⬅ #86efac */
 
 		--changing: 224, 76%, 48%; /* ⬅ ##1d4ed8 */
-		--changing-foreground: 244, 55%, 41%; /* ⬅ ##3730a3 */
+		--changing-foreground: 230, 94%, 82%; /* ⬅ #a5b4fc */
 
 		--ring: 222.2 84% 4.9%;
 
@@ -91,10 +91,10 @@
 		--nomadom-foreground: 119 53% 43%;
 
 		--creating: 84 81% 44%; /* ⬅ #84cc16 */
-		--creating-foreground: 142, 77%, 73%; /* ⬅ #86efac */
+		--creating-foreground: 163, 94%, 24%; /* ⬅ #047857 */
 
 		--changing: 234 89% 74%; /* ⬅ #4f46e5 */
-		--changing-foreground: 230, 94%, 82%; /* ⬅ #a5b4fc */
+		--changing-foreground: 244, 55%, 41%; /* ⬅ ##3730a3 */
 
 		--ring: hsl(212.7, 26.8%, 83.9);
 
@@ -143,4 +143,5 @@
 	ul {
 		@apply my-6 ml-6 list-disc [&>li]:mt-2 font-inter;
 	}
+
 }

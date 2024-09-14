@@ -26,7 +26,7 @@
 	const cToast = 'flex justify-between items-center pointer-events-auto'
 	const cToastActions = 'flex items-center space-x-2'
 
-	let classesToast = $derived(
+	let CLASSToast = $derived(
 		`${cToast} ${width} ${padding} ${spacing} ${rounded} ${shadow}`
 	)
 </script>
@@ -43,7 +43,7 @@
 - shadow: string = 'shadow-lg'
 -->
 
-<div class="{classesToast} {toast.background} {toast.classes}" role="alert" aria-live="polite">
+<div class="{CLASSToast} {toast.background} {toast.CLASS}" role="alert" aria-live="polite">
 	<div class="flex-1">
 		<p class="font-inter text-lg font-semibold">{@html toast.title}</p>
 		<p class="font-inter text-base">{@html toast.message}</p>

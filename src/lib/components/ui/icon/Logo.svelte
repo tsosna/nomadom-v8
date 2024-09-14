@@ -1,21 +1,7 @@
 <script lang="ts">
-	import { cn } from '$lib/utils'
-	import type { MouseEventHandler, FocusEventHandler } from 'svelte/elements'
+	import Icon from './Iconn.svelte'
 
-	let {
-		class: classes,
-		onclick,
-		onfocus,
-		onmouseenter,
-		onmouseleave,
-		...props
-	}: {
-		class?: string | undefined | null
-		onclick?: MouseEventHandler<SVGSVGElement>
-		onfocus?: FocusEventHandler<SVGSVGElement>
-		onmouseenter?: MouseEventHandler<SVGSVGElement>
-		onmouseleave?: MouseEventHandler<SVGSVGElement>
-	} = $props()
+	let { ...props } = $props()
 </script>
 
 <!-- 
@@ -28,32 +14,29 @@
 ## Controls
 	- [Control Documentation](https://1234.org) 
 ### Props
-	- `classes`: string
-		Additional classes.
-	- `onclick`: MouseEventHandler<SVGSVGElement>
-		Click event handler.
-	- `onfocus`: FocusEventHandler<SVGSVGElement>
-		Focus event handler.
-	- `onmouseenter`: MouseEventHandler<SVGSVGElement>
-		Mouse enter event handler.
-	- `onmouseleave`: MouseEventHandler<SVGSVGElement>
-		Mouse leave event handler.
+	- defaultAttributes: object - Default attributes for the svg element.
+		- xmlns: string = 'http://www.w3.org/2000/svg'
+		- fill: string = 'none'
+		- viewBox: string = '0 0 24 24'
+		- stroke: string = 'currentColor'
+		- stroke-width: string = '2'
+		- stroke-linecap: string = 'round'
+		- stroke-linejoin: string = 'round'
+ 	- color: string = currentColor - is the color of the stroke (format hexadecimal color e.g. #56850e)
+ 	- size: number = 24 - is the width and height of the svg
+ 	- strokeWidth: number = 2 - is the thickness of the stroke
+ 	- absoluteStrokeWidth: boolean = false - if true, the stroke width will be the same regardless of the size of the icon
+	- class: string - Additional class (tailwindCss color format e.g. text-blue-500)
+	- onclick: MouseEventHandler<SVGSVGElement> - Click event handler.
+	- onfocus: FocusEventHandler<SVGSVGElement> - Focus event handler.
+	- onmouseenter: MouseEventHandler<SVGSVGElement> - Mouse enter event handler.
+	- onmouseleave: MouseEventHandler<SVGSVGElement> - Mouse leave event handler.
 ### ...props
 	- probably all like a button
 	- FIXME: check the above statement
 -->
-<svg
-	class={cn('h-14 w-14 rounded-md bg-[#36a834] p-1.5', classes)}
-	{...props}
-	role="button"
-	tabindex="0"
-	{onclick}
-	{onfocus}
-	{onmouseenter}
-	{onmouseleave}
-	viewBox="0 0 106 106"
-	fill="white"
->
+
+<Icon size={48} absoluteStrokeWidth={true} strokeWidth={8} {...props}>
 	<path
 		d="M42.9084 67.1803V0.54541H54.1312L74.4827 37.0023L94.9384 0.54541H105.062V101.876H95.1582V20.4826L77.4562 52.0855L72.0646 51.9813L53.2519 19.4863V67.1803H42.9084Z"
 	/>
@@ -62,10 +45,8 @@
 	/>
 	<path
 		d="M42.9084 67.1803V0.54541H54.1312L74.4827 37.0023L94.9384 0.54541H105.062V101.876H95.1582V20.4826L77.4562 52.0855L72.0646 51.9813L53.2519 19.4863V67.1803H42.9084Z"
-		stroke-miterlimit="10"
 	/>
 	<path
 		d="M31.4888 63.5312V35.1719C31.4888 26.6642 24.5746 19.7412 16.0777 19.7412C7.5807 19.7412 0.666504 26.6642 0.666504 35.1719V63.5312C0.666504 64.6155 1.49954 65.1994 2.33258 65.1994C3.16561 65.1994 3.99865 64.6155 3.99865 63.5312V35.1719C3.99865 28.4992 9.41338 23.0776 16.0777 23.0776C22.742 23.0776 28.1567 28.4992 28.1567 35.1719V63.5312C28.1567 64.6155 28.9897 65.1994 29.8228 65.1994C30.6558 65.1994 31.4888 64.6155 31.4888 63.5312Z"
-		stroke-miterlimit="10"
 	/>
-</svg>
+</Icon>

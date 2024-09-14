@@ -30,7 +30,10 @@ export const handleError: HandleServerError = async ({ error }) => {
 	}
 
 	const messageError = error as localError
-	return { message: `Ups! Something went wrong. ${messageError.message}`, errorId: 'No. 125444' }
+	return {
+		message: `Ups! Something went wrong. Internal error in hooks. ${messageError.message}`,
+		errorId: `${messageError.errorId}`
+	}
 }
 
 export const lang: Handle = async ({ event, resolve }) => {

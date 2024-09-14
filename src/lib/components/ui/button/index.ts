@@ -7,11 +7,15 @@ const buttonVariants = tv({
 	variants: {
 		variant: {
 			default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-			destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+			destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90 border border-primary',
 			outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
 			secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
 			ghost: 'hover:bg-accent hover:text-accent-foreground',
-			link: 'text-primary underline-offset-4 hover:underline'
+			link: 'text-primary underline-offset-4 hover:underline',
+			disabled: 'cursor-not-allowed opacity-50',
+			nomadom: 'bg-nomadom text-nomadom-foreground hover:bg-nomadom/90 border border-nomadom',
+			creating: 'bg-creating text-creating-foreground hover:bg-creating/90 border border-creating',
+			changing: 'bg-changing text-changing-foreground hover:bg-changing/90  border border-changing',
 		},
 		size: {
 			default: 'h-10 px-4 py-2',

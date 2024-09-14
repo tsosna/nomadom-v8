@@ -9,6 +9,7 @@
   import { i18n } from '$lib/i18n'
   import {home} from '@/paraglide/messages'
 	import { base } from '$app/paths'
+	import {Button} from '@/components/ui/button'
 
 	const lang: Record<AvailableLanguageTag, any> = { en, de, pl, fr }
 </script>
@@ -23,4 +24,9 @@
   About Page
 </h1>
 
-<button onclick={() => goto(i18n.resolveRoute(base + '/'))}>{home()}</button>
+<Button variant='creating' onclick={() => goto(i18n.resolveRoute(base + '/'))}>
+	{home()}
+</Button>
+<Button variant='changing' onclick={() => goto(i18n.resolveRoute(base + '/'))}>
+	{home()}
+</Button>
