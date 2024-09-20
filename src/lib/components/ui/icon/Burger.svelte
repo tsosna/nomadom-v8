@@ -1,6 +1,4 @@
 <script lang="ts">
-	import type { HTMLLabelAttributes } from 'svelte/elements'
-	import type { Snippet } from 'svelte'
 	import { cn } from '@/utils'
 	import type { MouseEventHandler, FocusEventHandler } from 'svelte/elements'
 	import defaultAttributes from './defaultAttributes'
@@ -15,7 +13,6 @@
 		onfocus?: FocusEventHandler<SVGSVGElement>
 		onmouseenter?: MouseEventHandler<SVGSVGElement>
 		onmouseleave?: MouseEventHandler<SVGSVGElement>
-		children: Snippet
 		open: boolean
 	} 
 	let {
@@ -28,7 +25,6 @@
 		onfocus,
 		onmouseenter,
 		onmouseleave,
-		children,
 		open=$bindable(),
 		...props
 	}: Props = $props()
@@ -77,7 +73,7 @@
 		stroke-width={absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth}
 		stroke-linecap="round"
 		stroke-linejoin="round"
-		class={cn(' h-full', CLASS)}
+		class={cn('w-full h-full', CLASS)}
 		{...props}
 		role="button"
 		tabindex="0"

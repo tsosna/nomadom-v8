@@ -5,7 +5,7 @@
 	import { base } from '$app/paths'
 	import { i18n } from '@/i18n'
 
-	import { HeartHandshake, Home, Mail, Icon } from '@/components/ui/icon'
+	import { HeartHandshake, Home, Mail } from '@/components/ui/icon'
 	import { modules, projects, about, socials, contact } from '@/paraglide/messages'
 
 	let {open=$bindable()}:{open:boolean} = $props()
@@ -31,10 +31,6 @@
 				<Mail>{contact()}</Mail>
 			</div>
 		</nav>
-    <Icon  >
-
-      kjhkahdsf
-     </Icon>
 	</section>
 {/if}
 

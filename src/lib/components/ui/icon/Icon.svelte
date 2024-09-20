@@ -47,7 +47,7 @@
 	stroke-width={absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth}
 	stroke-linecap="round"
 	stroke-linejoin="round"
-	class={cn(`w-full`, CLASS)}
+	class={cn(`w-24 h-24`, CLASS)}
 >
 	{@render children()}
 </svg>
