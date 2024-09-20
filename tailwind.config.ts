@@ -88,8 +88,10 @@ const config: Config = {
 			fontFamily: {
 				sans: [...fontFamily.sans],
 				inter: [`"Inter"`, 'sans-serif'],
-				jetbrains: [`"JetBrains Mono Variable"`, 'sans-serif']
-			}
+				jetbrains: [`"JetBrains Mono Variable"`, 'sans-serif'],
+				accent: ["Variable", '"sans-serif"'],
+			},
+			
 		}
 	}
 }

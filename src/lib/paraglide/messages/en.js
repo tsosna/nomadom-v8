@@ -39,6 +39,22 @@ export const companyName = () => `Modular Technologies Lt.`
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
+export const companyNameShort = () => `Modular Technologies`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const modules = () => `Modules`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
 export const appName = () => `nomadoM`
 
 
@@ -119,6 +135,14 @@ export const home = () => `Home`
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
+export const contact = () => `Contact`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
 export const aboutThisApp = () => `Discover our innovative modular home designs, designed for speed of construction, simplicity of construction and cost savings. Our homes not only offer fast construction, but also cost-effective solutions compared to traditional construction methods. We invite you to explore the future of construction!`
 
 
@@ -152,3 +176,59 @@ export const termsService = () => `Terms of Service`
  */
 /* @__NO_SIDE_EFFECTS__ */
 export const privacyPolicy = () => `Privacy Policy`
+
+
+/**
+ * @param {{ name: NonNullable<unknown>, title: NonNullable<unknown>, subtitle: NonNullable<unknown>, alt: NonNullable<unknown> }} params
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const homes = (params) => `${params.name} ${params.title} ${params.subtitle} ${params.alt}`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const titleJaponico = () => `This is the time for you`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const subtitleJaponico = () => `Japonico 35 is fully finished and ready to move in`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const altJaponico = () => `Japonico 35 is fully finished and ready to move in`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const altOptimo = () => `The ideal home for the young.`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const altBosco = () => `The perfect home for the family.`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const socials = () => `Socials`

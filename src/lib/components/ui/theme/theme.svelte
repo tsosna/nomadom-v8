@@ -42,7 +42,7 @@
 			{/if}</Button
 		></Trigger
 	>
-	<Content class="w-min p-1">
+	<Content class="p-0.5 w-12">
 		<Command>
 			<Group>
 				{#each themeState.availableThemesTags as themeTag}
@@ -58,7 +58,7 @@
 							open = false
 						}}
 						disabled={themeState.preferTheme.icon === Icon[themeTag] ? true : false}
-						class="cursor-pointer"
+						class="cursor-pointer "
 					>
 					
 						<svelte:component this={Icon[themeTag]} />

@@ -16,9 +16,8 @@
 		onmouseenter?: MouseEventHandler<SVGSVGElement>
 		onmouseleave?: MouseEventHandler<SVGSVGElement>
 		children: Snippet
-		labelAttributes: HTMLLabelAttributes
-	}
-
+		open: boolean
+	} 
 	let {
 		color = 'currentColor',
 		size = 24,
@@ -30,9 +29,11 @@
 		onmouseenter,
 		onmouseleave,
 		children,
-		labelAttributes,
+		open=$bindable(),
 		...props
 	}: Props = $props()
+
+
 </script>
 
 <!-- 
@@ -66,8 +67,8 @@
 	- probably all like a button
 	- FIXME: check the above statement
 -->
-<label >
-	<input type="checkbox" />
+<label class:open aria-label="toggle menu">
+	<input type="checkbox" hidden bind:checked={open}/>
 	<svg
 		{...defaultAttributes}
 		width={size}
@@ -76,7 +77,7 @@
 		stroke-width={absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth}
 		stroke-linecap="round"
 		stroke-linejoin="round"
-		class={cn('', CLASS)}
+		class={cn(' h-full', CLASS)}
 		{...props}
 		role="button"
 		tabindex="0"
@@ -117,7 +118,7 @@
 		stroke-dasharray: 60 207;
 	}
 
-	label:has(input:checked) svg {
+	.open svg {
 		.line1 {
 			stroke-dasharray: 90 207;
 			stroke-dashoffset: -134;

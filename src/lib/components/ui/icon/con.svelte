@@ -4,22 +4,25 @@
 	import { cn } from '$lib/utils.js'
 
 	type Props = {
+		mail?: Snippet
+
 		color?: string
 		size?: number
 		strokeWidth?: number
 		absoluteStrokeWidth?: boolean
 		class?: string | undefined | null
 
-		mail?: Snippet
-
 		children: Snippet
 	}
 	let {
+		mail,
+
 		color = 'currentColor',
 		size = 24,
 		strokeWidth = 2,
 		absoluteStrokeWidth = false,
 		class: CLASS,
+
 		children
 	}: Props = $props()
 </script>
@@ -49,5 +52,9 @@
 	stroke-linejoin="round"
 	class={cn(`w-full`, CLASS)}
 >
-	{@render children()}
+	{#if mail}
+		{@render mail()}
+	{/if}
 </svg>
+
+{@render children()}

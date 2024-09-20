@@ -19,9 +19,11 @@
 	type Props = {
 		variant?: Variant
 		label?: boolean
+		class?: string | undefined | null
+
 	}
 
-	let { variant = 'ghost', label = false }: Props = $props()
+	let { variant = 'ghost', label = false, class: CLASS, }: Props = $props()
 	let open = $state(false)
 
 	//TODO: prznieść closeAndFocusTrigger do pliku z funkcjami pomocniczymi
@@ -54,10 +56,10 @@
 	}))
 </script>
 
-<Popover bind:open >
+<Popover bind:open>
 	<Trigger asChild let:builder>
 		<Button builders={[builder]} {variant} role="combobox" type="button" class="gap-x-1">
-			<Languages />
+			<Languages class='h-24'/>
 			{#if label}
 				{languageNames[languageTag()]} {$page.url.pathname}
 			{/if}
@@ -76,12 +78,12 @@
 					>
 						<Button
 							{variant}
-							href={i18n.route($page.url.pathname )}
+							href={i18n.route($page.url.pathname)}
 							hreflang={language.value}
 							class="mr-3 flex items-center justify-between gap-2 pl-0"
 						>
 							<img src="/{language.flag}" alt={language.label} class="h-6 w-6" />
-							{language.label} 
+							{language.label}
 						</Button>
 					</Item>
 				{/each}

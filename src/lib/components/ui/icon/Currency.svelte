@@ -9,7 +9,7 @@
 </script>
 <!--  
 @component
-@name Languages
+@name Currency
 ## ...props
 @description inherits all properties from the Icon component
  - color: string = 'currentColor' - is the color of the stroke (format hexadecimal color e.g. #56850e)
@@ -20,8 +20,10 @@
  - children: Snippet
 -->
 <Icon {...props}>
-	<path d="m5 8 6 6" /><path d="m4 14 6-6 2-3" /><path d="M2 5h12" /><path d="M7 2h1" /><path
-		d="m22 22-5-10-5 10"
-	/><path d="M14 18h6" />
+	<circle cx="12" cy="12" r="8" />
+	<line x1="3" x2="6" y1="3" y2="6" />
+	<line x1="21" x2="18" y1="3" y2="6" />
+	<line x1="3" x2="6" y1="21" y2="18" />
+	<line x1="21" x2="18" y1="21" y2="18" />
 </Icon>
 {@render children()}

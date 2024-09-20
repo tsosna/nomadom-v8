@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { UIEventHandler } from 'svelte/elements'
 	import { cn } from '$lib/utils'
 
 	type Props = {
@@ -19,6 +20,9 @@
 		classPageContent?: string
 		classPageFooter?: string
 		classFooter?: string
+
+		onscroll?: UIEventHandler<HTMLDivElement>
+
 	}
 
 	let {
@@ -38,7 +42,9 @@
 		classPageHeader,
 		classPageContent,
 		classPageFooter,
-		classFooter
+		classFooter,
+
+		onscroll
 	}: Props = $props()
 
 	const cBaseAppShell = 'w-full h-full flex flex-col overflow-hidden'
@@ -106,7 +112,7 @@
 		{/if}
 
 		<!-- Page -->
-		<div id="page" class="{regionPage} {cPage}" on:scroll>
+		<div id="page" class="{regionPage} {cPage}" {onscroll}>
 			<!-- Slot: Page Header -->
 			{#if pageHeader}
 				<header id="page-header" class={cn('flex-none', classPageHeader)}>
