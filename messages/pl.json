@@ -3,6 +3,8 @@
   "currentLanguageTag": "Aktualny symbol języka to: {languageTag} .",
   "copyright": "Wszelkie prawa zastrzeżone",
   "companyName": "Technologie modułowe sp. z o.o.",
+  "companyNameShort": "Technologie modułowe",
+  "modules": "Moduły",
   "appName": "nomadoM",
   "themeLight": "Jasny",
   "themeDark": "Ciemny",
@@ -13,5 +15,16 @@
   "about": "o nas",
   "projects": "Projekty",
   "home": "Główna",
-  "aboutThisApp": "Odkryj nasze innowacyjne projekty domów modułowych, zaprojektowane z myślą o szybkości budowy, prostocie konstrukcji i oszczędnościach. Nasze domy oferują nie tylko szybką realizację, ale także ekonomiczne rozwiązania w porównaniu z tradycyjnymi metodami budowlanymi. Zapraszamy do poznania przyszłości budownictwa!"
+  "contact": "Kontakt",
+  "aboutThisApp": "Odkryj nasze innowacyjne projekty domów modułowych, zaprojektowane z myślą o szybkości budowy, prostocie konstrukcji i oszczędnościach. Nasze domy oferują nie tylko szybką realizację, ale także ekonomiczne rozwiązania w porównaniu z tradycyjnymi metodami budowlanymi. Zapraszamy do poznania przyszłości budownictwa!",
+  "clickContinue": "Klikając przycisk Kontynuuj, wyrażasz zgodę na nasze",
+  "previousPage": "Poprzednia strona",
+  "termsService": "Warunki korzystania z usługi",
+  "privacyPolicy": "Polityka prywatności",
+  "titleJaponico": "To jest czas dla Ciebie",
+  "subtitleJaponico": "Japonico 35 jest w pełni wykończony i gotowy do zamieszkania",
+  "altJaponico": "Japonico 35 jest w pełni wykończony i gotowy do zamieszkania",
+  "altOptimo": "Idealny dom dla młodych.",
+  "altBosco": "Idealny dom dla rodziny.",
+  "socials": "Społecznościowe"
 }

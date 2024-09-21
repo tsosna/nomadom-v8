@@ -3,6 +3,8 @@
   "currentLanguageTag": "Der aktuelle Sprachtag ist: {languageTag} .",
   "copyright": "Alle Rechte vorbehalten",
   "companyName": "Modulare Technologien Gmbh.",
+  "companyNameShort": "Modulare Technologien",
+  "modules": "Module",
   "appName": "nomadenM",
   "themeLight": "Licht",
   "themeDark": "Dunkel",
@@ -13,5 +15,16 @@
   "about": "Über",
   "projects": "Projekte",
   "home": "Startseite",
-  "aboutThisApp": "Entdecken Sie unsere innovativen modularen Hausdesigns, die auf schnelles, einfaches Bauen und Kosteneinsparungen ausgelegt sind. Unsere Häuser bieten nicht nur schnelles Bauen, sondern auch kostengünstige Lösungen im Vergleich zu herkömmlichen Baumethoden. Wir laden Sie ein, die Zukunft des Bauens zu erkunden!"
+  "contact": "Kontakt",
+  "aboutThisApp": "Entdecken Sie unsere innovativen modularen Hausdesigns, die auf schnelles, einfaches Bauen und Kosteneinsparungen ausgelegt sind. Unsere Häuser bieten nicht nur schnelles Bauen, sondern auch kostengünstige Lösungen im Vergleich zu herkömmlichen Baumethoden. Wir laden Sie ein, die Zukunft des Bauens zu erkunden!",
+  "clickContinue": "Indem Sie auf „Weiter“ klicken, stimmen Sie unseren",
+  "previousPage": "Vorherige Seite",
+  "termsService": "Servicebedingungen",
+  "privacyPolicy": "Datenschutzrichtlinie",
+  "titleJaponico": "Dies ist die Zeit für Sie",
+  "subtitleJaponico": "Japonico 35 ist komplett fertiggestellt und bezugsfertig",
+  "altJaponico": "Japonico 35 ist komplett fertiggestellt und bezugsfertig",
+  "altOptimo": "Das ideale Zuhause für die Jugend.",
+  "altBosco": "Das perfekte Zuhause für die Familie.",
+  "socials": "Soziale"
 }
