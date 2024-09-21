@@ -3,7 +3,7 @@
 	import Icon from './Icon.svelte'
 
 	type Props = {
-		children: Snippet
+		children?: Snippet
 	}
 	let {  children, ...props }: Props = $props()
 </script>
@@ -24,4 +24,6 @@
 		d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"
 	/>
 </Icon>
-{@render children()}
+{#if children}
+	{@render children()}
+{/if}

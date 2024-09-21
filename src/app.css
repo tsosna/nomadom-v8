@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -242,4 +243,5 @@
 			@apply bg-primary/60;
 		}
 	}
+
 }

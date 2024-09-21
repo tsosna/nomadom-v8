@@ -8,10 +8,7 @@
 	import Footer from '@/components/footer/footer.svelte'
 	import { NavSide } from '@/components/navside'
 	import { Burger } from '@/components/ui/icon'
-	import defaultAttributes from '@/components/ui/icon/defaultAttributes'
-	import Mail from '@/components/ui/icon/Mail.svelte'
 
-	defaultAttributes.viewBox = '0 0 100 100'
 
 	let {
 		children
@@ -35,16 +32,16 @@
 		
 		nomadoM
 		
-		<!-- <Theme /> -->
-		<!-- <Language /> -->
+		<Theme />
+		<Language />
 		<div class="flex-non 2xl:hidden">
-			<Burger bind:open viewBox = {'0 0 100 100'}  strokeWidth={6} />
+			<Burger bind:open size=32 viewBox={'0 0 100 100'}  strokeWidth={8} />
 		</div>
 		
 	</section>
 	<NavSide {open}/>
 	
-<Mail>dsfgs</Mail>
+
 
 	
 {/snippet}

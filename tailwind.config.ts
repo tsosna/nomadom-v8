@@ -3,7 +3,7 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
 	darkMode: ['class'],
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: ['./src/**/*.{html,js,svelte,ts}', './static/**/*.{html,js,svelte,ts}'],
 	safelist: ['Moon'],
 	theme: {
 		container: {
@@ -78,7 +78,7 @@ const config: Config = {
 				info: {
 					DEFAULT: 'hsl(var(--info) / <alpha-value>)',
 					foreground: 'hsl(var(--info-foreground) / <alpha-value>)'
-				},
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -89,9 +89,8 @@ const config: Config = {
 				sans: [...fontFamily.sans],
 				inter: [`"Inter"`, 'sans-serif'],
 				jetbrains: [`"JetBrains Mono Variable"`, 'sans-serif'],
-				accent: ["Variable", '"sans-serif"'],
-			},
-			
+				accent: ['Variable', '"sans-serif"'],
+			}
 		}
 	}
 }
