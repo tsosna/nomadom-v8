@@ -73,7 +73,7 @@
 		stroke-width={absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth}
 		stroke-linecap="round"
 		stroke-linejoin="round"
-		class={cn('w-full h-full', CLASS)}
+		class={cn('w-full', CLASS)}
 		{...props}
 		role="button"
 		tabindex="0"

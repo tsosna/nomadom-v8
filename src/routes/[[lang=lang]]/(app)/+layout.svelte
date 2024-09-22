@@ -2,12 +2,8 @@
 	import type { Snippet } from 'svelte'
 
 	import { AppShell } from '@/components/ui/app-shell'
-	import { Theme } from '@/components/ui/theme'
-	import { Language } from '@/components/ui/language'
-
-	import Footer from '@/components/footer/footer.svelte'
-	import { NavSide } from '@/components/navside'
-	import { Burger } from '@/components/ui/icon'
+	import { Footer } from '@/components/footer'
+	import { Navbar } from '@/components/navbar'
 
 
 	let {
@@ -15,8 +11,6 @@
 	}: {
 		children: Snippet
 	} = $props()
-
-	let open = $state(true)
 </script>
 
 <svelte:head>
@@ -27,23 +21,7 @@
 </svelte:head>
 
 {#snippet header()}
-	<section class="flex items-center justify-between font-accent text-4xl ">
-		
-		
-		nomadoM
-		
-		<Theme />
-		<Language />
-		<div class="flex-non 2xl:hidden">
-			<Burger bind:open size=32 viewBox={'0 0 100 100'}  strokeWidth={8} />
-		</div>
-		
-	</section>
-	<NavSide {open}/>
-	
-
-
-	
+	<Navbar />
 {/snippet}
 {#snippet pageHeader()}Page Header{/snippet}
 {#snippet pageContent()}
@@ -62,12 +40,13 @@
 	{pageContent}
 	{sidebarRight}
 	{footer}
+	classPageContent=""
 	classHeader="sticky top-0 bg-nomadom text-nomadom-foreground"
 	classPageHeader="text-blue-500 font-extrabold text-xl text-center"
 	classSidebarRight="flex flex-col pr-2  "
-/>
+	openNavSide={false}
 
-
+	/>
 
 <style lang="postcss">
 	/* @keyframes fly-in {

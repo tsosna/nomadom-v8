@@ -1,8 +1,8 @@
 import { Sun, Moon } from '$lib/components/ui/icon'
 
-export type AvailableThemeTag = 'Sun' | 'Moon'
+type AvailableThemeTag = 'Sun' | 'Moon'
 
-export class ThemeState {
+class ThemeState {
 	// FIXME: tu następuje błędna inicializacja userTheme powinna być pobierana z
 	//  localStorage, ale nie wiem jak zaimprtować tą klasę tylko w trybie browser
 	private userTheme: AvailableThemeTag =  'Sun'
