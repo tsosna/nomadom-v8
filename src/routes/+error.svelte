@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores'
-	import { previousPage } from '$paraglide/messages.js'
+	import { previousPage } from '$paraglide/messages'
 </script>
 
 <svelte:head><title>{$page.status}</title></svelte:head>

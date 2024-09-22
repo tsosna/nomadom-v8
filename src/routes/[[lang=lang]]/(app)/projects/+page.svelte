@@ -2,7 +2,7 @@
 	import type { PageData } from './$types'
 	import { CldImage } from 'svelte-cloudinary'
 
-  import { projects, homes } from '$paraglide/messages.js'
+  import { projects, homes } from '$paraglide/messages'
   import { projects as pro } from '@/api/project'
 	import { Image } from '@/components/image'
 

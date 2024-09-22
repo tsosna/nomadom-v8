@@ -1,6 +1,6 @@
 <script lang="ts">
 import { cn } from '@/utils'
-import { companyName, copyright,clickContinue, termsService, privacyPolicy } from '@/paraglide/messages'
+import { companyName, copyright,clickContinue, termsService, privacyPolicy } from '$paraglide/messages'
 
 type Props = {
   class?: string

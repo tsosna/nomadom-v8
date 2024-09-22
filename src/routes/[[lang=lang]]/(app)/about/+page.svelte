@@ -3,11 +3,10 @@
 	// import de from './de.svelte'
 	// import pl from './pl.svelte'
 	// import fr from './fr.svelte'
-	// import { about } from '$paraglide/messages.js'
+	import { about,home } from '@/paraglide/messages'
 	// import { languageTag, type AvailableLanguageTag } from '$paraglide/runtime'
   import { goto } from '$app/navigation'
   import { i18n } from '$lib/i18n'
-  import {home} from '@/paraglide/messages'
 	import { base } from '$app/paths'
 	import {Button} from '@/components/ui/button'
 
