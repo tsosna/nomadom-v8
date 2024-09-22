@@ -3,7 +3,7 @@
 	// import de from './de.svelte'
 	// import pl from './pl.svelte'
 	// import fr from './fr.svelte'
-	import { about,home } from '@/paraglide/messages'
+	import { about,home } from '$paraglide/messages'
 	// import { languageTag, type AvailableLanguageTag } from '$paraglide/runtime'
   import { goto } from '$app/navigation'
   import { i18n } from '$lib/i18n'
@@ -13,9 +13,9 @@
 	// const lang: Record<AvailableLanguageTag, any> = { en, de, pl, fr }
 </script>
 
-<svelte:head>
+<!-- <svelte:head>
 	<title>{about()}</title>
-</svelte:head>
+</svelte:head> -->
 
 <!-- <svelte:component this={lang[languageTag()]} /> -->
 

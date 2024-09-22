@@ -6,7 +6,7 @@
 	import { i18n } from '@/i18n'
 
 	import { HeartHandshake, Home, Mail } from '@/components/ui/icon'
-	import { modules, projects, about, socials, contact } from '@/paraglide/messages'
+	import { modules, projects, about, socials, contact } from '$paraglide/messages'
 
 	let {open=$bindable()}:{open:boolean} = $props()
 </script>
