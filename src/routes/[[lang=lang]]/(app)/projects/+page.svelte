@@ -18,6 +18,8 @@
 <pre>
   {JSON.stringify(data, null, 2)}
 </pre>
+
+
 {#each pro as { name, icon, href, alt }}
 	{@html homes({
 		name: `<h2>${name}</h2>`,

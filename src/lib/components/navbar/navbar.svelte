@@ -3,12 +3,17 @@
 	import { Language } from '@/components/ui/language'
 	import { NavSide } from '@/components/navside'
 	import { Burger } from '@/components/ui/icon'
+	import { LogoTitle } from '@/components/ui/icon'
 
 	let open = $state(false)
+	let innerWidth: number
 </script>
 
+<svelte:window bind:innerWidth />
+
 <section class="flex items-center justify-between">
-	<span class="font-accent text-4xl font-semibold"> nomadoM </span>
+	<LogoTitle size={`${innerWidth < 768 ? 96 : 128}`} class="h-8 md:mx-1 md:h-10" />
+
 	<Theme />
 	<Language />
 	<div class="flex-non 2xl:hidden">

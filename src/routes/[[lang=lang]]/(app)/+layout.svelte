@@ -40,8 +40,9 @@
 	{pageContent}
 	{sidebarRight}
 	{footer}
-	classPageContent=""
-	classHeader="sticky top-0 bg-nomadom text-nomadom-foreground"
+	class=''
+	classPageContent="px-0.5 md:px-0"
+	classHeader="sticky top-0 pl-0.5 md:px-0 bg-nomadom text-nomadom-foreground"
 	classPageHeader="text-blue-500 font-extrabold text-xl text-center"
 	classSidebarRight="flex flex-col pr-2  "
 	openNavSide={false}
