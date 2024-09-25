@@ -5,6 +5,7 @@
   import { projects, homes } from '$paraglide/messages'
   import { projects as pro } from '@/api/project'
 	import { Image } from '@/components/image'
+	import { Logo } from '@/components/ui/icon'
 
 
 	export let data: PageData
@@ -14,6 +15,8 @@
 </script>
 
 <h1>{projects()} Page</h1>
+
+<Logo />
 
 <pre>
   {JSON.stringify(data, null, 2)}
