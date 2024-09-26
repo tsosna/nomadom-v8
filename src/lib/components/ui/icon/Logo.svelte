@@ -1,15 +1,29 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte'
+	import type { MouseEventHandler, FocusEventHandler } from 'svelte/elements'
+
 	import { cn } from '$lib/utils.js'
 
 	type Props = {
 		class?: string | undefined | null
 		color?: '#34A836' | 'white' | 'black' | 'none'
 		strokeWidth?: string
+		size?: string
+		absoluteStrokeWidth?: boolean
+
 
 		children?: Snippet
 	}
-	let { class: CLASS, color='none', strokeWidth='4' , children }: Props = $props()
+	let {
+		class: CLASS,
+		color = 'none',
+		strokeWidth = '4',
+		size = '24',
+		absoluteStrokeWidth = false,
+
+
+		children
+	}: Props = $props()
 </script>
 
 <!-- 
@@ -27,25 +41,18 @@
  	- strokeWidth: number = 2 - is the thickness of the stroke
  	- absoluteStrokeWidth: boolean = false - if true, the stroke width will be the same regardless of the size of the icon
 	- class: string - Additional class (tailwindCss color format e.g. text-blue-500)
-
-	- onclick: MouseEventHandler<SVGSVGElement> - Click event handler.
-	- onfocus: FocusEventHandler<SVGSVGElement> - Focus event handler.
-	- onmouseenter: MouseEventHandler<SVGSVGElement> - Mouse enter event handler.
-	- onmouseleave: MouseEventHandler<SVGSVGElement> - Mouse leave event handler.
-### ...props
-	- probably all like a button
-	- FIXME: check the above statement
 -->
 
 <svg
-xmlns="http://www.w3.org/2000/svg"
-	width="24"
-	height="24"
+	xmlns="http://www.w3.org/2000/svg"
+	width={size}
+	height={size}
 	viewBox="0 0 105 105"
 	fill={color}
-	stroke-width={strokeWidth}
+	stroke-width={absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth}
+		stroke-linecap="round"
+	stroke-linejoin="round"
 	class={cn(`w-full`, CLASS)}
-
 >
 	<path
 		d="M42.2419 66.6349V0H53.4647L73.8162 36.4569L94.2719 0H104.396V101.331H94.4917V19.9372L76.7897 51.5401L71.3981 51.4359L52.5854 18.9409V66.6349H42.2419Z"
@@ -67,3 +74,4 @@ xmlns="http://www.w3.org/2000/svg"
 {#if children}
 	{@render children()}
 {/if}
+

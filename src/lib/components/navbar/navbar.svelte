@@ -6,14 +6,14 @@
 	import { LogoTitle } from '@/components/ui/icon'
 
 	let open = $state(false)
-	let innerWidth: number
+	let innerWidth=$state(0)
 </script>
+
 
 <svelte:window bind:innerWidth />
 
 <section class="flex items-center justify-between">
-	<LogoTitle size={`${innerWidth < 768 ? 96 : 128}`} class="h-8 md:mx-1 md:h-10" />
-
+  <LogoTitle color='white' size={`${innerWidth < 768 ? 96 : 128}`} class="h-8 md:mx-1 md:h-10" />
 	<Theme />
 	<Language />
 	<div class="flex-non 2xl:hidden">

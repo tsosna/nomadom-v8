@@ -17,9 +17,9 @@
 <h1>{projects()} Page</h1>
 
 
-<Logo class='h-12' color='#34A836'/>
+<Logo size=48 color='#34A836'/>
 
-<img src="/LOGO-G.svg" alt="Paraglide logo" class="h-12" />
+<img src="/nomadoM-W&W.svg" alt="Paraglide logo" class="h-12" />
 
 
 <pre>
