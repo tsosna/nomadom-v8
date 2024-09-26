@@ -5,7 +5,7 @@
   import { projects, homes } from '$paraglide/messages'
   import { projects as pro } from '@/api/project'
 	import { Image } from '@/components/image'
-	import { Logo } from '@/components/ui/icon'
+	import { Logo, LogoTitle } from '@/components/ui/icon'
 
 
 	export let data: PageData
@@ -16,7 +16,11 @@
 
 <h1>{projects()} Page</h1>
 
-<Logo />
+
+<Logo class='h-12' color='#34A836'/>
+
+<img src="/LOGO-G.svg" alt="Paraglide logo" class="h-12" />
+
 
 <pre>
   {JSON.stringify(data, null, 2)}
