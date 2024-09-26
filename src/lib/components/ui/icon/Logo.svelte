@@ -6,6 +6,7 @@
 		class?: string | undefined | null
 		color?: '#34A836' | 'white' | 'black' | 'none'
 		strokeWidth?: string
+
 		children?: Snippet
 	}
 	let { class: CLASS, color='none', strokeWidth='4' , children }: Props = $props()
@@ -26,6 +27,7 @@
  	- strokeWidth: number = 2 - is the thickness of the stroke
  	- absoluteStrokeWidth: boolean = false - if true, the stroke width will be the same regardless of the size of the icon
 	- class: string - Additional class (tailwindCss color format e.g. text-blue-500)
+
 	- onclick: MouseEventHandler<SVGSVGElement> - Click event handler.
 	- onfocus: FocusEventHandler<SVGSVGElement> - Focus event handler.
 	- onmouseenter: MouseEventHandler<SVGSVGElement> - Mouse enter event handler.
