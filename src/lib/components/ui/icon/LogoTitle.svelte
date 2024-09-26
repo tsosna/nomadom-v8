@@ -44,7 +44,11 @@
 	- class: string - Additional class (tailwindCss color format e.g. text-blue-500)
 -->
 
-<svg width="202" height="61" viewBox="0 0 202 61" fill="none" xmlns="http://www.w3.org/2000/svg"
+<svg 
+xmlns="http://www.w3.org/2000/svg"
+width={size}
+	height={size}
+viewBox="0 0 202 61" fill="none" 
 stroke-width={absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth}
 >
 	<path
