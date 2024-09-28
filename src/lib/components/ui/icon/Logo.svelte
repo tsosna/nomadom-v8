@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte'
-	import type { MouseEventHandler, FocusEventHandler } from 'svelte/elements'
+	import defaultAttributes from './defaultAttributes'
 
 	import { cn } from '$lib/utils.js'
 
@@ -44,13 +44,13 @@
 -->
 
 <svg
-	xmlns="http://www.w3.org/2000/svg"
+{...defaultAttributes}
 	width={size}
 	height={size}
 	viewBox="0 0 105 105"
 	fill={color}
 	stroke-width={absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth}
-		stroke-linecap="round"
+	stroke-linecap="round"
 	stroke-linejoin="round"
 	class={cn(`w-full`, CLASS)}
 >

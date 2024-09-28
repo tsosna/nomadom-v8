@@ -19,7 +19,7 @@
 
 <Logo size=48 color='#34A836'/>
 
-<img src="/nomadoM-W&W.svg" alt="Paraglide logo" class="h-12" />
+<LogoTitle size=96 strokeWidth={4} color='blue' colorAccent='#34A836'/>
 
 
 <pre>

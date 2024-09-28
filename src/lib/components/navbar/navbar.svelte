@@ -13,7 +13,7 @@
 <svelte:window bind:innerWidth />
 
 <section class="flex items-center justify-between">
-  <LogoTitle color='white' size={`${innerWidth < 768 ? 96 : 128}`} class="h-10 md:mx-1 md:h-10" />
+  <LogoTitle  color='white' colorAccent='black' size={`${innerWidth < 768 ? 96 : 128}`} class="max-h-10"/>
 	<Theme />
 	<Language />
 	<div class="flex-non 2xl:hidden">
