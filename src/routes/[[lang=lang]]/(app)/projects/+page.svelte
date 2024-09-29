@@ -2,10 +2,11 @@
 	import type { PageData } from './$types'
 	import { CldImage } from 'svelte-cloudinary'
 
-  import { projects, homes } from '$paraglide/messages'
+  import { projects, homes, currentLanguageTag } from '$paraglide/messages'
   import { projects as pro } from '@/api/project'
 	import { Image } from '@/components/image'
-	import { Logo, LogoTitle } from '@/components/ui/icon'
+	import { Logo, LogoName, LogoTitle } from '@/components/ui/icon'
+	import { languageTag } from '$paraglide/runtime'
 
 
 	export let data: PageData
@@ -19,8 +20,13 @@
 
 <Logo size=48 color='#34A836'/>
 
-<LogoTitle size=96 strokeWidth={4} color='blue' colorAccent='#34A836'/>
 
+<LogoTitle size=48 strokeWidth={4} color='blue' colorAccent='#34A836'/>
+
+
+<LogoName size=48 strokeWidth={4} color='white' />
+
+{currentLanguageTag({ languageTag: languageTag() })} 
 
 <pre>
   {JSON.stringify(data, null, 2)}

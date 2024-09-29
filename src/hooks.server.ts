@@ -5,9 +5,11 @@ import {
 	sourceLanguageTag,
 	type AvailableLanguageTag,
 	availableLanguageTags
-} from '@/paraglide/runtime'
+} from '$paraglide/runtime'
 import { langTag } from '@/i18n-routing'
 import type { AvailableThemeTag } from './lib/components/ui/theme/theme-state.svelte'
+import { browser } from "$app/environment"
+
 
 // FIXME: This is a workaround to get the theme cookie set on the first load
 // This should be change
@@ -18,7 +20,6 @@ export const theme: Handle = async ({ event, resolve }) => {
 		event.locals.theme = 'Sun'
 		return await resolve(event)
 	}
-
 	event.locals.theme = theme
 	return await resolve(event)
 }

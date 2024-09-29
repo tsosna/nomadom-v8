@@ -62,7 +62,7 @@
 	stroke-width={absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth}
 	stroke-linecap="round"
 	stroke-linejoin="round"
-	class={cn(`w-1/3`, CLASS)}
+	class={cn(`w-full`, CLASS)}
 	viewBox={'0 0 202 61'}
 >
 	<path

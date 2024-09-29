@@ -31,6 +31,7 @@ export { default as Burger } from './Burger.svelte'
 export { default as Currency } from './Currency.svelte'
 export { default as HeartHandshake } from './HeartHandshake.svelte'
 export { default as LogoTitle } from './LogoTitle.svelte'
+export { default as LogoName } from './LogoName.svelte'
 
 export type IconTYPE = {
 	Sun: typeof Sun

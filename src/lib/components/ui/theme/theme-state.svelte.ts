@@ -1,6 +1,6 @@
 import { Sun, Moon } from '$lib/components/ui/icon'
 
-type AvailableThemeTag = 'Sun' | 'Moon'
+export type AvailableThemeTag = 'Sun' | 'Moon'
 
 class ThemeState {
 	// FIXME: tu następuje błędna inicializacja userTheme powinna być pobierana z
@@ -16,8 +16,9 @@ class ThemeState {
 		icon: this.Icon[this.userTheme as keyof typeof this.Icon],
 		tag: this.userTheme
 	});
-
 }
+
+
 
 export const themeState = new ThemeState();
 

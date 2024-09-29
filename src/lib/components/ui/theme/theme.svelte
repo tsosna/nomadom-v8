@@ -7,6 +7,8 @@
 	import { Sun, Moon } from '@/components/ui/icon'
 	import { themeState } from './theme-state.svelte'
 	import { setCookie } from '@/utils'
+	import { on } from 'svelte/events'
+	import { onMount } from 'svelte'
 
 	type Variant = VariantProps<typeof buttonVariants>['variant']
 	type Props = {
@@ -29,6 +31,7 @@
 	$effect(() => {
 		setCookie('theme', themeState.preferTheme.tag, 7)
 	})
+
 </script>
 
 <Popover bind:open>
@@ -60,7 +63,6 @@
 						disabled={themeState.preferTheme.icon === Icon[themeTag] ? true : false}
 						class="cursor-pointer "
 					>
-					
 						<svelte:component this={Icon[themeTag]} />
 					</Item>
 				{/each}

@@ -1,4 +1,4 @@
-import { altJaponico, altBosco, altOptimo } from '$paraglide/messages'
+import { altJaponico, altBosco, altOptimo } from '@/paraglide/messages'
 
 export type Project = {
 	id: number
