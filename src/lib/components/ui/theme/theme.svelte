@@ -7,8 +7,7 @@
 	import { Sun, Moon } from '@/components/ui/icon'
 	import { themeState } from './theme-state.svelte'
 	import { setCookie } from '@/utils'
-	import { on } from 'svelte/events'
-	import { onMount } from 'svelte'
+
 
 	type Variant = VariantProps<typeof buttonVariants>['variant']
 	type Props = {
@@ -18,15 +17,7 @@
 	let { variant = 'ghost', label = false }: Props = $props()
 	let open = $state(false)
 
-	const Icon: {
-		[key: string]: __sveltets_2_IsomorphicComponent<
-			Record<string, unknown>,
-			{ [evt: string]: CustomEvent<any> },
-			{},
-			{},
-			''
-		>
-	} = { Sun, Moon }
+	const Icon = { Sun, Moon }
 
 	$effect(() => {
 		setCookie('theme', themeState.preferTheme.tag, 7)

@@ -6,18 +6,18 @@
 	type Props = {
 		color?: string
 		colorAccent?: string
-		size?: number
-		strokeWidth?: number
+		size?: string
+		strokeWidth?: string
 		absoluteStrokeWidth?: boolean
 		class?: string | undefined | null
 
-		children: Snippet
+		children?: Snippet
 	}
 	let {
 		color = 'currentColor',
 		colorAccent = color,
-		size = 24,
-		strokeWidth = 2,
+		size = '24',
+		strokeWidth = '2',
 		absoluteStrokeWidth = false,
 		class: CLASS,
 		children
@@ -46,7 +46,7 @@
 		concerns nomado (disregarding M)
  	- colorAccent: string = color - is the color of the accent stroke (format hexadecimal color e.g. #56850e)			
 		only applies to M
- 	- size: number = 24 - is the width and height of the svg
+ 	- size: string = 24 - is the width and height of the svg
  	- strokeWidth: number = 2 - is the thickness of the stroke
  	- absoluteStrokeWidth: boolean = false - if true, the stroke width will be the same regardless of the size of the icon
 	- class: string - Additional class (tailwindCss color format e.g. text-blue-500)

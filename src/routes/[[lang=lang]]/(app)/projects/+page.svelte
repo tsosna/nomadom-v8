@@ -21,10 +21,10 @@
 <Logo size=48 color='#34A836'/>
 
 
-<LogoTitle size=48 strokeWidth={4} color='blue' colorAccent='#34A836'/>
+<LogoTitle size=48 strokeWidth=4 color='blue' colorAccent='#34A836'/>
 
 
-<LogoName size=48 strokeWidth={4} color='white' />
+<LogoName size=48 strokeWidth=4 color='white' />
 
 {currentLanguageTag({ languageTag: languageTag() })} 
 

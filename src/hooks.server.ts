@@ -8,7 +8,6 @@ import {
 } from '$paraglide/runtime'
 import { langTag } from '@/i18n-routing'
 import type { AvailableThemeTag } from './lib/components/ui/theme/theme-state.svelte'
-import { browser } from "$app/environment"
 
 
 // FIXME: This is a workaround to get the theme cookie set on the first load
