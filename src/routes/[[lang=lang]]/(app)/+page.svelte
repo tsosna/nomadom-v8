@@ -42,6 +42,8 @@
 	$effect(() => {
 		console.log(timer.count)
 	})
+
+
 </script>
 
 <h1>Welcome to SvelteKit</h1>

@@ -3,7 +3,7 @@
 	import defaultAttributes from './defaultAttributes'
 	import { cn } from '$lib/utils.js'
 	import { languageTag } from '$paraglide/runtime'
-	import { themeState } from '@/components/ui/theme/theme-state.svelte'
+
 
 
 	type Props = {
@@ -26,7 +26,6 @@
 		children
 	}: Props = $props()
 
-	let theme = $state(themeState.preferTheme.tag)
 
 </script>
 
@@ -62,7 +61,6 @@
 	- FIXME: check the above statement
 -->
 
-{theme}
 
 <svg
 	{...defaultAttributes}

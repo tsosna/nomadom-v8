@@ -1,10 +1,13 @@
 <script lang="ts">
+	
+	
 	import type { Snippet } from 'svelte'
 
 	import { AppShell } from '@/components/ui/app-shell'
 	import { Footer } from '@/components/footer'
 	import { Navbar } from '@/components/navbar'
 
+	
 
 	let {
 		children
