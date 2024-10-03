@@ -5,8 +5,8 @@
 
 	type Props = {
 		color?: string
-		size?: number
-		strokeWidth?: number
+		size?: string | number
+		strokeWidth?: string | number
 		absoluteStrokeWidth?: boolean
 		class?: string | undefined | null
 		onclick?: MouseEventHandler<SVGSVGElement>
@@ -67,6 +67,7 @@
 	<input type="checkbox" hidden bind:checked={open}/>
 	<svg
 		{...defaultAttributes}
+		viewBox={'0 0 100 100'}
 		width={size}
 		height={size}
 		stroke={color}

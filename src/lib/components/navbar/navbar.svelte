@@ -12,7 +12,7 @@
 	<Theme />
 	<Language />
 	<div class="flex-non 2xl:hidden">
-		<Burger bind:open size="32" viewBox={'0 0 100 100'} strokeWidth={8} />
+		<Burger bind:open size=32  strokeWidth=8 />
 	</div>
 </section>
 <NavSide {open} />
