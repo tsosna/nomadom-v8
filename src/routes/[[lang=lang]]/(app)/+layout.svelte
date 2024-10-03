@@ -26,28 +26,30 @@
 {#snippet header()}
 	<Navbar />
 {/snippet}
-{#snippet pageHeader()}Page Header{/snippet}
 {#snippet pageContent()}
 	{@render children()}
 {/snippet}
 {#snippet sidebarRight()}
 	<div></div>
 {/snippet}
+
+
 {#snippet footer()}
+
 	<Footer />
 {/snippet}
 
 <AppShell
 	{header}
-	{pageHeader}
 	{pageContent}
 	{sidebarRight}
 	{footer}
-	class=''
+	class='md:container md:mx-auto'
 	classPageContent="px-0.5 md:px-0"
 	classHeader="sticky top-0 pl-0.5 md:px-0 bg-nomadom text-nomadom-foreground"
 	classPageHeader="text-blue-500 font-extrabold text-xl text-center"
 	classSidebarRight="flex flex-col pr-2  "
+	classFooter='hidden md:flex'
 	openNavSide={false}
 
 	/>
