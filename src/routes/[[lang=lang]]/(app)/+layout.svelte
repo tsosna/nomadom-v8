@@ -23,7 +23,6 @@
 {#snippet header()}
 	<Navbar />
 {/snippet}
-{#snippet pageHeader()}Page Header{/snippet}
 {#snippet pageContent()}
 	{@render children()}
 {/snippet}
@@ -36,7 +35,6 @@
 
 <AppShell
 	{header}
-	{pageHeader}
 	{pageContent}
 	{sidebarRight}
 	{footer}
