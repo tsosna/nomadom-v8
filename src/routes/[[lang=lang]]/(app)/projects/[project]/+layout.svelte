@@ -23,8 +23,9 @@
 </script>
 
 <AppShell
+class=''
 	classPageHeader="text-blue-500 font-extrabold text-xl text-center"
-	classPageFooter="md:hidden "
+	classPageFooter="z-10  fixed bottom-0 w-full px-1 md:px-0"
 >
 	{#snippet pageHeader()}Page Header
 	{/snippet}

@@ -4,14 +4,19 @@
 	import { base } from '$app/paths'
 	import Button from '../ui/button/button.svelte'
 
-	let { icon, text, src } = $props()
+	type Props = {
+		icon: (item: string) => any
+		text?: string
+		src: string[]
+	}
 
+	let { icon, text, src }: Props = $props()
 </script>
 
 <section class="flex items-center justify-between">
 	{#each src as item}
 		<Button variant="nomadom" onclick={() => goto(i18n.resolveRoute(base + '/'))} size="icon">
-			{@render icon(item)}
+			{@render icon(item)} {text}
 		</Button>
 	{/each}
 </section>

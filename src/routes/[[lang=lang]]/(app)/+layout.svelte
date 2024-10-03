@@ -1,19 +1,22 @@
 <script lang="ts">
-	
-	
 	import type { Snippet } from 'svelte'
 
 	import { AppShell } from '@/components/ui/app-shell'
 	import { Footer } from '@/components/footer'
 	import { Navbar } from '@/components/navbar'
-
-	
+	import { page } from '$app/stores'
 
 	let {
 		children
 	}: {
 		children: Snippet
 	} = $props()
+
+	const breadcrumbs = $page.url.pathname
+		.split('/')
+		.filter((p) => p !== '')
+		.map((p, i, arr) => (i === arr.length - 1 ? p : p + '/'))
+	
 </script>
 
 <svelte:head>
@@ -23,8 +26,31 @@
 	<!-- <meta name="description" content={about_this_app()} /> -->
 </svelte:head>
 
+<pre>
+	{JSON.stringify(breadcrumbs, null, 2)}
+</pre>
+
+
+<div class="md:flex md:gap-1 md:text-sm hidden ">
+{@render breadcrumb({ href: '/', text: 'home/' })}
+	{#each breadcrumbs as text, i}
+		{@const href = '/' + breadcrumbs.slice(1, i + 1).join('')}
+		{@render breadcrumb({ href, text })}
+	{/each}
+</div>
+
+
+{#snippet breadcrumb({ href, text })}
+
+		<a {href}>{text}</a>
+	
+{/snippet}
+
 {#snippet header()}
 	<Navbar />
+{/snippet}
+{#snippet pageHeader()}
+	<h1 class="text-blue-500 font-extrabold text-xl text-center">Page Header</h1>
 {/snippet}
 {#snippet pageContent()}
 	{@render children()}
@@ -33,26 +59,24 @@
 	<div></div>
 {/snippet}
 
-
 {#snippet footer()}
-
 	<Footer />
 {/snippet}
 
 <AppShell
 	{header}
+	{pageHeader}
 	{pageContent}
 	{sidebarRight}
 	{footer}
-	class='md:container md:mx-auto'
+	class="md:container md:mx-auto"
 	classPageContent="px-0.5 md:px-0"
 	classHeader="sticky top-0 pl-0.5 md:px-0 bg-nomadom text-nomadom-foreground"
 	classPageHeader="text-blue-500 font-extrabold text-xl text-center"
 	classSidebarRight="flex flex-col pr-2  "
-	classFooter='hidden md:flex'
+	classFooter="hidden md:flex"
 	openNavSide={false}
-
-	/>
+/>
 
 <style lang="postcss">
 	/* @keyframes fly-in {
