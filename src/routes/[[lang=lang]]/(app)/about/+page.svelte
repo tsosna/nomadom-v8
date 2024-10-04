@@ -10,13 +10,15 @@
   import {home} from '@/paraglide/messages'
 	import { base } from '$app/paths'
 	import {Button} from '@/components/ui/button'
+	import { Breadcrumb } from '@/components/ui/breadcrumb'
 
 	const lang: Record<AvailableLanguageTag, any> = { en, de, pl, fr }
 </script>
-
 <svelte:head>
 	<title>{about()}</title>
 </svelte:head>
+<Breadcrumb />
+
 
 <svelte:component this={lang[languageTag()]} />
 

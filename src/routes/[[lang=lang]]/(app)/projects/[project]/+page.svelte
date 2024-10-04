@@ -8,6 +8,7 @@
 	import { Image } from '@/components/image'
 	import { Logo, LogoName, LogoTitle } from '@/components/ui/icon'
 	import { languageTag } from '$paraglide/runtime'
+	import { Breadcrumb } from '@/components/ui/breadcrumb'
 
 
 	export let data: PageData
@@ -15,6 +16,7 @@
 
 
 </script>
+<Breadcrumb />
 
 <h1>{projects()} Page</h1>
 

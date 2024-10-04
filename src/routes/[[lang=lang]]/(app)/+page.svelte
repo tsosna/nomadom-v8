@@ -5,6 +5,8 @@
 	import { Button } from '@/components/ui/button'
 	import { getToastState } from '@/components/ui/toast/toast-state.svelte'
 	import { Timer } from '@/utils.svelte'
+	import { Breadcrumb } from '@/components/ui/breadcrumb'
+	import { projects } from '$paraglide/messages'
 
 
 	function createCounter() {
@@ -43,6 +45,10 @@
 		console.log(timer.count)
 	})
 </script>
+<svelte:head>
+	<title>{projects()}</title>
+</svelte:head>
+<Breadcrumb />
 
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
