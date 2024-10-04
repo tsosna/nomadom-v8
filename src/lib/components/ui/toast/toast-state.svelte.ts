@@ -65,4 +65,3 @@ export function setToastState() {
 export function getToastState() {
 	return getContext<ReturnType<typeof setToastState>>(TOAST_KEY)
 }
-

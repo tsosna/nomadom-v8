@@ -8,12 +8,11 @@ declare global {
 			paraglide: ParaglideLocals<AvailableLanguageTag>
 			theme: string
 			lang: AvailableLanguageTag
-
 		}
 		// interface Error {}
 		interface Error {
-			message: string;
-			errorId?: string;
+			message: string
+			errorId?: string
 		}
 		// interface PageData {}
 		// interface PageState {}

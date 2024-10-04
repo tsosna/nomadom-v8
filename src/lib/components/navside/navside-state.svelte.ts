@@ -1,7 +1,5 @@
-
-
 class NavSideState {
-  public navSide = $state({open: false});
+	public navSide = $state({ open: false })
 }
 
-export const navSideState = new NavSideState();
+export const navSideState = new NavSideState()

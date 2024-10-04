@@ -5,8 +5,9 @@
 	type Props = {
 		children?: Snippet
 	}
-	let {  children, ...props }: Props = $props()
+	let { children, ...props }: Props = $props()
 </script>
+
 <!--  
 @component
 @name Trash2

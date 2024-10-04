@@ -16,7 +16,8 @@
 <section class="flex items-center justify-between">
 	{#each src as item}
 		<Button variant="nomadom" onclick={() => goto(i18n.resolveRoute(base + '/'))} size="icon">
-			{@render icon(item)} {text}
+			{@render icon(item)}
+			{text}
 		</Button>
 	{/each}
 </section>

@@ -89,7 +89,7 @@ const config: Config = {
 				sans: [...fontFamily.sans],
 				inter: [`"Inter"`, 'sans-serif'],
 				jetbrains: [`"JetBrains Mono Variable"`, 'sans-serif'],
-				accent: ['Variable', '"sans-serif"'],
+				accent: ['Variable', '"sans-serif"']
 			}
 		}
 	}

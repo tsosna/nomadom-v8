@@ -33,7 +33,6 @@ export { default as HeartHandshake } from './HeartHandshake.svelte'
 export { default as LogoTitle } from './LogoTitle.svelte'
 export { default as LogoName } from './LogoName.svelte'
 
-
 export type IconTYPE = {
 	Sun: typeof Sun
 	Moon: typeof Moon

@@ -1,10 +1,9 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte'
-	import { page } from '$app/stores'
-
 	import { AppShell } from '@/components/ui/app-shell'
 	import { Footer } from '@/components/footer'
 	import { Navbar } from '@/components/navbar'
+	import { useCookies } from '$paraglide/messages'
 
 	let {
 		children
@@ -24,7 +23,8 @@
 	<Navbar />
 {/snippet}
 {#snippet pageHeader()}
-	<h1 class="text-center text-xl font-extrabold text-blue-500">Layout Header</h1>
+	<!-- TODO: this area can be used to display a banner, e.g. with information on cookies -->
+	<h6 class="text-center font-semibold text-blue-500">{useCookies()}</h6>
 {/snippet}
 {#snippet pageContent()}
 	{@render children()}

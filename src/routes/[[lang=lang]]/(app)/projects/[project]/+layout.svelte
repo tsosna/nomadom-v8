@@ -13,17 +13,11 @@
 		children: Snippet
 	} = $props()
 
-	let src = [
-		 'Visualization' ,
-		 'Plan' ,
-		 'Interior' ,
-		 'Elevation',
-		 "Implementation"
-	]
+	let src = ['Visualization', 'Plan', 'Interior', 'Elevation', 'Implementation']
 </script>
 
 <AppShell
-class=''
+	class=""
 	classPageHeader="text-blue-500 font-extrabold text-xl text-center"
 	classPageFooter="z-10  fixed bottom-0 w-full px-1 md:px-0"
 >
@@ -36,7 +30,7 @@ class=''
 	{#snippet pageFooter()}
 		<Tabbar {src}>
 			{#snippet icon(icon)}
-			<img src={`/${icon}.svg`} alt="Visualization icon" />
+				<img src={`/${icon}.svg`} alt="Visualization icon" />
 			{/snippet}
 		</Tabbar>
 	{/snippet}

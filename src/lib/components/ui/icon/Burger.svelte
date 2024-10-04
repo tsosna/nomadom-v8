@@ -14,7 +14,7 @@
 		onmouseenter?: MouseEventHandler<SVGSVGElement>
 		onmouseleave?: MouseEventHandler<SVGSVGElement>
 		open: boolean
-	} 
+	}
 	let {
 		color = 'currentColor',
 		size = 24,
@@ -25,11 +25,9 @@
 		onfocus,
 		onmouseenter,
 		onmouseleave,
-		open=$bindable(),
+		open = $bindable(),
 		...props
 	}: Props = $props()
-
-
 </script>
 
 <!-- 
@@ -64,7 +62,7 @@
 	- FIXME: check the above statement
 -->
 <label class:open aria-label="toggle menu">
-	<input type="checkbox" hidden bind:checked={open}/>
+	<input type="checkbox" hidden bind:checked={open} />
 	<svg
 		{...defaultAttributes}
 		viewBox={'0 0 100 100'}

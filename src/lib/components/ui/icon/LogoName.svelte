@@ -4,8 +4,6 @@
 	import { cn } from '$lib/utils.js'
 	import { languageTag } from '$paraglide/runtime'
 
-
-
 	type Props = {
 		color?: string
 		colorAccent?: string
@@ -25,8 +23,6 @@
 
 		children
 	}: Props = $props()
-
-
 </script>
 
 <!-- 
@@ -60,7 +56,6 @@
 	- probably all like a button
 	- FIXME: check the above statement
 -->
-
 
 <svg
 	{...defaultAttributes}

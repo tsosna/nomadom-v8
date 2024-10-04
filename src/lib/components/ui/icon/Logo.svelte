@@ -11,7 +11,6 @@
 		size?: string
 		absoluteStrokeWidth?: boolean
 
-
 		children?: Snippet
 	}
 	let {
@@ -20,7 +19,6 @@
 		strokeWidth = '4',
 		size = '24',
 		absoluteStrokeWidth = false,
-
 
 		children
 	}: Props = $props()
@@ -44,7 +42,7 @@
 -->
 
 <svg
-{...defaultAttributes}
+	{...defaultAttributes}
 	width={size}
 	height={size}
 	viewBox="0 0 105 105"
@@ -74,4 +72,3 @@
 {#if children}
 	{@render children()}
 {/if}
-

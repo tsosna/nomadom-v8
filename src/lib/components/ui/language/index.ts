@@ -1,1 +1,1 @@
-export {default as Language} from './language.svelte'
+export { default as Language } from './language.svelte'

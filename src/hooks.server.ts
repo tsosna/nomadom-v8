@@ -5,7 +5,7 @@ import {
 	sourceLanguageTag,
 	type AvailableLanguageTag,
 	availableLanguageTags
-} from '@/paraglide/runtime'
+} from '$paraglide/runtime'
 import { langTag } from '@/i18n-routing'
 import type { AvailableThemeTag } from './lib/components/ui/theme/theme-state.svelte'
 

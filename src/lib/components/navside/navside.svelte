@@ -8,7 +8,7 @@
 	import { HeartHandshake, Home, Mail } from '@/components/ui/icon'
 	import { modules, projects, about, socials, contact } from '@/paraglide/messages'
 
-	let {open=$bindable()}:{open:boolean} = $props()
+	let { open = $bindable() }: { open: boolean } = $props()
 </script>
 
 {#if open}
@@ -18,7 +18,7 @@
 			class="fixed flex h-screen w-3/4 flex-col items-start gap-2 border-l border-nomadom bg-nomadom p-4 shadow-lg sm:max-w-sm"
 		>
 			<div class=" divider divider-nomadom w-full text-center font-bold uppercase">
-				<Home >{modules()}</Home>
+				<Home>{modules()}</Home>
 			</div>
 			<button onclick={() => goto(i18n.resolveRoute(base + '/about'))} class="text-left">
 				{about()}</button
@@ -33,5 +33,3 @@
 		</nav>
 	</section>
 {/if}
-
-

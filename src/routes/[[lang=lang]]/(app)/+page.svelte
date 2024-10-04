@@ -8,7 +8,6 @@
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
 	import { projects } from '$paraglide/messages'
 
-
 	function createCounter() {
 		let counter = $state({ count: 0 })
 		return counter
@@ -45,6 +44,7 @@
 		console.log(timer.count)
 	})
 </script>
+
 <svelte:head>
 	<title>{projects()}</title>
 </svelte:head>
@@ -69,7 +69,6 @@
 {/each}
 
 <Button onclick={add}>{sum} {length}</Button>
-
 
 <Button
 	onclick={() =>

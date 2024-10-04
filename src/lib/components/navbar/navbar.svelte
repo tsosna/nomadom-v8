@@ -6,18 +6,22 @@
 	import { LogoTitle } from '@/components/ui/icon'
 
 	let open = $state(false)
-	let innerWidth=$state(0)
+	let innerWidth = $state(0)
 </script>
-
 
 <svelte:window bind:innerWidth />
 
 <section class="flex items-center justify-between">
-  <LogoTitle  color='white' colorAccent='black' size={`${innerWidth < 768 ? 96 : 128}`} class="max-h-10"/>
+	<LogoTitle
+		color="white"
+		colorAccent="black"
+		size={`${innerWidth < 768 ? 96 : 128}`}
+		class="max-h-10"
+	/>
 	<Theme />
 	<Language />
 	<div class="flex-non 2xl:hidden">
-		<Burger bind:open size="32"  strokeWidth=8 />
+		<Burger bind:open size="32" strokeWidth="8" />
 	</div>
 </section>
 <NavSide {open} />

@@ -26,9 +26,7 @@
 	const cToast = 'flex justify-between items-center pointer-events-auto'
 	const cToastActions = 'flex items-center space-x-2'
 
-	let CLASSToast = $derived(
-		`${cToast} ${width} ${padding} ${spacing} ${rounded} ${shadow}`
-	)
+	let CLASSToast = $derived(`${cToast} ${width} ${padding} ${spacing} ${rounded} ${shadow}`)
 </script>
 
 <!-- 
@@ -49,10 +47,8 @@
 		<p class="font-inter text-base">{@html toast.message}</p>
 	</div>
 	<div class={cToastActions}>
-
-		
 		<Button variant="default" size="sm" onclick={() => toastState.remove(toast.id)}>
-			<X/>
+			<X />
 		</Button>
 	</div>
 </div>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte'
 	import Icon from './Icon.svelte'
-	
-	let { children, ...props }:{children: Snippet} = $props()
+
+	let { children, ...props }: { children: Snippet } = $props()
 </script>
 
 <!--  

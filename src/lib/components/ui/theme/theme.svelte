@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { VariantProps } from 'tailwind-variants'
-	import {page} from '$app/stores'
+	import { page } from '$app/stores'
 
 	import { Button, type buttonVariants } from '@/components/ui/button'
 	import { Command, Group, Item } from '@/components/ui/command'
@@ -8,8 +8,6 @@
 	import { themeState } from './theme-state.svelte'
 	import { setCookie } from '@/utils'
 
-
-	
 	type Variant = VariantProps<typeof buttonVariants>['variant']
 	type Props = {
 		variant?: Variant
@@ -53,11 +51,10 @@
 						disabled={themeState.preferTheme.icon === themeState.Icon[themeTag] ? true : false}
 						class="cursor-pointer"
 					>
-					<div class="flex w-max gap-2">
-						<svelte:component this={themeState.Icon[themeTag]}/>
-						{#if label}
-
-							{themeTag}
+						<div class="flex w-max gap-2">
+							<svelte:component this={themeState.Icon[themeTag]} />
+							{#if label}
+								{themeTag}
 							{/if}
 						</div>
 					</Item>

@@ -1,14 +1,9 @@
-
-
-
 <script lang="ts">
-
 	import type { Snippet } from 'svelte'
 	import defaultAttributes from './defaultAttributes'
 	import { cn } from '$lib/utils.js'
 
 	type Props = {
-
 		color?: string
 		size?: number
 		strokeWidth?: number
@@ -19,15 +14,13 @@
 		children: Snippet
 	}
 	let {
-
 		color = 'currentColor',
 		size = 24,
 		strokeWidth = 2,
 		absoluteStrokeWidth = false,
-		class:CLASS,
-		children,
-	}:Props = $props() 
-
+		class: CLASS,
+		children
+	}: Props = $props()
 </script>
 
 <!-- 
@@ -45,7 +38,6 @@
  - children: Snippet
  -->
 
-
 <svg
 	{...defaultAttributes}
 	width={size}
@@ -54,9 +46,7 @@
 	stroke-width={absoluteStrokeWidth ? (Number(strokeWidth) * 24) / Number(size) : strokeWidth}
 	stroke-linecap="round"
 	stroke-linejoin="round"
-	class={cn(`w-full`,CLASS)}
-	
+	class={cn(`w-full`, CLASS)}
 >
 	{@render children()}
-
 </svg>

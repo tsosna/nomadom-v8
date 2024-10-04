@@ -9,6 +9,7 @@
 
 	let { children, ...props }: Props = $props()
 </script>
+
 <!--  
 @component
 @name Mail

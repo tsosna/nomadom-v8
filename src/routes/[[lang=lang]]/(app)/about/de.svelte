@@ -1,5 +1,4 @@
-	<script lang="ts">
-    
-  </script>
-  <h1>Über diese App</h1>
+<script lang="ts">
+</script>
 
+<h1>Über diese App</h1>

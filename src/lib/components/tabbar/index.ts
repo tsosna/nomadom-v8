@@ -1,1 +1,1 @@
-export { default as Tabbar} from './tabbar.svelte';
+export { default as Tabbar } from './tabbar.svelte'

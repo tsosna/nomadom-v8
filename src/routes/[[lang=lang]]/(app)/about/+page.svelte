@@ -5,30 +5,28 @@
 	import fr from './fr.svelte'
 	import { about } from '$paraglide/messages.js'
 	import { languageTag, type AvailableLanguageTag } from '$paraglide/runtime'
-  import { goto } from '$app/navigation'
-  import { i18n } from '$lib/i18n'
-  import {home} from '@/paraglide/messages'
+	import { goto } from '$app/navigation'
+	import { i18n } from '$lib/i18n'
+	import { home } from '@/paraglide/messages'
 	import { base } from '$app/paths'
-	import {Button} from '@/components/ui/button'
+	import { Button } from '@/components/ui/button'
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
 
 	const lang: Record<AvailableLanguageTag, any> = { en, de, pl, fr }
 </script>
+
 <svelte:head>
 	<title>{about()}</title>
 </svelte:head>
 <Breadcrumb />
 
-
 <svelte:component this={lang[languageTag()]} />
 
-<h1>
-  About Page
-</h1>
+<h1>About Page</h1>
 
-<Button variant='creating' onclick={() => goto(i18n.resolveRoute(base + '/'))}>
+<Button variant="creating" onclick={() => goto(i18n.resolveRoute(base + '/'))}>
 	{home()}
 </Button>
-<Button variant='changing' onclick={() => goto(i18n.resolveRoute(base + '/'))}>
+<Button variant="changing" onclick={() => goto(i18n.resolveRoute(base + '/'))}>
 	{home()}
 </Button>

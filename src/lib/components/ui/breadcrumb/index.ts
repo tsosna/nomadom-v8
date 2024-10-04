@@ -1,1 +1,1 @@
-export {default as Breadcrumb} from './breadcrumb.svelte'
+export { default as Breadcrumb } from './breadcrumb.svelte'

@@ -5,8 +5,9 @@
 	type Props = {
 		children?: Snippet
 	}
-	let {  children, ...props }: Props = $props()
+	let { children, ...props }: Props = $props()
 </script>
+
 <!--  
 @component
 @name Languages
@@ -25,5 +26,5 @@
 	/><path d="M14 18h6" />
 </Icon>
 {#if children}
-  {@render children()}
+	{@render children()}
 {/if}

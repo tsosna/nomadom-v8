@@ -20,10 +20,9 @@
 		variant?: Variant
 		label?: boolean
 		class?: string | undefined | null
-
 	}
 
-	let { variant = 'ghost', label = false, class: CLASS, }: Props = $props()
+	let { variant = 'ghost', label = false, class: CLASS }: Props = $props()
 	let open = $state(false)
 
 	//TODO: prznieść closeAndFocusTrigger do pliku z funkcjami pomocniczymi
@@ -59,7 +58,7 @@
 <Popover bind:open>
 	<Trigger asChild let:builder>
 		<Button builders={[builder]} {variant} role="combobox" type="button" class="gap-x-1">
-			<Languages/>
+			<Languages />
 			{#if label}
 				{languageNames[languageTag()]} {$page.url.pathname}
 			{/if}

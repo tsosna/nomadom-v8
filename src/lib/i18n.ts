@@ -1,10 +1,10 @@
 // file initialized by the Paraglide-SvelteKit CLI - Feel free to edit it
-import { createI18n } from "@inlang/paraglide-sveltekit"
-import * as runtime from "$lib/paraglide/runtime.js"
+import { createI18n } from '@inlang/paraglide-sveltekit'
+import * as runtime from '$lib/paraglide/runtime.js'
 
-export const i18n = createI18n(runtime,{
-// pathnames - wyłączone z powodu nie kompatybilności z Vercelem
-  // pathnames: {
+export const i18n = createI18n(runtime, {
+	// pathnames - wyłączone z powodu nie kompatybilności z Vercelem
+	// pathnames: {
 	// 	"/about": {
 	// 		en: "/about",
 	// 		de: "/ueber-uns",
@@ -45,11 +45,11 @@ export const i18n = createI18n(runtime,{
 	seo: {
 		//noAlternateLinks: false,
 	},
-	exclude: ["/base/not-translated"],
+	exclude: ['/base/not-translated'],
 	textDirection: {
-		en: "ltr",
-		de: "ltr",
-		fr: "ltr",
-		pl: "ltr",
-	},
+		en: 'ltr',
+		de: 'ltr',
+		fr: 'ltr',
+		pl: 'ltr'
+	}
 })

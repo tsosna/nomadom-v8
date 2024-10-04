@@ -3,7 +3,7 @@
 	import { flip } from 'svelte/animate'
 
 	import { getToastState } from './toast-state.svelte'
-	import Toast  from './toast.svelte'
+	import Toast from './toast.svelte'
 
 	type ToastPosition = {
 		position?: 't' | 'b' | 'l' | 'r' | 'tl' | 'tr' | 'bl' | 'br'

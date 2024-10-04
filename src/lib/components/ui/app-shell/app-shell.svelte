@@ -2,7 +2,6 @@
 	import type { UIEventHandler } from 'svelte/elements'
 	import { cn } from '$lib/utils'
 
-
 	type Props = {
 		header?: any
 		sidebarLeft?: any
@@ -22,7 +21,7 @@
 		classPageFooter?: string
 		classFooter?: string
 
-		openNavSide?:boolean
+		openNavSide?: boolean
 		onscroll?: UIEventHandler<HTMLDivElement>
 	}
 
@@ -45,7 +44,7 @@
 		classPageFooter,
 		classFooter,
 
-		openNavSide=$bindable(),
+		openNavSide = $bindable(),
 		onscroll
 	}: Props = $props()
 
@@ -123,7 +122,11 @@
 			{/if}
 
 			<!-- Slot: Page Content (default) -->
-			<main id="page-content" class={cn('flex-auto', classPageContent)} class:opacity-15={openNavSide}>
+			<main
+				id="page-content"
+				class={cn('flex-auto', classPageContent)}
+				class:opacity-15={openNavSide}
+			>
 				{#if pageContent}
 					{@render pageContent()}
 				{/if}
