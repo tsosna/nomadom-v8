@@ -240,11 +240,3 @@ export const socials = () => `Socials`
  */
 /* @__NO_SIDE_EFFECTS__ */
 export const useCookies = () => `We use cookies to ensure you get the best experience on our website. By continuing to use this website, you agree to our use of cookies.`
-
-
-/**
- * 
- * @returns {string}
- */
-/* @__NO_SIDE_EFFECTS__ */
-export const disable = () => `Disable`
