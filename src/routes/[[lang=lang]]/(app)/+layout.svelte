@@ -6,6 +6,7 @@
 	import { AppShell } from '@/components/ui/app-shell'
 	import { Footer } from '@/components/footer'
 	import { Navbar } from '@/components/navbar'
+	import { page } from '$app/stores'
 
 	
 
@@ -14,6 +15,11 @@
 	}: {
 		children: Snippet
 	} = $props()
+	
+	const breadcrumbs = $page.url.pathname
+		.split('/')
+		.filter((p) => p !== '')
+		.map((p, i, arr) => (i === arr.length - 1 ? p : p + '/'))
 </script>
 
 <svelte:head>
@@ -22,6 +28,18 @@
 	<meta name="application" content="nomadoM" />
 	<!-- <meta name="description" content={about_this_app()} /> -->
 </svelte:head>
+
+<div class="hidden md:flex md:gap-1 md:text-sm">
+	{@render breadcrumb({ href: '/', text: 'home/' })}
+	{#each breadcrumbs as text, i}
+		{@const href = '/' + breadcrumbs.slice(1, i + 1).join('')}
+		{@render breadcrumb({ href, text })}
+	{/each}
+</div>
+
+{#snippet breadcrumb({ href, text })}
+	<a {href}>{text}</a>
+{/snippet}
 
 {#snippet header()}
 	<Navbar />
