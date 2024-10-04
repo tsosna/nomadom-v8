@@ -16,7 +16,6 @@
 		.split('/')
 		.filter((p) => p !== '')
 		.map((p, i, arr) => (i === arr.length - 1 ? p : p + '/'))
-	
 </script>
 
 <svelte:head>
@@ -26,31 +25,23 @@
 	<!-- <meta name="description" content={about_this_app()} /> -->
 </svelte:head>
 
-<pre>
-	{JSON.stringify(breadcrumbs, null, 2)}
-</pre>
-
-
-<div class="md:flex md:gap-1 md:text-sm hidden ">
-{@render breadcrumb({ href: '/', text: 'home/' })}
+<div class="hidden md:flex md:gap-1 md:text-sm">
+	{@render breadcrumb({ href: '/', text: 'home/' })}
 	{#each breadcrumbs as text, i}
 		{@const href = '/' + breadcrumbs.slice(1, i + 1).join('')}
 		{@render breadcrumb({ href, text })}
 	{/each}
 </div>
 
-
 {#snippet breadcrumb({ href, text })}
-
-		<a {href}>{text}</a>
-	
+	<a {href}>{text}</a>
 {/snippet}
 
 {#snippet header()}
 	<Navbar />
 {/snippet}
 {#snippet pageHeader()}
-	<h1 class="text-blue-500 font-extrabold text-xl text-center">Page Header</h1>
+	<h1 class="text-center text-xl font-extrabold text-blue-500">Layout Header</h1>
 {/snippet}
 {#snippet pageContent()}
 	{@render children()}
