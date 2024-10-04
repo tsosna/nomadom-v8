@@ -21,7 +21,6 @@ export function route(path: string, lang: AvailableLanguageTag) {
  * Returns the path without the language tag
  */
 function withoutLanguageTag(path: string) {
-	// @ts-expect-error We are assuming that maybeLang could be an AvailableLanguageTag
 	const [_, maybeLang, ...rest] = path.split('/')
 	if (availableLanguageTags.includes(maybeLang as AvailableLanguageTag)) {
 		return `/${rest.join('/')}`
