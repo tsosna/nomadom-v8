@@ -4,12 +4,22 @@
 	import { Footer } from '@/components/footer'
 	import { Navbar } from '@/components/navbar'
 	import { useCookies } from '$paraglide/messages'
+	// import { getCookie } from '@/utils'
+	// import { onMount } from 'svelte';
 
 	let {
 		children
 	}: {
 		children: Snippet
 	} = $props()
+
+	// let cookie: string | null = $state('');
+
+	// onMount(() => {
+	// 	if (typeof document !== 'undefined') {
+	// 		// cookie = getCookie('cookieConsent');
+	// 	}
+	// });
 </script>
 
 <svelte:head>
@@ -24,7 +34,7 @@
 {/snippet}
 {#snippet pageHeader()}
 	<!-- TODO: this area can be used to display a banner, e.g. with information on cookies -->
-	<h6 class="text-center font-semibold text-blue-500">{useCookies()}</h6>
+	<!-- <p class="hidden md:contents text-sm">{useCookies()} </p> -->
 {/snippet}
 {#snippet pageContent()}
 	{@render children()}

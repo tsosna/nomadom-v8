@@ -9,6 +9,7 @@ import {
 import { langTag } from '@/i18n-routing'
 import type { AvailableThemeTag } from './lib/components/ui/theme/theme-state.svelte'
 
+
 // FIXME: This is a workaround to get the theme cookie set on the first load
 // This should be change
 export const theme: Handle = async ({ event, resolve }) => {
@@ -22,6 +23,16 @@ export const theme: Handle = async ({ event, resolve }) => {
 	event.locals.theme = theme
 	return await resolve(event)
 }
+
+// export const handleCookie: Handle = async ({ event, resolve }) => {
+// 	const cookie = event.cookies.get('cookieConsent') as string
+// 	if (!cookie) {
+// 		event.cookies.set('cookieConsent', 'false', { path: '/', maxAge: 60 * 60 * 24 * 7, httpOnly: false })
+// 	}
+	
+// 	return await resolve(event)
+// }
+
 
 export const handleError: HandleServerError = async ({ error }) => {
 	interface localError extends Error {
