@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
-	import type { PageData } from '../visualization/$types'
+	import type { PageData } from '../$types'
+
 
 	export let data: PageData
 </script>

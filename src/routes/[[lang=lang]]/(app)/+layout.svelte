@@ -3,23 +3,35 @@
 	import { AppShell } from '@/components/ui/app-shell'
 	import { Footer } from '@/components/footer'
 	import { Navbar } from '@/components/navbar'
-	import { useCookies } from '$paraglide/messages'
-	// import { getCookie } from '@/utils'
-	// import { onMount } from 'svelte';
+	import { disable, useCookies } from '$paraglide/messages'
+	import { getCookie, setCookie } from '@/utils'
+	import { onMount } from 'svelte'
+	import { Banner } from '@/components/ui/banner'
+	import { Cookie } from '@/components/ui/icon'
+	import { fly } from 'svelte/transition'
+	import { quintOut } from 'svelte/easing'
 
+
+  import type { PageData } from './$types'
+
+	
 	let {
+		data,
 		children
 	}: {
+		data: PageData
 		children: Snippet
 	} = $props()
 
-	// let cookie: string | null = $state('');
+	
 
-	// onMount(() => {
-	// 	if (typeof document !== 'undefined') {
-	// 		// cookie = getCookie('cookieConsent');
-	// 	}
-	// });
+	let cookieConsent: string | null = $state(data.cookieConsent)
+
+	onMount(() => {
+		if (typeof document !== 'undefined') {
+			cookieConsent = getCookie('cookieConsent')
+		}
+	})
 </script>
 
 <svelte:head>
@@ -34,7 +46,25 @@
 {/snippet}
 {#snippet pageHeader()}
 	<!-- TODO: this area can be used to display a banner, e.g. with information on cookies -->
-	<!-- <p class="hidden md:contents text-sm">{useCookies()} </p> -->
+
+	{#if cookieConsent === 'false'}
+		<div 
+		transition:fly={{ duration: 500, y: -100, opacity: 15 }}
+		class="w-full">
+			<Banner
+				icon={Cookie}
+				callToAction={{
+					label: disable(),
+					onClick: () => {
+						setCookie('cookieConsent', 'true')
+						cookieConsent = 'true'
+					}
+				}}
+				label={useCookies()}
+				variant="warning"
+			/>
+		</div>
+	{/if}
 {/snippet}
 {#snippet pageContent()}
 	{@render children()}

@@ -24,14 +24,16 @@ export const theme: Handle = async ({ event, resolve }) => {
 	return await resolve(event)
 }
 
-// export const handleCookie: Handle = async ({ event, resolve }) => {
-// 	const cookie = event.cookies.get('cookieConsent') as string
-// 	if (!cookie) {
-// 		event.cookies.set('cookieConsent', 'false', { path: '/', maxAge: 60 * 60 * 24 * 7, httpOnly: false })
-// 	}
+export const handleCookie: Handle = async ({ event, resolve }) => {
+	const cookie = event.cookies.get('cookieConsent') as string
+	if (!cookie) {
+		event.cookies.set('cookieConsent', 'false', { path: '/', maxAge: 60 * 60 * 24 * 7, httpOnly: false })
+	}
 	
-// 	return await resolve(event)
-// }
+	event.locals.cookieConsent = cookie
+
+	return await resolve(event)
+}
 
 
 export const handleError: HandleServerError = async ({ error }) => {
@@ -107,4 +109,4 @@ export const lang: Handle = async ({ event, resolve }) => {
 	// return await resolve(event);
 }
 
-export const handle = sequence(i18n.handle(), theme, lang)
+export const handle = sequence(i18n.handle(), lang, theme, handleCookie)

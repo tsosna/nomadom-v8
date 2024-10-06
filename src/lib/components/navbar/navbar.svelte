@@ -16,7 +16,7 @@
 		color="white"
 		colorAccent="black"
 		size={`${innerWidth < 768 ? 96 : 128}`}
-		class="max-h-10"
+		class="max-h-10 "
 	/>
 	<Theme />
 	<Language />

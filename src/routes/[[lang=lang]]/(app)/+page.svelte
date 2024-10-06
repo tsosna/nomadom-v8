@@ -8,6 +8,10 @@
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
 	import { projects } from '$paraglide/messages'
 
+	import type { PageData } from '../$types'
+
+
+
 	function createCounter() {
 		let counter = $state({ count: 0 })
 		return counter

@@ -8,6 +8,7 @@ declare global {
 			paraglide: ParaglideLocals<AvailableLanguageTag>
 			theme: string
 			lang: AvailableLanguageTag
+			cookieConsent: string
 		}
 		// interface Error {}
 		interface Error {

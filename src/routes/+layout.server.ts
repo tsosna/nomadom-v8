@@ -11,5 +11,5 @@ export const load: LayoutServerLoad = async ({ locals, url, cookies }) => {
 		throw redirect(302, `/${defaultLanguage}`)
 	}
 
-	return { theme: locals.theme, lang: locals.lang }
+	return { theme: locals.theme, lang: locals.lang, cookieConsent: locals.cookieConsent }
 }

@@ -7,7 +7,7 @@
 	import { availableLanguageTags, languageTag } from '$paraglide/runtime'
 	import { i18n } from '$lib/i18n'
 	import { tick } from 'svelte'
-	import { Languages } from '$lib/components/ui/icon'
+	import { Languages } from '@/components/ui/icon'
 	import {
 		languageNamesDe,
 		languageNamesEn,

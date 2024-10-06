@@ -69,7 +69,8 @@ const config: Config = {
 				},
 				warning: {
 					DEFAULT: 'hsl(var(--warning) / <alpha-value>)',
-					foreground: 'hsl(var(--warning-foreground) / <alpha-value>)'
+					foreground: 'hsl(var(--warning-foreground) / <alpha-value>)',
+					background: 'hsl(var(--warning-background) / <alpha-value>)'
 				},
 				surface: {
 					DEFAULT: 'hsl(var(--surface) / <alpha-value>)',
