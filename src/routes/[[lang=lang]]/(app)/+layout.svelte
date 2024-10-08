@@ -9,7 +9,6 @@
 	import { Banner } from '@/components/ui/banner'
 	import { Cookie } from '@/components/ui/icon'
 	import { fly } from 'svelte/transition'
-	import { quintOut } from 'svelte/easing'
 
 
   import type { PageData } from './$types'
