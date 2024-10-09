@@ -48,8 +48,8 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1
       svelte-cloudinary:
-        specifier: ^1.3.2
-        version: 1.3.2(svelte@5.0.0-next.263)
+        specifier: ^2.1.1
+        version: 2.1.1(svelte@5.0.0-next.263)
       tailwind-merge:
         specifier: ^2.5.3
         version: 2.5.3
@@ -140,17 +140,23 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@cloudinary-util/url-loader@3.17.0':
-    resolution: {integrity: sha512-udFtlJ3jmPn8rAYQZymLViOiSKV1GKXVl93gHVKH96NigJ8iObVdaVw+AFphLM4mF1sLtzLO8mUG7oRcmlDLEQ==}
+  '@cloudinary-util/types@1.5.10':
+    resolution: {integrity: sha512-n5lrm7SdAXhgWEbkSJKHZGnaoO9G/g4WYS6HYnq/k4nLj79sYfQZOoKjyR8hF2iyLRdLkT+qlk68RNFFv5tKew==}
 
-  '@cloudinary-util/util@2.1.0':
-    resolution: {integrity: sha512-PGjVxyhhOP8IaD6uawXzfDnI8ArPqpiLfIXc8TEjhv3CGhDFBAM3dCT3xeAgg+92sQsx/AN74j+qckdWPfoO6w==}
+  '@cloudinary-util/types@1.5.11':
+    resolution: {integrity: sha512-b3slV/oFV/3SZO1aiw9+UgYEmK3Ft/Ts03euek5v217Y39mhj6zXWGGJ/OVxQFBzp/zK3RE5+5mzZf/rXY4/Lw==}
 
-  '@cloudinary-util/util@2.3.0':
-    resolution: {integrity: sha512-0Gojd+ZRQjJQmlBEAa8Ua94amvx7uWHoUzVUEGi1S8bgF1wPcMqG07cSUGQfRwHsFQ/9XOesx76Df622E+CevA==}
+  '@cloudinary-util/url-loader@5.10.5':
+    resolution: {integrity: sha512-HqngrSNCRVQVoMF3S2WxqzMXCS5pQflGMlGbPh7LJ240zl0OTIObDFyaUfVwF+x9d/+fb2lKR3nPCkpwd8MQ8w==}
+
+  '@cloudinary-util/util@3.3.2':
+    resolution: {integrity: sha512-Cc0iFxzfl7fcOXuznpeZFGYC885Of/vDgccRDnhTe/8Rf8YKv2PjLtezyo0VgmdA/CpeZy29NCXAsf6liokbwg==}
 
   '@cloudinary/transformation-builder-sdk@1.15.2':
     resolution: {integrity: sha512-oXYaW/whGaQVlR1O/ocp7vYcxaMAy3uGcQ8+8xjbfDCy/+c+zFIuP6JKI8L05kzqw7Wjh0cqzG+4u0X1UpPh+A==}
+
+  '@cloudinary/url-gen@1.15.0':
+    resolution: {integrity: sha512-bjU67eZxLUgoRy/Plli4TQio7q6P31OYqnEgXxeN9TKXrzr6h0DeEdIUhKI9gy3HkEBWXWWJIPh7j7gkOJPnyA==}
 
   '@cloudinary/url-gen@1.21.0':
     resolution: {integrity: sha512-ctYcCzX3G3vcgnESTU2ET3K1XsBiXcEnBddCGV0QbR3fJhLLrIShjSMEwZoepgh4LAFOHJu9DzvLFr+E8R7c7g==}
@@ -1051,11 +1057,11 @@ packages:
     resolution: {integrity: sha512-DVJ0UdhucZy+/1GlIy7FX2+CFhCeNAi4VwaEAe7u2UDenQr9/kGqvzx00UlpWibmEVDw4KsPOI7Aqa1+2Vqfmw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@unpic/core@0.0.47':
-    resolution: {integrity: sha512-h8Jage7Jh4PS7j77syB/qQR75eDzF0aTJc7mkDfWwqp5HKDfLb7L/3i7ta8Iasg6qZzfySWX/hzy+kLuOJS5XA==}
+  '@unpic/core@0.0.49':
+    resolution: {integrity: sha512-tAqeJRMPF2TrZbSQe74OZ9O5DzKDDUoFwFbZUpjvLcgwGQ/8aleDCb2Iy3bHFJfzzYZ9iHN0hN1VpTlAGQd+ZA==}
 
-  '@unpic/svelte@0.0.51':
-    resolution: {integrity: sha512-S8uuhNNM36xkgRtRYfY2fsvdxXj8VWfBSqj5glXTcgcdE1twTTw8HzARls1/mUTAedtoU29q17BjCdzbuQQaoQ==}
+  '@unpic/svelte@0.0.53':
+    resolution: {integrity: sha512-v6pT8igLvV94vanvVLUTkaphyPsT/rKq8KcJYGLebirp3PwbMBUDKehgtrSONa8eYwvbe3q3sACFI8f4Eit54w==}
     peerDependencies:
       svelte: '*'
 
@@ -1257,15 +1263,6 @@ packages:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
     engines: {node: '>=6'}
 
-  cloudinary-core@2.13.1:
-    resolution: {integrity: sha512-z53GPNWnvU0Zi+ns8CIVbZBfj7ps/++zDvwIyiFuq5p1MoK+KUCg0k5mBceDDHTnx1gHmHUd9aohS+gDxPNt6w==}
-    peerDependencies:
-      lodash: '>=4.0'
-
-  cloudinary@1.41.3:
-    resolution: {integrity: sha512-4o84y+E7dbif3lMns+p3UW6w6hLHEifbX/7zBJvaih1E9QNMZITENQ14GPYJC4JmhygYXsuuBb9bRA3xWEoOfg==}
-    engines: {node: '>=0.6'}
-
   clsx@2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
@@ -1319,9 +1316,6 @@ packages:
     resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
     engines: {node: '>= 0.6'}
 
-  core-js@3.38.1:
-    resolution: {integrity: sha512-OP35aUorbU3Zvlx7pjsFdu1rGNnD4pgw/CWoYzRY3t2EzoVT7shKHY1dlAy3f41cGIO7ZDPQimhGFTlEYkG/Hw==}
-
   crc-32@1.2.2:
     resolution: {integrity: sha512-ROmzCKrTnOwybPcJApAA6WBWij23HVfGVNKqqrZpuyZOHqK2CwHSvpGuyt/UNNvaIjEd8X5IFGp4Mh+Ie1IHJQ==}
     engines: {node: '>=0.8'}
@@ -1369,6 +1363,9 @@ packages:
   deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
+
+  defu@6.1.4:
+    resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
 
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
@@ -2211,14 +2208,6 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
-  q@1.5.1:
-    resolution: {integrity: sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==}
-    engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
-    deprecated: |-
-      You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
-
-      (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
-
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -2382,8 +2371,8 @@ packages:
     peerDependencies:
       svelte: ^3.55.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0
 
-  svelte-cloudinary@1.3.2:
-    resolution: {integrity: sha512-Kq9bYRukJEwpXKuySawlhPmeQ4HB8Fejzc+RjqfdAX2XmozOvoa3jmh3nPSrGKqOGZl7aFFOU46KCoBlPTpK5Q==}
+  svelte-cloudinary@2.1.1:
+    resolution: {integrity: sha512-NPVpvf47CwlQujkYRZTy85DJM5COZNmkhHC2uTPmxyZYDINGOpCq9hXcvAF/gOwSi75q37Rsuk9PYQNKr7/85Q==}
     peerDependencies:
       svelte: ^3.0.0 || ^4.0.0
 
@@ -2679,18 +2668,26 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@cloudinary-util/url-loader@3.17.0':
+  '@cloudinary-util/types@1.5.10': {}
+
+  '@cloudinary-util/types@1.5.11': {}
+
+  '@cloudinary-util/url-loader@5.10.5':
     dependencies:
-      '@cloudinary-util/util': 2.3.0
-      '@cloudinary/url-gen': 1.21.0
+      '@cloudinary-util/types': 1.5.10
+      '@cloudinary-util/util': 3.3.2
+      '@cloudinary/url-gen': 1.15.0
+      zod: 3.23.8
 
-  '@cloudinary-util/util@2.1.0': {}
-
-  '@cloudinary-util/util@2.3.0': {}
+  '@cloudinary-util/util@3.3.2': {}
 
   '@cloudinary/transformation-builder-sdk@1.15.2':
     dependencies:
       '@cloudinary/url-gen': 1.21.0
+
+  '@cloudinary/url-gen@1.15.0':
+    dependencies:
+      '@cloudinary/transformation-builder-sdk': 1.15.2
 
   '@cloudinary/url-gen@1.21.0':
     dependencies:
@@ -3636,13 +3633,13 @@ snapshots:
       '@typescript-eslint/types': 8.0.0-alpha.39
       eslint-visitor-keys: 3.4.3
 
-  '@unpic/core@0.0.47':
+  '@unpic/core@0.0.49':
     dependencies:
       unpic: 3.18.0
 
-  '@unpic/svelte@0.0.51(svelte@5.0.0-next.263)':
+  '@unpic/svelte@0.0.53(svelte@5.0.0-next.263)':
     dependencies:
-      '@unpic/core': 0.0.47
+      '@unpic/core': 0.0.49
       style-object-to-css-string: 1.1.3
       svelte: 5.0.0-next.263
       unpic: 3.18.0
@@ -3849,17 +3846,6 @@ snapshots:
 
   clean-stack@2.2.0: {}
 
-  cloudinary-core@2.13.1(lodash@4.17.21):
-    dependencies:
-      lodash: 4.17.21
-
-  cloudinary@1.41.3:
-    dependencies:
-      cloudinary-core: 2.13.1(lodash@4.17.21)
-      core-js: 3.38.1
-      lodash: 4.17.21
-      q: 1.5.1
-
   clsx@2.1.1: {}
 
   cmdk-sv@0.0.17(svelte@5.0.0-next.263):
@@ -3896,8 +3882,6 @@ snapshots:
 
   cookie@0.6.0: {}
 
-  core-js@3.38.1: {}
-
   crc-32@1.2.2: {}
 
   create-require@1.1.1:
@@ -3924,6 +3908,8 @@ snapshots:
   deepmerge-ts@5.1.0: {}
 
   deepmerge@4.3.1: {}
+
+  defu@6.1.4: {}
 
   delayed-stream@1.0.0: {}
 
@@ -4684,8 +4670,6 @@ snapshots:
 
   punycode@2.3.1: {}
 
-  q@1.5.1: {}
-
   queue-microtask@1.2.3: {}
 
   read-cache@1.0.0:
@@ -4875,13 +4859,13 @@ snapshots:
       - stylus
       - sugarss
 
-  svelte-cloudinary@1.3.2(svelte@5.0.0-next.263):
+  svelte-cloudinary@2.1.1(svelte@5.0.0-next.263):
     dependencies:
-      '@cloudinary-util/url-loader': 3.17.0
-      '@cloudinary-util/util': 2.1.0
-      '@unpic/core': 0.0.47
-      '@unpic/svelte': 0.0.51(svelte@5.0.0-next.263)
-      cloudinary: 1.41.3
+      '@cloudinary-util/types': 1.5.11
+      '@cloudinary-util/url-loader': 5.10.5
+      '@cloudinary-util/util': 3.3.2
+      '@unpic/svelte': 0.0.53(svelte@5.0.0-next.263)
+      defu: 6.1.4
       svelte: 5.0.0-next.263
 
   svelte-eslint-parser@0.41.1(svelte@5.0.0-next.263):
