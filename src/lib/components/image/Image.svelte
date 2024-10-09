@@ -50,7 +50,15 @@
 	alt="Paraglide logo"
 	width={sizeIMGSchema[size]}
 	height={Math.floor(sizeIMGSchema[size] / 1.8181818182)}
-	crop="fill"
+	crop={{
+    type: 'crop',
+    width: 400,
+    height: 400,
+    x: 80,
+    y: 350,
+    gravity: 'north_east',
+    source: true,
+  }} 
 	quality="auto"
 	fetchpriority="high"
 	loading="lazy"
@@ -102,7 +110,9 @@
 			]
 		}
 	]}
+
 	sizes="100vw"
 	version="1633660000"
 	layout="constrained"
+	{...props}
 />
