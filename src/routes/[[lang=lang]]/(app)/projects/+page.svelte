@@ -41,15 +41,14 @@
 	src="n_M_TECHO_domy_modulowe_projekt_domu_z_elewacja_z_cegly_prosty_i_funkcjonalny_dom_z_wanna_w_tarasie_drewnianym_febdc07c19"
 	alt="Paraglide logo"
 	width="200"
-	height="200"
+	height="300"
 	crop="fill"
 	quality="auto"
 	fetchpriority="high"
 	loading="lazy"
-	class="rounded-full"
 />
 
-<Image
+<!-- <Image
 	size="xl"
 	src="n_M_TECHO_domy_modulowe_projekt_domu_z_elewacja_z_cegly_prosty_i_funkcjonalny_dom_z_wanna_w_tarasie_drewnianym_febdc07c19"
-/>
+/> -->

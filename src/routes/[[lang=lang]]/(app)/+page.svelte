@@ -6,7 +6,8 @@
 	import { getToastState } from '@/components/ui/toast/toast-state.svelte'
 	import { Timer } from '@/utils.svelte'
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
-	import { projects } from '$paraglide/messages'
+	import { currentLanguageTag, projects } from '$paraglide/messages'
+	import {  languageTag } from '$paraglide/runtime'
 
 	import type { PageData } from '../$types'
 
@@ -54,8 +55,12 @@
 </svelte:head>
 <Breadcrumb />
 
+
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+
+<p>{currentLanguageTag({ languageTag: languageTag() })}
+</p>
 
 <Button onclick={() => (counter.count += 2)}>{counter.count}</Button>
 
