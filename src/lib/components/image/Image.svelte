@@ -44,25 +44,28 @@
 
 /> -->
 
+<!-- Przy crop jako obiekt jest konieczne przeładowanie strony np. przy zmianie języka
+e.g.
+	crop={{
+		type: 'crop',
+		gravity: 'center',
+		source: true,
+		width: 1080,
+		height: 1920,
+	}}
+
+-->
+
 <CldImage
 	class={cn('object-cover', CLASS)}
 	src="n_M_TECHO_domy_modulowe_projekt_domu_z_elewacja_z_cegly_prosty_i_funkcjonalny_dom_z_wanna_w_tarasie_drewnianym_febdc07c19"
 	alt="Paraglide logo"
-	width={sizeIMGSchema[size]}
-	height={Math.floor(sizeIMGSchema[size] / 1.8181818182)}
-	crop={{
-    type: 'crop',
-    width: 400,
-    height: 400,
-    x: 80,
-    y: 350,
-    gravity: 'north_east',
-    source: true,
-  }} 
+	width={Math.floor(sizeIMGSchema[size] )}
+	height={Math.floor(sizeIMGSchema[size]/ 1.8181818182)}
+	crop="fill"
 	quality="auto"
 	fetchpriority="high"
 	loading="lazy"
-	gravity="auto"
 	format="auto"
 	background="rgb:666"
 	overlays={[
@@ -70,7 +73,6 @@
 			publicId: 'default/Aero_Vector_Art_No_Signal_TV_2560x1600_f979b5a75f',
 			width: Math.floor(sizeIMGSchema[size] / 10),
 			crop: 'auto',
-			gravity: 'center',
 			position: {
 				x: 10,
 				y: 10,
@@ -99,7 +101,7 @@
 				fontFamily: 'Source Sans Pro',
 				fontSize: Math.floor(sizeIMGSchema[size] / 30),
 				fontWeight: 'bold',
-				textDecoration: 'underline',
+
 				letterSpacing: Math.floor(sizeIMGSchema[size] / 50),
 				text: 'nomadoM'
 			},
@@ -110,9 +112,10 @@
 			]
 		}
 	]}
-
 	sizes="100vw"
 	version="1633660000"
 	layout="constrained"
 	{...props}
 />
+
+<!-- auto, crop, fill, lfill, fill_pad, thumb -->
