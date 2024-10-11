@@ -9,7 +9,6 @@ import {
 import { langTag } from '@/i18n-routing'
 import type { AvailableThemeTag } from './lib/components/ui/theme/theme-state.svelte'
 
-
 // FIXME: This is a workaround to get the theme cookie set on the first load
 // This should be change
 export const theme: Handle = async ({ event, resolve }) => {
@@ -27,14 +26,31 @@ export const theme: Handle = async ({ event, resolve }) => {
 export const handleCookie: Handle = async ({ event, resolve }) => {
 	const cookie = event.cookies.get('cookieConsent') as string
 	if (!cookie) {
-		event.cookies.set('cookieConsent', 'false', { path: '/', maxAge: 60 * 60 * 24 * 7, httpOnly: false })
+		event.cookies.set('cookieConsent', 'false', {
+			path: '/',
+			maxAge: 60 * 60 * 24 * 7,
+			httpOnly: false
+		})
 	}
-	
+
 	event.locals.cookieConsent = cookie
 
 	return await resolve(event)
 }
 
+export const handleUserAgent: Handle = async ({ event, resolve }) => {
+	const userAgent = event.request.headers.get('user-agent') || ''
+	const isMobile = /mobile/i.test(userAgent)
+
+	event.locals.isMobile = isMobile
+
+	// You can now use `isMobile` to conditionally handle the request
+	const response = await resolve(event, {
+		transformPageChunk: ({ html }) => html.replace('%isMobile%', isMobile ? 'Mobile' : 'Desktop')
+	})
+
+	return response
+}
 
 export const handleError: HandleServerError = async ({ error }) => {
 	interface localError extends Error {
@@ -109,4 +125,4 @@ export const lang: Handle = async ({ event, resolve }) => {
 	// return await resolve(event);
 }
 
-export const handle = sequence(i18n.handle(), lang, theme, handleCookie)
+export const handle = sequence(i18n.handle(), lang, theme, handleCookie, handleUserAgent)

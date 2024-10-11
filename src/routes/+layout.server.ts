@@ -2,7 +2,7 @@ import type { LayoutServerLoad } from './$types'
 import { sourceLanguageTag, type AvailableLanguageTag } from '$paraglide/runtime.js'
 import { redirect } from '@sveltejs/kit'
 
-export const load: LayoutServerLoad = async ({ locals, url, cookies }) => {
+export const load: LayoutServerLoad = async ({ locals, url, cookies, params }) => {
 	const defaultLanguage = cookies.get('lang') as AvailableLanguageTag
 
 	// console.log('defaultLanguage', defaultLanguage, 'sourceLanguageTag', sourceLanguageTag, 'url.pathname', url.pathname);
@@ -11,5 +11,5 @@ export const load: LayoutServerLoad = async ({ locals, url, cookies }) => {
 		throw redirect(302, `/${defaultLanguage}`)
 	}
 
-	return { theme: locals.theme, lang: locals.lang, cookieConsent: locals.cookieConsent }
+	return { theme: locals.theme, lang: locals.paraglide, cookieConsent: locals.cookieConsent, isMobile: locals.isMobile }
 }

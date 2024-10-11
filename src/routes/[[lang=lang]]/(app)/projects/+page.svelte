@@ -12,6 +12,9 @@
 	export let data: PageData
 </script>
 
+<svelte:head>
+	<title>{projects()}</title>
+</svelte:head>
 <Breadcrumb />
 
 <h1>{projects()} Page</h1>

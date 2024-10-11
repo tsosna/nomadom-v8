@@ -50,9 +50,7 @@
 	})
 </script>
 
-<svelte:head>
-	<title>{projects()}</title>
-</svelte:head>
+
 <Breadcrumb />
 
 
