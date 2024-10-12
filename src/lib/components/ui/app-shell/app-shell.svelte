@@ -134,7 +134,7 @@
 
 			<!-- Slot: Page Footer -->
 			{#if pageFooter}
-				<footer id="page-footer" class={cn('flex-none', classPageFooter)}>
+				<footer id="page-footer" class={cn('', classPageFooter)}>
 					{@render pageFooter()}
 				</footer>
 			{/if}

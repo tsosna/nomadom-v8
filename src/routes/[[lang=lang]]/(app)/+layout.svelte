@@ -10,10 +10,8 @@
 	import { Cookie } from '@/components/ui/icon'
 	import { fly } from 'svelte/transition'
 
+	import type { PageData } from './$types'
 
-  import type { PageData } from './$types'
-
-	
 	let {
 		data,
 		children
@@ -21,8 +19,6 @@
 		data: PageData
 		children: Snippet
 	} = $props()
-
-	
 
 	let cookieConsent: string | null = $state(data.cookieConsent)
 
@@ -47,9 +43,7 @@
 	<!-- TODO: this area can be used to display a banner, e.g. with information on cookies -->
 
 	{#if cookieConsent === 'false'}
-		<div 
-		transition:fly={{ duration: 500, y: -100, opacity: 15 }}
-		class="w-full">
+		<div transition:fly={{ duration: 500, y: -100, opacity: 15 }} class="w-full">
 			<Banner
 				icon={Cookie}
 				callToAction={{
@@ -87,7 +81,7 @@
 	classHeader="sticky top-0 pl-0.5 md:px-0 bg-nomadom text-nomadom-foreground"
 	classPageHeader="text-blue-500 font-extrabold text-xl text-center"
 	classSidebarRight="flex flex-col pr-2  "
-	classFooter="hidden md:flex"
+	classFooter="hidden lg:flex"
 	openNavSide={false}
 />
 

@@ -3,21 +3,25 @@
 	import { i18n } from '$lib/i18n'
 	import { base } from '$app/paths'
 	import Button from '../ui/button/button.svelte'
+	import type { Snippet } from 'svelte'
 
 	type Props = {
 		icon: (item: string) => any
-		text?: string
 		src: string[]
 	}
 
-	let { icon, text, src }: Props = $props()
+	let { icon, src,}: Props = $props()
 </script>
 
-<section class="flex items-center justify-between">
+<section class="flex lg:hidden items-center justify-between bg-nomadom md:container md:mx-auto  ">
 	{#each src as item}
-		<Button variant="nomadom" onclick={() => goto(i18n.resolveRoute(base + '/'))} size="icon">
+		<Button
+			variant="nomadom"
+			onclick={() => goto(i18n.resolveRoute(base + '/'))}
+			size="icon"
+			class="p-0.5 "
+		>
 			{@render icon(item)}
-			{text}
 		</Button>
 	{/each}
 </section>
