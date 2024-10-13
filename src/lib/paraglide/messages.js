@@ -724,3 +724,147 @@ export const disable = (params = {}, options = {}) => {
 	}[options.languageTag ?? languageTag()]()
 }
 
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b = (params = {}, options = {}) => {
+	return {
+		de: de.n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b,
+		en: en.n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b,
+		fr: fr.n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b,
+		pl: pl.n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970 = (params = {}, options = {}) => {
+	return {
+		de: de.n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970,
+		en: en.n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970,
+		fr: fr.n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970,
+		pl: pl.n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const n_M_CLARO_elewacja_tylna_lewa_f9b84111fb = (params = {}, options = {}) => {
+	return {
+		de: de.n_M_CLARO_elewacja_tylna_lewa_f9b84111fb,
+		en: en.n_M_CLARO_elewacja_tylna_lewa_f9b84111fb,
+		fr: fr.n_M_CLARO_elewacja_tylna_lewa_f9b84111fb,
+		pl: pl.n_M_CLARO_elewacja_tylna_lewa_f9b84111fb
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const n_M_CLARO_elewacja_tylna_prawa_7790090327 = (params = {}, options = {}) => {
+	return {
+		de: de.n_M_CLARO_elewacja_tylna_prawa_7790090327,
+		en: en.n_M_CLARO_elewacja_tylna_prawa_7790090327,
+		fr: fr.n_M_CLARO_elewacja_tylna_prawa_7790090327,
+		pl: pl.n_M_CLARO_elewacja_tylna_prawa_7790090327
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const n_M_CLARO_elewacja_prawa_84330413ae = (params = {}, options = {}) => {
+	return {
+		de: de.n_M_CLARO_elewacja_prawa_84330413ae,
+		en: en.n_M_CLARO_elewacja_prawa_84330413ae,
+		fr: fr.n_M_CLARO_elewacja_prawa_84330413ae,
+		pl: pl.n_M_CLARO_elewacja_prawa_84330413ae
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLATO_label = (params = {}, options = {}) => {
+	return {
+		de: de.CLATO_label,
+		en: en.CLATO_label,
+		fr: fr.CLATO_label,
+		pl: pl.CLATO_label
+	}[options.languageTag ?? languageTag()]()
+}
+

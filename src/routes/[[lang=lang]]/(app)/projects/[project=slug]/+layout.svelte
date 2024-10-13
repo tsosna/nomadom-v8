@@ -16,23 +16,18 @@
 	let src = ['Visualization', 'Plan', 'Interior', 'Elevation', 'Implementation']
 
 	let innerWidth = $state(0)
-	const {slug} = data
-
+	const { slug } = data
 </script>
+
 <svelte:window bind:innerWidth />
 
 <Notchbar>
-
-
-		{slug}
-
+	{slug}
 </Notchbar>
 
 <pre>
 	{JSON.stringify(data, null, 2)}
 </pre>
-
-
 
 {innerWidth}
 <AppShell
@@ -47,16 +42,12 @@
 		{@render children()}
 	{/snippet}
 	{#snippet pageFooter()}
-	<div class="md:container md:mx-auto ">
-		
-		<Tabbar {src}>
-			{#snippet icon(icon)}
-			<img src={`/${icon}.svg`} alt="Visualization icon" />
-			{/snippet}
-		</Tabbar>
-	</div>
+		<div class="md:container md:mx-auto">
+			<Tabbar {src}>
+				{#snippet icon(icon)}
+					<img src={`/${icon}.svg`} alt="Visualization icon" />
+				{/snippet}
+			</Tabbar>
+		</div>
 	{/snippet}
-
 </AppShell>
-
-

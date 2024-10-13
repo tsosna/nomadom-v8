@@ -19,6 +19,12 @@ generator zod {
   output   = "../src/lib/schemas/generated/"
 }
 
+enum StatusType {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
 enum HouseType {
   SINGLE_FAMILY
   MULTI_FAMILY
@@ -54,22 +60,32 @@ enum DimensionType {
   D3
 }
 
+enum VariantType {
+  DEFAULT
+  MIRROR
+}
 
+enum OrientationType {
+  WEST
+  EAST
+  NORTH
+  SOUTH
+}
 
 model Project {
-  id               String   @id @unique
-  name             String
-  icon             String
-  label            String
+  id               String     @id @unique
+  name             String   // e.g. "JAPONICO 35", OPTIMO, BOSCO etc.
+  icon             String   // e.g. Flower, Leaf, Sprout, Tree, Shrub etc.
+  label            String?   //
   tags             String[]
-  shortDescription String
-  longDescription  String
-  mainBenefits     String
-  additionalInfo   String
-  usableArea       Float
-  numPeople        Int
-  roofType         RoofType
-  // flat, pitched
+  shortDescription String?
+  longDescription  String?
+  mainBenefits     String?
+  additionalInfo   String?
+  usableArea       Float?
+  numPeople        String?
+  roofType         RoofType // flat, pitched
+  status           StatusType @default(DRAFT)
 
   technicalInfo TechnicalInfo[]
   elevation     Elevation[]
@@ -94,56 +110,63 @@ model TechnicalInfo {
 }
 
 model Elevation {
-  id         String     @id @unique
-  url        String
-  hash       String     @unique
-  alt        String?
-  caption    String?
-  projectId  String
-  project    Project    @relation(fields: [projectId], references: [id])
-  facadeType FacadeType
-  // sheet metal, plaster, brick, wood
+  id        String  @id @unique
+  url       String
+  hash      String  @unique
+  alt       String?
+  caption   String?
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id])
+
+  facadeType  FacadeType // sheet metal, plaster, brick, wood
+  variantType VariantType      @default(DEFAULT) // default, mirror
+  orientation OrientationType? // west, east, north, south
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
 model Visualization {
-  id         String     @id @unique
-  url        String
-  hash       String     @unique
-  alt        String?
-  caption    String?
-  projectId  String
-  project    Project    @relation(fields: [projectId], references: [id])
-  facadeType FacadeType
-  // sheet metal, plaster, brick, wood
+  id          String          @id @unique
+  url         String
+  hash        String          @unique
+  alt         String?
+  caption     String?
+  projectId   String
+  project     Project         @relation(fields: [projectId], references: [id])
+  facadeType  FacadeType // sheet metal, plaster, brick, wood
+  variantType VariantType      @default(DEFAULT) // default, mirror
+  orientation OrientationType? // west, east, north, south
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
 model PlotLocation {
-  id        String  @id @unique
-  url       String
-  hash      String  @unique
-  alt       String?
-  caption   String?
-  projectId String
-  project   Project @relation(fields: [projectId], references: [id])
+  id          String          @id @unique
+  url         String
+  hash        String          @unique
+  alt         String?
+  caption     String?
+  projectId   String
+  project     Project         @relation(fields: [projectId], references: [id])
+  variantType VariantType      @default(DEFAULT) // default, mirror
+  orientation OrientationType? // west, east, north, south
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
 model Plan {
-  id        String  @id @unique
-  url       String
-  hash      String  @unique
-  alt       String?
-  caption   String?
-  projectId String
-  project   Project @relation(fields: [projectId], references: [id])
+  id          String          @id @unique
+  url         String
+  hash        String          @unique
+  alt         String?
+  caption     String?
+  projectId   String
+  project     Project         @relation(fields: [projectId], references: [id])
+  variantType VariantType      @default(DEFAULT) // default, mirror
+  orientation OrientationType? // west, east, north, south
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")

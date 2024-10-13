@@ -248,3 +248,51 @@ export const useCookies = () => `We use cookies to ensure you get the best exper
  */
 /* @__NO_SIDE_EFFECTS__ */
 export const disable = () => `Disable`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b = () => `nM-CLARO - front elevation left`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970 = () => `nM-CLARO - Right front elevation`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const n_M_CLARO_elewacja_tylna_lewa_f9b84111fb = () => `nM-CLARO - rear elevation left`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const n_M_CLARO_elewacja_tylna_prawa_7790090327 = () => `nM-CLARO - Rear elevation right`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const n_M_CLARO_elewacja_prawa_84330413ae = () => `nM-CLARO - Right elevation`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLATO_label = () => `Claro = udany relaks w otoczeniu natury`
