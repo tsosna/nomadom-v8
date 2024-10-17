@@ -15,7 +15,7 @@
 	import { languageTag } from '$paraglide/runtime'
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
 	import { onMount } from 'svelte'
-	import { visualization } from '@/api/visulization'
+	import { visualization } from '@/api/image'
 
 	// export let data: PageData
 

@@ -65,149 +65,162 @@ enum VariantType {
   MIRROR
 }
 
-enum OrientationType {
-  WEST
-  EAST
-  NORTH
-  SOUTH
+enum ImageType {
+  VISUALIZATION
+  FLOOR_PLAN
+  SECTION_PLAN
+  SITE_PLAN
+  LOCALIZATION_PLAN
+  ELEVATION
+  INTERIOR
+  SECTION
+  DETAIL
+  RENDERING
+  PHOTO
+  PROJECT
+}
+
+enum UnitType {
+  SQUARE_METER
+  SQUARE_FEET
+}
+
+enum FloorType {
+  BASEMENT
+  GROUND
+  FIRST
+  SECOND
+  THIRD
+  FOURTH
+}
+
+enum AreaType {
+  USABLE_FLOOR
+  GROSS_FLOOR
+  TOTAL_FLOOR
+  BUILT_UP
+  AUXILIARY_SPACE
+  TERRACE
+  BALCONY
+  GARDEN
+  TECHNICAL_SPACE
 }
 
 model Project {
-  id                String     @id @unique
-  name              String // e.g. "JAPONICO 35", OPTIMO, BOSCO etc.
-  icon              String // e.g. Flower, Leaf, Sprout, Tree, Shrub etc.
-  label             String? //
-  tags              String[]
-  shortDescription  String?
-  longDescription   String?
-  mainBenefits      String?
-  additionalInfo    String?
-  usableArea        Float?
-  numPeople         String?
-  roofType          RoofType // flat, pitched
-  status            StatusType @default(DRAFT)
-
-  technicalInfo TechnicalInfo[]
-  elevation     Elevation[]
-  visualization Visualization[]
-  plan          Plan[]
-  interior      Interior[]
-  plotLocation  PlotLocation[]
-  option       Option[]
-  currency     Currency[]
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-}
-
-model TechnicalInfo {
-  id        String  @id @unique
-  key       String
-  value     String
-  projectId String
-  project   Project @relation(fields: [projectId], references: [id])
+  id               String          @id @unique
+  name             String // e.g. "JAPONICO 35", OPTIMO, BOSCO etc.
+  icon             String // e.g. Flower, Leaf, Sprout, Tree, Shrub etc.
+  label            String? //
+  tags             String[]
+  shortDescription String?
+  longDescription  String?
+  mainBenefits     String?
+  additionalInfo   String?
+  technicalInfo    String?
+  usableArea       Float?
+  numPeople        String?
+  roofType         RoofType // flat, pitched
+  houseType        HouseType // single-family, multi-family, semi-detached, detached, duplex, apartment, studio, loft, penthouse, garden-house, cottage, bungalow, villa, mansion
+  status           StatusType      @default(DRAFT)
+  
+  option           Option[]
+  currency         Currency[]
+  upload           Upload[]
+  image            Image[]
+  video            Video[]
+  roomSchedule     RoomSchedule[]
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
-model Elevation {
-  id        String  @id @unique
-  url       String
-  hash      String  @unique
-  alt       String?
-  caption   String?
-  projectId String
-  project   Project @relation(fields: [projectId], references: [id])
 
-  facadeType  FacadeType // sheet metal, plaster, brick, wood
-  variantType VariantType      @default(DEFAULT) // default, mirror
-  orientation OrientationType? // west, east, north, south
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-}
-
-model Visualization {
-  id          String           @id @unique
-  url         String
-  hash        String           @unique
-  alt         String?
-  caption     String?
-  projectId   String
-  project     Project          @relation(fields: [projectId], references: [id])
-  facadeType  FacadeType // sheet metal, plaster, brick, wood
-  variantType VariantType      @default(DEFAULT) // default, mirror
-  orientation OrientationType? // west, east, north, south
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-}
-
-model PlotLocation {
-  id          String           @id @unique
-  url         String
-  hash        String           @unique
-  alt         String?
-  caption     String?
-  projectId   String
-  project     Project          @relation(fields: [projectId], references: [id])
-  variantType VariantType      @default(DEFAULT) // default, mirror
-  orientation OrientationType? // west, east, north, south
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-}
-
-model Plan {
-  id          String           @id @unique
-  url         String
-  hash        String           @unique
-  alt         String?
-  caption     String?
-  projectId   String
-  project     Project          @relation(fields: [projectId], references: [id])
-  variantType VariantType      @default(DEFAULT) // default, mirror
-  orientation OrientationType? // west, east, north, south
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-}
-
-model Interior {
-  id        String        @id @unique
-  url       String
-  hash      String        @unique
-  alt       String?
-  caption   String?
-  projectId String
-  project   Project       @relation(fields: [projectId], references: [id])
-  dimension DimensionType
-
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+model HomeType {
+  id            String        @id @unique
+  facadeType    FacadeType? // sheet metal, plaster, brick, wood
+  variantType   VariantType   @default(DEFAULT) // default, mirror
+  dimensionType DimensionType @default(D2) // 2D, 3D
+  image         Image[]
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
 }
 
 model Option {
-  id          String  @id @unique
+  id          String   @id @unique
   name        String
   description String?
   price       Float?
   projectId   String
-  project     Project @relation(fields: [projectId], references: [id])
+  project     Project  @relation(fields: [projectId], references: [id])
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+}
+
+model Currency {
+  id        String   @id @unique
+  name      String
+  symbol    String
+  exchange  Float?
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Upload {
+  id        String   @id @unique
+  title     String?
+  filename  String
+  mimetype  String?
+  url       String
+  hash      String   @unique
+  alt       String?
+  caption   String?
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Image {
+  id         String    @id @unique
+  title      String?
+  filename   String    @unique
+  mimetype   String
+  url        String
+  hash       String    @unique
+  alt        String?
+  caption    String?
+  projectId  String
+  imageType  ImageType
+  project    Project   @relation(fields: [projectId], references: [id])
+  homeTypeId String
+  homeType   HomeType? @relation(fields: [homeTypeId], references: [id])
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
-model Currency {
-  id        String  @id @unique
-  name      String
-  symbol    String
-  exchange  Float?
-  projectId   String
-  project     Project @relation(fields: [projectId], references: [id])
-
+model Video {
+  id        String   @id @unique
+  url       String
+  hash      String   @unique
+  alt       String?
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id])
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model RoomSchedule {
+  id        String    @id @unique
+  floorType FloorType
+  areaType  AreaType
+  name      String
+  area      Float?
+  unit      UnitType  @default(SQUARE_METER)
+  projectId String
+  project   Project   @relation(fields: [projectId], references: [id])
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
 }

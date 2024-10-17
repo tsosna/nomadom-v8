@@ -30,10 +30,20 @@
 	"socials": "Socials",
 	"useCookies": "We use cookies to ensure you get the best experience on our website. By continuing to use this website, you agree to our use of cookies.",
 	"disable": "Disable",
-	"n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b": "nM-CLARO - front elevation left",
-	"n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970": "nM-CLARO - Right front elevation",
-	"n_M_CLARO_elewacja_tylna_lewa_f9b84111fb": "nM-CLARO - rear elevation left",
-	"n_M_CLARO_elewacja_tylna_prawa_7790090327": "nM-CLARO - Rear elevation right",
-	"n_M_CLARO_elewacja_prawa_84330413ae": "nM-CLARO - Right elevation"
-
+	"rightElevation": "Right side elevation",
+	"frontElevation": "Front elevation",
+	"rearElevation": "Rear elevation",
+	"leftElevation": "Left side elevation",
+	"livingRoom": "Living room",
+	"bedroom": "Bedroom",
+	"showerRoom": "Shower room",
+	"form": "Form",
+	"investorForm": "Investor form",
+	"brochure": "Information Brochure",
+	"groundFloorPlan": "Ground floor plan",
+	"houseSectionPlan": "House section plan",
+	"room": "Room",
+	"roomInventory": "Room inventory",
+	"technicalData": "Technical data",
+	"localizationPlan": "Localization plan"
 }

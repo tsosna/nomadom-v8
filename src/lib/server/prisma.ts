@@ -1,5 +1,5 @@
 import { dev } from '$app/environment'
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client/index'
 import { withAccelerate } from '@prisma/extension-accelerate'
 
 const prisma: PrismaClient = __prisma || new PrismaClient().$extends(withAccelerate())
