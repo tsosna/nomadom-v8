@@ -45,5 +45,11 @@
 	"room": "Room",
 	"roomInventory": "Room inventory",
 	"technicalData": "Technical data",
-	"localizationPlan": "Localization plan"
+	"localizationPlan": "Localization plan",
+	"CLARO_label": "Claro = successful relaxation surrounded by nature",
+	"CLARO_shortDescription": "A single-storey house, designed for a family of 1-3 people. The interior of the house consists of a spacious living room with dining area, kitchen, 2 bedrooms, 1 bathroom. The house has a large terrace, which is an ideal place to relax outdoors.",
+	"CLARO_longDescription": "### CLARO\nWith investors in mind, we offer a single-storey house that is ideal as a rental property. Its functionality and attractive design will attract numerous tenants, and thanks to its proven construction and robust materials, it will provide many years of trouble-free use. At the same time, our duplex house is ideal as a holiday home that can function as a year-round living space.\nClaro is the ideal solution for families. Designed with a standard family of four in mind, our model offers everything you need to live comfortably. High windows provide plenty of narural light, making the interior of the house bright and welcoming.",
+	"CLARO_mainBenefits": "### **The main advantages of the house are :**.\n- ideal recreational home\n- excellent for rental purposes\n- ideal for a small family\n- quick construction\n- bright and spacious\n- economical",
+	"CLARO_additionalInfo": "### **Additional information:**\n- usable area: 70 m2\n- construction area: 70 m2\n- roof pitch: 30°\n- height of house: 3.5 m\n- width of house: 8.5 m\n- length of house: 8.5 m\n- number of bedrooms: 3\n- number of bathrooms: 1\n- number of floors: 1\n- terrace: yes\n- garage: no\n- basement: no",
+	"CLARO_technicalInfo": "### **Technical data:**\n- usable area: 58.4m2\n- pitched roof 37 degrees\n- length of building 12.5m\n- width of building 6.1m\n- building height: 5.15m\n- number of storeys: one \n- construction possible upon notification\n### **Technology:**\n- timber frame c24\n- 14 cm PUR thermal insulation\n- façade: façade board + plaster\n- heating: heat pump + goat \n- **required utilities**: water, electricity"
 }
