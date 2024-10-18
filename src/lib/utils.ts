@@ -107,3 +107,15 @@ export const generateRandomString = (length: number) => {
 	}
 	return result
 }
+
+/**
+ * extract a hash (unique name file ) part of a URL string
+ * 
+ * @param url 
+ * @returns 
+ */
+
+export const hash = (url: string) => {
+	const elements = url.split('/')
+	return elements[elements.length - 1].substring(0, elements[elements.length - 1].indexOf('.'))
+}

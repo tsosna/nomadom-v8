@@ -739,12 +739,12 @@ export const disable = (params = {}, options = {}) => {
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b = (params = {}, options = {}) => {
+export const rightElevation = (params = {}, options = {}) => {
 	return {
-		de: de.n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b,
-		en: en.n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b,
-		fr: fr.n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b,
-		pl: pl.n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b
+		de: de.rightElevation,
+		en: en.rightElevation,
+		fr: fr.rightElevation,
+		pl: pl.rightElevation
 	}[options.languageTag ?? languageTag()]()
 }
 
@@ -763,12 +763,12 @@ export const n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b = (params = {}, options
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970 = (params = {}, options = {}) => {
+export const frontElevation = (params = {}, options = {}) => {
 	return {
-		de: de.n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970,
-		en: en.n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970,
-		fr: fr.n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970,
-		pl: pl.n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970
+		de: de.frontElevation,
+		en: en.frontElevation,
+		fr: fr.frontElevation,
+		pl: pl.frontElevation
 	}[options.languageTag ?? languageTag()]()
 }
 
@@ -787,12 +787,12 @@ export const n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970 = (params = {}, option
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const n_M_CLARO_elewacja_tylna_lewa_f9b84111fb = (params = {}, options = {}) => {
+export const rearElevation = (params = {}, options = {}) => {
 	return {
-		de: de.n_M_CLARO_elewacja_tylna_lewa_f9b84111fb,
-		en: en.n_M_CLARO_elewacja_tylna_lewa_f9b84111fb,
-		fr: fr.n_M_CLARO_elewacja_tylna_lewa_f9b84111fb,
-		pl: pl.n_M_CLARO_elewacja_tylna_lewa_f9b84111fb
+		de: de.rearElevation,
+		en: en.rearElevation,
+		fr: fr.rearElevation,
+		pl: pl.rearElevation
 	}[options.languageTag ?? languageTag()]()
 }
 
@@ -811,12 +811,12 @@ export const n_M_CLARO_elewacja_tylna_lewa_f9b84111fb = (params = {}, options = 
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const n_M_CLARO_elewacja_tylna_prawa_7790090327 = (params = {}, options = {}) => {
+export const leftElevation = (params = {}, options = {}) => {
 	return {
-		de: de.n_M_CLARO_elewacja_tylna_prawa_7790090327,
-		en: en.n_M_CLARO_elewacja_tylna_prawa_7790090327,
-		fr: fr.n_M_CLARO_elewacja_tylna_prawa_7790090327,
-		pl: pl.n_M_CLARO_elewacja_tylna_prawa_7790090327
+		de: de.leftElevation,
+		en: en.leftElevation,
+		fr: fr.leftElevation,
+		pl: pl.leftElevation
 	}[options.languageTag ?? languageTag()]()
 }
 
@@ -835,12 +835,12 @@ export const n_M_CLARO_elewacja_tylna_prawa_7790090327 = (params = {}, options =
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const n_M_CLARO_elewacja_prawa_84330413ae = (params = {}, options = {}) => {
+export const livingRoom = (params = {}, options = {}) => {
 	return {
-		de: de.n_M_CLARO_elewacja_prawa_84330413ae,
-		en: en.n_M_CLARO_elewacja_prawa_84330413ae,
-		fr: fr.n_M_CLARO_elewacja_prawa_84330413ae,
-		pl: pl.n_M_CLARO_elewacja_prawa_84330413ae
+		de: de.livingRoom,
+		en: en.livingRoom,
+		fr: fr.livingRoom,
+		pl: pl.livingRoom
 	}[options.languageTag ?? languageTag()]()
 }
 
@@ -859,12 +859,396 @@ export const n_M_CLARO_elewacja_prawa_84330413ae = (params = {}, options = {}) =
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const CLATO_label = (params = {}, options = {}) => {
+export const bedroom = (params = {}, options = {}) => {
 	return {
-		de: de.CLATO_label,
-		en: en.CLATO_label,
-		fr: fr.CLATO_label,
-		pl: pl.CLATO_label
+		de: de.bedroom,
+		en: en.bedroom,
+		fr: fr.bedroom,
+		pl: pl.bedroom
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const showerRoom = (params = {}, options = {}) => {
+	return {
+		de: de.showerRoom,
+		en: en.showerRoom,
+		fr: fr.showerRoom,
+		pl: pl.showerRoom
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const form = (params = {}, options = {}) => {
+	return {
+		de: de.form,
+		en: en.form,
+		fr: fr.form,
+		pl: pl.form
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const investorForm = (params = {}, options = {}) => {
+	return {
+		de: de.investorForm,
+		en: en.investorForm,
+		fr: fr.investorForm,
+		pl: pl.investorForm
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const brochure = (params = {}, options = {}) => {
+	return {
+		de: de.brochure,
+		en: en.brochure,
+		fr: fr.brochure,
+		pl: pl.brochure
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const groundFloorPlan = (params = {}, options = {}) => {
+	return {
+		de: de.groundFloorPlan,
+		en: en.groundFloorPlan,
+		fr: fr.groundFloorPlan,
+		pl: pl.groundFloorPlan
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const houseSectionPlan = (params = {}, options = {}) => {
+	return {
+		de: de.houseSectionPlan,
+		en: en.houseSectionPlan,
+		fr: fr.houseSectionPlan,
+		pl: pl.houseSectionPlan
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const room = (params = {}, options = {}) => {
+	return {
+		de: de.room,
+		en: en.room,
+		fr: fr.room,
+		pl: pl.room
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const roomInventory = (params = {}, options = {}) => {
+	return {
+		de: de.roomInventory,
+		en: en.roomInventory,
+		fr: fr.roomInventory,
+		pl: pl.roomInventory
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const technicalData = (params = {}, options = {}) => {
+	return {
+		de: de.technicalData,
+		en: en.technicalData,
+		fr: fr.technicalData,
+		pl: pl.technicalData
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const localizationPlan = (params = {}, options = {}) => {
+	return {
+		de: de.localizationPlan,
+		en: en.localizationPlan,
+		fr: fr.localizationPlan,
+		pl: pl.localizationPlan
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_label = (params = {}, options = {}) => {
+	return {
+		de: de.CLARO_label,
+		en: en.CLARO_label,
+		fr: fr.CLARO_label,
+		pl: pl.CLARO_label
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_shortDescription = (params = {}, options = {}) => {
+	return {
+		de: de.CLARO_shortDescription,
+		en: en.CLARO_shortDescription,
+		fr: fr.CLARO_shortDescription,
+		pl: pl.CLARO_shortDescription
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_longDescription = (params = {}, options = {}) => {
+	return {
+		de: de.CLARO_longDescription,
+		en: en.CLARO_longDescription,
+		fr: fr.CLARO_longDescription,
+		pl: pl.CLARO_longDescription
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_mainBenefits = (params = {}, options = {}) => {
+	return {
+		de: de.CLARO_mainBenefits,
+		en: en.CLARO_mainBenefits,
+		fr: fr.CLARO_mainBenefits,
+		pl: pl.CLARO_mainBenefits
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_additionalInfo = (params = {}, options = {}) => {
+	return {
+		de: de.CLARO_additionalInfo,
+		en: en.CLARO_additionalInfo,
+		fr: fr.CLARO_additionalInfo,
+		pl: pl.CLARO_additionalInfo
+	}[options.languageTag ?? languageTag()]()
+}
+
+
+
+/**
+ * This message has been compiled by [inlang paraglide](https://inlang.com/m/gerre34r/library-inlang-paraglideJs).
+ *
+ * - Don't edit the message's code. Use [Sherlock (VS Code extension)](https://inlang.com/m/r7kp499g/app-inlang-ideExtension),
+ *   the [web editor](https://inlang.com/m/tdozzpar/app-inlang-finkLocalizationEditor) instead, or edit the translation files manually.
+ * 
+ * - The params are NonNullable<unknown> because the inlang SDK does not provide information on the type of a param (yet).
+ * 
+ * @param {{}} params
+ * @param {{ languageTag?: "en" | "pl" | "de" | "fr" }} options
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_technicalInfo = (params = {}, options = {}) => {
+	return {
+		de: de.CLARO_technicalInfo,
+		en: en.CLARO_technicalInfo,
+		fr: fr.CLARO_technicalInfo,
+		pl: pl.CLARO_technicalInfo
 	}[options.languageTag ?? languageTag()]()
 }
 

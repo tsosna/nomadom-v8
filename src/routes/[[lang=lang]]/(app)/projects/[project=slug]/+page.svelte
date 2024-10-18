@@ -15,7 +15,7 @@
 	import { languageTag } from '$paraglide/runtime'
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
 	import { onMount } from 'svelte'
-	import { visualization } from '@/api/image'
+	import { images } from '@/api/image'
 
 	// export let data: PageData
 
@@ -43,16 +43,6 @@
 		return () => window.removeEventListener('resize', checkOrientation)
 	})
 
-	// const renderLang: {
-	// 	[key: string]: (
-	// 		params?: {},
-	// 		options?: { languageTag?: 'en' | 'pl' | 'de' | 'fr' | undefined }
-	// 	) => string
-	// } = {
-	// 	n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b: n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b,
-	// 	n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970: n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970
-	// 	// Add other functions as needed
-	// }
 </script>
 
 <svelte:window bind:innerWidth />
@@ -61,10 +51,10 @@
 
 <h1>{projects()} Page {slug}</h1>
 
-{#each visualization as { hash, alt }}
+{#each images as {  title, alt }}
 	<p>
-		{#if renderLangMessages.renderLang[hash]}
-			{renderLangMessages.renderLang[hash]()}
+		{#if title && renderLangMessages.renderLang[title]}
+			{renderLangMessages.renderLang[title]()}
 		{:else}
 			{alt}
 		{/if}

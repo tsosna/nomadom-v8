@@ -10,8 +10,9 @@ export async function getProject(slug: string): Promise<Project> {
 
 export const projects: Array<Project> = [
 	{
-		id: '1',
+		id: 1,
 		name: 'CLARO',
+		slug: 'claro',
 		icon: 'Leaf',
 		label: 'CLATO_label',
 		tags: ['wood', 'eco', 'modern'],

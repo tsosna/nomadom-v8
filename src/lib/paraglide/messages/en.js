@@ -255,7 +255,7 @@ export const disable = () => `Disable`
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b = () => `nM-CLARO - front elevation left`
+export const rightElevation = () => `Right side elevation`
 
 
 /**
@@ -263,7 +263,7 @@ export const n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b = () => `nM-CLARO - fro
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970 = () => `nM-CLARO - Right front elevation`
+export const frontElevation = () => `Front elevation`
 
 
 /**
@@ -271,7 +271,7 @@ export const n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970 = () => `nM-CLARO - Ri
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const n_M_CLARO_elewacja_tylna_lewa_f9b84111fb = () => `nM-CLARO - rear elevation left`
+export const rearElevation = () => `Rear elevation`
 
 
 /**
@@ -279,7 +279,7 @@ export const n_M_CLARO_elewacja_tylna_lewa_f9b84111fb = () => `nM-CLARO - rear e
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const n_M_CLARO_elewacja_tylna_prawa_7790090327 = () => `nM-CLARO - Rear elevation right`
+export const leftElevation = () => `Left side elevation`
 
 
 /**
@@ -287,7 +287,7 @@ export const n_M_CLARO_elewacja_tylna_prawa_7790090327 = () => `nM-CLARO - Rear 
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const n_M_CLARO_elewacja_prawa_84330413ae = () => `nM-CLARO - Right elevation`
+export const livingRoom = () => `Living room`
 
 
 /**
@@ -295,4 +295,165 @@ export const n_M_CLARO_elewacja_prawa_84330413ae = () => `nM-CLARO - Right eleva
  * @returns {string}
  */
 /* @__NO_SIDE_EFFECTS__ */
-export const CLATO_label = () => `Claro = udany relaks w otoczeniu natury`
+export const bedroom = () => `Bedroom`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const showerRoom = () => `Shower room`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const form = () => `Form`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const investorForm = () => `Investor form`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const brochure = () => `Information Brochure`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const groundFloorPlan = () => `Ground floor plan`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const houseSectionPlan = () => `House section plan`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const room = () => `Room`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const roomInventory = () => `Room inventory`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const technicalData = () => `Technical data`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const localizationPlan = () => `Localization plan`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_label = () => `Claro = successful relaxation surrounded by nature`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_shortDescription = () => `A single-storey house, designed for a family of 1-3 people. The interior of the house consists of a spacious living room with dining area, kitchen, 2 bedrooms, 1 bathroom. The house has a large terrace, which is an ideal place to relax outdoors.`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_longDescription = () => `### CLARO
+With investors in mind, we offer a single-storey house that is ideal as a rental property. Its functionality and attractive design will attract numerous tenants, and thanks to its proven construction and robust materials, it will provide many years of trouble-free use. At the same time, our duplex house is ideal as a holiday home that can function as a year-round living space.
+Claro is the ideal solution for families. Designed with a standard family of four in mind, our model offers everything you need to live comfortably. High windows provide plenty of narural light, making the interior of the house bright and welcoming.`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_mainBenefits = () => `### **The main advantages of the house are :**.
+- ideal recreational home
+- excellent for rental purposes
+- ideal for a small family
+- quick construction
+- bright and spacious
+- economical`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_additionalInfo = () => `### **Additional information:**
+- usable area: 70 m2
+- construction area: 70 m2
+- roof pitch: 30°
+- height of house: 3.5 m
+- width of house: 8.5 m
+- length of house: 8.5 m
+- number of bedrooms: 3
+- number of bathrooms: 1
+- number of floors: 1
+- terrace: yes
+- garage: no
+- basement: no`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const CLARO_technicalInfo = () => `### **Technical data:**
+- usable area: 58.4m2
+- pitched roof 37 degrees
+- length of building 12.5m
+- width of building 6.1m
+- building height: 5.15m
+- number of storeys: one 
+- construction possible upon notification
+### **Technology:**
+- timber frame c24
+- 14 cm PUR thermal insulation
+- façade: façade board + plaster
+- heating: heat pump + goat 
+- **required utilities**: water, electricity`

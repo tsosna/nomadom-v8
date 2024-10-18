@@ -107,8 +107,9 @@ enum AreaType {
 }
 
 model Project {
-  id               String          @id @unique
+  id               Int        @id @default(autoincrement())
   name             String // e.g. "JAPONICO 35", OPTIMO, BOSCO etc.
+  slug             String     @unique
   icon             String // e.g. Flower, Leaf, Sprout, Tree, Shrub etc.
   label            String? //
   tags             String[]
@@ -121,54 +122,55 @@ model Project {
   numPeople        String?
   roofType         RoofType // flat, pitched
   houseType        HouseType // single-family, multi-family, semi-detached, detached, duplex, apartment, studio, loft, penthouse, garden-house, cottage, bungalow, villa, mansion
-  status           StatusType      @default(DRAFT)
-  
-  option           Option[]
-  currency         Currency[]
-  upload           Upload[]
-  image            Image[]
-  video            Video[]
-  roomSchedule     RoomSchedule[]
+  status           StatusType @default(DRAFT)
+
+  option       Option[]
+  currency     Currency[]
+  upload       Upload[]
+  image        Image[]
+  video        Video[]
+  roomSchedule RoomSchedule[]
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
-
 model HomeType {
-  id            String        @id @unique
+  id            Int           @id @default(autoincrement())
   facadeType    FacadeType? // sheet metal, plaster, brick, wood
   variantType   VariantType   @default(DEFAULT) // default, mirror
   dimensionType DimensionType @default(D2) // 2D, 3D
   image         Image[]
   createdAt     DateTime      @default(now()) @map("created_at")
   updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  @@unique([facadeType, variantType, dimensionType]) 
 }
 
 model Option {
-  id          String   @id @unique
+  id          Int      @id @default(autoincrement())
   name        String
   description String?
   price       Float?
-  projectId   String
+  projectId   Int
   project     Project  @relation(fields: [projectId], references: [id])
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 }
 
 model Currency {
-  id        String   @id @unique
+  id        Int      @id @default(autoincrement())
   name      String
   symbol    String
   exchange  Float?
-  projectId String
+  projectId Int
   project   Project  @relation(fields: [projectId], references: [id])
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
 model Upload {
-  id        String   @id @unique
+  id        Int      @id @default(autoincrement())
   title     String?
   filename  String
   mimetype  String?
@@ -176,14 +178,14 @@ model Upload {
   hash      String   @unique
   alt       String?
   caption   String?
-  projectId String
+  projectId Int
   project   Project  @relation(fields: [projectId], references: [id])
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
 model Image {
-  id         String    @id @unique
+  id         Int       @id @default(autoincrement())
   title      String?
   filename   String    @unique
   mimetype   String
@@ -191,10 +193,10 @@ model Image {
   hash       String    @unique
   alt        String?
   caption    String?
-  projectId  String
   imageType  ImageType
+  projectId  Int
   project    Project   @relation(fields: [projectId], references: [id])
-  homeTypeId String
+  homeTypeId Int
   homeType   HomeType? @relation(fields: [homeTypeId], references: [id])
 
   createdAt DateTime @default(now()) @map("created_at")
@@ -202,24 +204,24 @@ model Image {
 }
 
 model Video {
-  id        String   @id @unique
+  id        Int      @id @default(autoincrement())
   url       String
   hash      String   @unique
   alt       String?
-  projectId String
+  projectId Int
   project   Project  @relation(fields: [projectId], references: [id])
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
 model RoomSchedule {
-  id        String    @id @unique
+  id        Int       @id @default(autoincrement())
   floorType FloorType
   areaType  AreaType
   name      String
   area      Float?
   unit      UnitType  @default(SQUARE_METER)
-  projectId String
+  projectId Int
   project   Project   @relation(fields: [projectId], references: [id])
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt @map("updated_at")
