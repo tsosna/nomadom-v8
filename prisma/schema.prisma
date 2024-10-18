@@ -205,9 +205,13 @@ model Image {
 
 model Video {
   id        Int      @id @default(autoincrement())
-  url       String
-  hash      String   @unique
-  alt       String?
+  title      String?
+  filename   String    @unique
+  mimetype   String
+  url        String
+  hash       String    @unique
+  alt        String?
+  caption    String?
   projectId Int
   project   Project  @relation(fields: [projectId], references: [id])
   createdAt DateTime @default(now()) @map("created_at")

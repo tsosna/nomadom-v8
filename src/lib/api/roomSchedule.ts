@@ -1,6 +1,6 @@
 import type { RoomSchedule } from '@/schemas/generated'
 
-export const roomSchedule: Array<RoomSchedule> = [
+export const roomSchedules: Array<RoomSchedule> = [
 	{
 		id: 1,
 		floorType: 'GROUND',

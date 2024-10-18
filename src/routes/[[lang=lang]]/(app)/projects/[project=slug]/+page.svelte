@@ -5,7 +5,6 @@
 	import * as renderLangMessages from '@/messages'
 	import {
 		projects,
-		homes,
 		currentLanguageTag,
 	} from '$paraglide/messages'
 
@@ -73,14 +72,6 @@
   {JSON.stringify($page, null, 2)}
 </pre>
 
-<!-- {#each pro as { name, icon, href, alt }}
-	{@html homes({
-		name: `<h2>${name}</h2>`,
-		title: `<h3>${icon}</h3>`,
-		subtitle: `<p>${href}</p>`,
-		alt: `<p>${alt}</p>`
-	})}
-{/each} -->
 
 <div class={isPortrait && isMobile ? 'portrait' : 'landscape'}>
 	<CldImage

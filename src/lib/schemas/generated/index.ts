@@ -24,7 +24,7 @@ export const UploadScalarFieldEnumSchema = z.enum(['id','title','filename','mime
 
 export const ImageScalarFieldEnumSchema = z.enum(['id','title','filename','mimetype','url','hash','alt','caption','imageType','projectId','homeTypeId','createdAt','updatedAt']);
 
-export const VideoScalarFieldEnumSchema = z.enum(['id','url','hash','alt','projectId','createdAt','updatedAt']);
+export const VideoScalarFieldEnumSchema = z.enum(['id','title','filename','mimetype','url','hash','alt','caption','projectId','createdAt','updatedAt']);
 
 export const RoomScheduleScalarFieldEnumSchema = z.enum(['id','floorType','areaType','name','area','unit','projectId','createdAt','updatedAt']);
 
@@ -200,9 +200,13 @@ export type Image = z.infer<typeof ImageSchema>
 
 export const VideoSchema = z.object({
   id: z.number().int(),
+  title: z.string().nullable(),
+  filename: z.string(),
+  mimetype: z.string(),
   url: z.string(),
   hash: z.string(),
   alt: z.string().nullable(),
+  caption: z.string().nullable(),
   projectId: z.number().int(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
@@ -441,9 +445,13 @@ export const VideoArgsSchema: z.ZodType<Prisma.VideoDefaultArgs> = z.object({
 
 export const VideoSelectSchema: z.ZodType<Prisma.VideoSelect> = z.object({
   id: z.boolean().optional(),
+  title: z.boolean().optional(),
+  filename: z.boolean().optional(),
+  mimetype: z.boolean().optional(),
   url: z.boolean().optional(),
   hash: z.boolean().optional(),
   alt: z.boolean().optional(),
+  caption: z.boolean().optional(),
   projectId: z.boolean().optional(),
   createdAt: z.boolean().optional(),
   updatedAt: z.boolean().optional(),
@@ -1076,9 +1084,13 @@ export const VideoWhereInputSchema: z.ZodType<Prisma.VideoWhereInput> = z.object
   OR: z.lazy(() => VideoWhereInputSchema).array().optional(),
   NOT: z.union([ z.lazy(() => VideoWhereInputSchema),z.lazy(() => VideoWhereInputSchema).array() ]).optional(),
   id: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
+  title: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  filename: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  mimetype: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   url: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   hash: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  caption: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
@@ -1087,9 +1099,13 @@ export const VideoWhereInputSchema: z.ZodType<Prisma.VideoWhereInput> = z.object
 
 export const VideoOrderByWithRelationInputSchema: z.ZodType<Prisma.VideoOrderByWithRelationInput> = z.object({
   id: z.lazy(() => SortOrderSchema).optional(),
+  title: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  filename: z.lazy(() => SortOrderSchema).optional(),
+  mimetype: z.lazy(() => SortOrderSchema).optional(),
   url: z.lazy(() => SortOrderSchema).optional(),
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  caption: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional(),
@@ -1099,10 +1115,26 @@ export const VideoOrderByWithRelationInputSchema: z.ZodType<Prisma.VideoOrderByW
 export const VideoWhereUniqueInputSchema: z.ZodType<Prisma.VideoWhereUniqueInput> = z.union([
   z.object({
     id: z.number().int(),
+    filename: z.string(),
     hash: z.string()
   }),
   z.object({
     id: z.number().int(),
+    filename: z.string(),
+  }),
+  z.object({
+    id: z.number().int(),
+    hash: z.string(),
+  }),
+  z.object({
+    id: z.number().int(),
+  }),
+  z.object({
+    filename: z.string(),
+    hash: z.string(),
+  }),
+  z.object({
+    filename: z.string(),
   }),
   z.object({
     hash: z.string(),
@@ -1110,12 +1142,16 @@ export const VideoWhereUniqueInputSchema: z.ZodType<Prisma.VideoWhereUniqueInput
 ])
 .and(z.object({
   id: z.number().int().optional(),
+  filename: z.string().optional(),
   hash: z.string().optional(),
   AND: z.union([ z.lazy(() => VideoWhereInputSchema),z.lazy(() => VideoWhereInputSchema).array() ]).optional(),
   OR: z.lazy(() => VideoWhereInputSchema).array().optional(),
   NOT: z.union([ z.lazy(() => VideoWhereInputSchema),z.lazy(() => VideoWhereInputSchema).array() ]).optional(),
+  title: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  mimetype: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   url: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  caption: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
@@ -1124,9 +1160,13 @@ export const VideoWhereUniqueInputSchema: z.ZodType<Prisma.VideoWhereUniqueInput
 
 export const VideoOrderByWithAggregationInputSchema: z.ZodType<Prisma.VideoOrderByWithAggregationInput> = z.object({
   id: z.lazy(() => SortOrderSchema).optional(),
+  title: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  filename: z.lazy(() => SortOrderSchema).optional(),
+  mimetype: z.lazy(() => SortOrderSchema).optional(),
   url: z.lazy(() => SortOrderSchema).optional(),
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  caption: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional(),
@@ -1142,9 +1182,13 @@ export const VideoScalarWhereWithAggregatesInputSchema: z.ZodType<Prisma.VideoSc
   OR: z.lazy(() => VideoScalarWhereWithAggregatesInputSchema).array().optional(),
   NOT: z.union([ z.lazy(() => VideoScalarWhereWithAggregatesInputSchema),z.lazy(() => VideoScalarWhereWithAggregatesInputSchema).array() ]).optional(),
   id: z.union([ z.lazy(() => IntWithAggregatesFilterSchema),z.number() ]).optional(),
+  title: z.union([ z.lazy(() => StringNullableWithAggregatesFilterSchema),z.string() ]).optional().nullable(),
+  filename: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
+  mimetype: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
   url: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
   hash: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableWithAggregatesFilterSchema),z.string() ]).optional().nullable(),
+  caption: z.union([ z.lazy(() => StringNullableWithAggregatesFilterSchema),z.string() ]).optional().nullable(),
   projectId: z.union([ z.lazy(() => IntWithAggregatesFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeWithAggregatesFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeWithAggregatesFilterSchema),z.coerce.date() ]).optional(),
@@ -1796,9 +1840,13 @@ export const ImageUncheckedUpdateManyInputSchema: z.ZodType<Prisma.ImageUnchecke
 }).strict();
 
 export const VideoCreateInputSchema: z.ZodType<Prisma.VideoCreateInput> = z.object({
+  title: z.string().optional().nullable(),
+  filename: z.string(),
+  mimetype: z.string(),
   url: z.string(),
   hash: z.string(),
   alt: z.string().optional().nullable(),
+  caption: z.string().optional().nullable(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   project: z.lazy(() => ProjectCreateNestedOneWithoutVideoInputSchema)
@@ -1806,18 +1854,26 @@ export const VideoCreateInputSchema: z.ZodType<Prisma.VideoCreateInput> = z.obje
 
 export const VideoUncheckedCreateInputSchema: z.ZodType<Prisma.VideoUncheckedCreateInput> = z.object({
   id: z.number().int().optional(),
+  title: z.string().optional().nullable(),
+  filename: z.string(),
+  mimetype: z.string(),
   url: z.string(),
   hash: z.string(),
   alt: z.string().optional().nullable(),
+  caption: z.string().optional().nullable(),
   projectId: z.number().int(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
 }).strict();
 
 export const VideoUpdateInputSchema: z.ZodType<Prisma.VideoUpdateInput> = z.object({
+  title: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  filename: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mimetype: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   url: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   project: z.lazy(() => ProjectUpdateOneRequiredWithoutVideoNestedInputSchema).optional()
@@ -1825,9 +1881,13 @@ export const VideoUpdateInputSchema: z.ZodType<Prisma.VideoUpdateInput> = z.obje
 
 export const VideoUncheckedUpdateInputSchema: z.ZodType<Prisma.VideoUncheckedUpdateInput> = z.object({
   id: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  title: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  filename: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mimetype: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   url: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   projectId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -1835,27 +1895,39 @@ export const VideoUncheckedUpdateInputSchema: z.ZodType<Prisma.VideoUncheckedUpd
 
 export const VideoCreateManyInputSchema: z.ZodType<Prisma.VideoCreateManyInput> = z.object({
   id: z.number().int().optional(),
+  title: z.string().optional().nullable(),
+  filename: z.string(),
+  mimetype: z.string(),
   url: z.string(),
   hash: z.string(),
   alt: z.string().optional().nullable(),
+  caption: z.string().optional().nullable(),
   projectId: z.number().int(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
 }).strict();
 
 export const VideoUpdateManyMutationInputSchema: z.ZodType<Prisma.VideoUpdateManyMutationInput> = z.object({
+  title: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  filename: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mimetype: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   url: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict();
 
 export const VideoUncheckedUpdateManyInputSchema: z.ZodType<Prisma.VideoUncheckedUpdateManyInput> = z.object({
   id: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  title: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  filename: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mimetype: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   url: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   projectId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -2598,9 +2670,13 @@ export const EnumImageTypeWithAggregatesFilterSchema: z.ZodType<Prisma.EnumImage
 
 export const VideoCountOrderByAggregateInputSchema: z.ZodType<Prisma.VideoCountOrderByAggregateInput> = z.object({
   id: z.lazy(() => SortOrderSchema).optional(),
+  title: z.lazy(() => SortOrderSchema).optional(),
+  filename: z.lazy(() => SortOrderSchema).optional(),
+  mimetype: z.lazy(() => SortOrderSchema).optional(),
   url: z.lazy(() => SortOrderSchema).optional(),
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.lazy(() => SortOrderSchema).optional(),
+  caption: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional()
@@ -2613,9 +2689,13 @@ export const VideoAvgOrderByAggregateInputSchema: z.ZodType<Prisma.VideoAvgOrder
 
 export const VideoMaxOrderByAggregateInputSchema: z.ZodType<Prisma.VideoMaxOrderByAggregateInput> = z.object({
   id: z.lazy(() => SortOrderSchema).optional(),
+  title: z.lazy(() => SortOrderSchema).optional(),
+  filename: z.lazy(() => SortOrderSchema).optional(),
+  mimetype: z.lazy(() => SortOrderSchema).optional(),
   url: z.lazy(() => SortOrderSchema).optional(),
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.lazy(() => SortOrderSchema).optional(),
+  caption: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional()
@@ -2623,9 +2703,13 @@ export const VideoMaxOrderByAggregateInputSchema: z.ZodType<Prisma.VideoMaxOrder
 
 export const VideoMinOrderByAggregateInputSchema: z.ZodType<Prisma.VideoMinOrderByAggregateInput> = z.object({
   id: z.lazy(() => SortOrderSchema).optional(),
+  title: z.lazy(() => SortOrderSchema).optional(),
+  filename: z.lazy(() => SortOrderSchema).optional(),
+  mimetype: z.lazy(() => SortOrderSchema).optional(),
   url: z.lazy(() => SortOrderSchema).optional(),
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.lazy(() => SortOrderSchema).optional(),
+  caption: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional()
@@ -3668,18 +3752,26 @@ export const ImageCreateManyProjectInputEnvelopeSchema: z.ZodType<Prisma.ImageCr
 }).strict();
 
 export const VideoCreateWithoutProjectInputSchema: z.ZodType<Prisma.VideoCreateWithoutProjectInput> = z.object({
+  title: z.string().optional().nullable(),
+  filename: z.string(),
+  mimetype: z.string(),
   url: z.string(),
   hash: z.string(),
   alt: z.string().optional().nullable(),
+  caption: z.string().optional().nullable(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
 }).strict();
 
 export const VideoUncheckedCreateWithoutProjectInputSchema: z.ZodType<Prisma.VideoUncheckedCreateWithoutProjectInput> = z.object({
   id: z.number().int().optional(),
+  title: z.string().optional().nullable(),
+  filename: z.string(),
+  mimetype: z.string(),
   url: z.string(),
   hash: z.string(),
   alt: z.string().optional().nullable(),
+  caption: z.string().optional().nullable(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
 }).strict();
@@ -3872,9 +3964,13 @@ export const VideoScalarWhereInputSchema: z.ZodType<Prisma.VideoScalarWhereInput
   OR: z.lazy(() => VideoScalarWhereInputSchema).array().optional(),
   NOT: z.union([ z.lazy(() => VideoScalarWhereInputSchema),z.lazy(() => VideoScalarWhereInputSchema).array() ]).optional(),
   id: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
+  title: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  filename: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
+  mimetype: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   url: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   hash: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  caption: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
@@ -4772,9 +4868,13 @@ export const ImageCreateManyProjectInputSchema: z.ZodType<Prisma.ImageCreateMany
 
 export const VideoCreateManyProjectInputSchema: z.ZodType<Prisma.VideoCreateManyProjectInput> = z.object({
   id: z.number().int().optional(),
+  title: z.string().optional().nullable(),
+  filename: z.string(),
+  mimetype: z.string(),
   url: z.string(),
   hash: z.string(),
   alt: z.string().optional().nullable(),
+  caption: z.string().optional().nullable(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
 }).strict();
@@ -4925,27 +5025,39 @@ export const ImageUncheckedUpdateManyWithoutProjectInputSchema: z.ZodType<Prisma
 }).strict();
 
 export const VideoUpdateWithoutProjectInputSchema: z.ZodType<Prisma.VideoUpdateWithoutProjectInput> = z.object({
+  title: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  filename: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mimetype: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   url: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict();
 
 export const VideoUncheckedUpdateWithoutProjectInputSchema: z.ZodType<Prisma.VideoUncheckedUpdateWithoutProjectInput> = z.object({
   id: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  title: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  filename: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mimetype: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   url: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict();
 
 export const VideoUncheckedUpdateManyWithoutProjectInputSchema: z.ZodType<Prisma.VideoUncheckedUpdateManyWithoutProjectInput> = z.object({
   id: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  title: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  filename: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
+  mimetype: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   url: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict();
