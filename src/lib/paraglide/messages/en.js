@@ -457,3 +457,11 @@ export const CLARO_technicalInfo = () => `### **Technical data:**
 - façade: façade board + plaster
 - heating: heat pump + goat 
 - **required utilities**: water, electricity`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const assemblyGuide = () => `Modular Home Construction: Wall Assembly Guide`

@@ -3,9 +3,9 @@ import { projects } from '../src/lib/api/project'
 import { homeType } from '../src/lib/api/homeType'
 import { options } from '../src/lib/api/option'
 import { uploads } from '../src/lib/api/upload'
-import {images} from '../src/lib/api/image'
-import {videos} from '../src/lib/api/video'
-import { roomSchedules} from '../src/lib/api/roomSchedule'
+import { images } from '../src/lib/api/image'
+import { videos } from '../src/lib/api/video'
+import { roomSchedules } from '../src/lib/api/roomSchedule'
 
 const db = new PrismaClient()
 
@@ -15,6 +15,8 @@ interface PrismaError extends Error {
 		cause: string
 	}
 }
+
+console.log('Seeding database...')
 
 async function createProject() {
 	try {
@@ -58,6 +60,9 @@ async function createProject() {
 					},
 					select: { id: true }
 				})
+
+				console.log({ result })
+
 				for (const home of homeType) {
 					const resultHome = await db.homeType.upsert({
 						where: {
@@ -152,36 +157,49 @@ async function createProject() {
 						}
 					})
 				}
-				for (const upload of uploads) {
-					await db.upload.upsert({
-						where: { hash: upload.hash },
+				for (const video of videos) {
+					await db.video.upsert({
+						where: { hash: video.hash },
 						create: {
-							title: upload.title,
-							url: upload.url,
-							hash: upload.hash,
-							filename: upload.filename,
-							mimetype: upload.mimetype,
-							alt: upload.alt,
-							caption: upload.caption,
+							title: video.title,
+							url: video.url,
+							hash: video.hash,
+							filename: video.filename,
+							mimetype: video.mimetype,
+							alt: video.alt,
+							caption: video.caption,
 							projectId: result.id,
-							createdAt: upload.createdAt,
-							updatedAt: upload.updatedAt
+							createdAt: video.createdAt,
+							updatedAt: video.updatedAt
 						},
 						update: {
-							title: upload.title,
-							url: upload.url,
-							hash: upload.hash,
-							filename: upload.filename,
-							mimetype: upload.mimetype,
-							alt: upload.alt,
-							caption: upload.caption,
+							title: video.title,
+							url: video.url,
+							hash: video.hash,
+							filename: video.filename,
+							mimetype: video.mimetype,
+							alt: video.alt,
+							caption: video.caption,
 							projectId: result.id,
-							createdAt: upload.createdAt,
-							updatedAt: upload.updatedAt
+							createdAt: video.createdAt,
+							updatedAt: video.updatedAt
 						}
 					})
 				}
-
+				for (const roomSchedule of roomSchedules) {
+					await db.roomSchedule.create({
+						data: {
+							floorType: roomSchedule.floorType,
+							areaType: roomSchedule.areaType,
+							name: roomSchedule.name,
+							area: roomSchedule.area,
+							unit: roomSchedule.unit,
+							projectId: result.id,
+							createdAt: roomSchedule.createdAt,
+							updatedAt: roomSchedule.updatedAt
+						}
+					})
+				}
 			}
 		})
 	} catch (error: unknown) {
