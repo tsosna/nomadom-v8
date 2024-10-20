@@ -20,7 +20,7 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
-	let __prisma: import('@prisma/client/edge').PrismaClient
+	let __prisma: import('@prisma/client').PrismaClient
 }
 
 export {}

@@ -1,9 +1,9 @@
 import { dev } from '$app/environment'
-import { PrismaClient } from '@prisma/client/index'
+const { PrismaClient } = dev ? await import('@prisma/client') : await import('@prisma/client/edge');
 import { withAccelerate } from '@prisma/extension-accelerate'
 
 	// @ts-expect-error __prisma does exist globally declaration in src/app.d.ts
-const prisma: PrismaClient = global.__prisma || new PrismaClient()
+const prisma = new PrismaClient().$extends(withAccelerate())
 
 if (dev) {
 	// @ts-expect-error __prisma does exist globally declaration in src/app.d.ts
@@ -18,3 +18,8 @@ export interface PrismaError extends Error {
 		cause: string
 	}
 }
+
+
+
+
+
