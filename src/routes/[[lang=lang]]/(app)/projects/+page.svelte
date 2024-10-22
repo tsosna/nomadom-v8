@@ -1,22 +1,25 @@
 <script lang="ts">
 	import type { PageData } from './$types'
 	import { CldImage } from 'svelte-cloudinary'
-
-	import { projects, homes, currentLanguageTag } from '$paraglide/messages'
+	import { projects as projectsLang, homes, currentLanguageTag } from '$paraglide/messages'
 	import { Image } from '@/components/image'
 	import { Logo, LogoName, LogoTitle } from '@/components/ui/icon'
 	import { languageTag } from '$paraglide/runtime'
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
+	import * as renderLangMessages from '@/messages'
+
+
 
 	export let data: PageData
+	const { projects } = data
 </script>
 
 <svelte:head>
-	<title>{projects()}</title>
+	<title>{projectsLang()}</title>
 </svelte:head>
 <Breadcrumb />
 
-<h1>{projects()} Page</h1>
+<h1>{projectsLang()} Page</h1>
 
 <Logo size="48" color="#34A836" />
 
@@ -26,14 +29,12 @@
 
 {currentLanguageTag({ languageTag: languageTag() })}
 
-<pre>
-  {JSON.stringify(data, null, 2)}
-</pre>
-
-
+<!-- <pre>
+  {JSON.stringify(projects[0].image, null, 2)}
+</pre> -->
 
 <CldImage
-	src="n_M_TECHO_domy_modulowe_projekt_domu_z_elewacja_z_cegly_prosty_i_funkcjonalny_dom_z_wanna_w_tarasie_drewnianym_febdc07c19"
+	src="n_M_CLARO_elewacja_tylna_prawa_7790090327"
 	alt="Paraglide logo"
 	width="200"
 	height="200"
@@ -44,7 +45,30 @@
 	class="rounded-full"
 />
 
-<Image
-	size="xl"
-	src="n_M_TECHO_domy_modulowe_projekt_domu_z_elewacja_z_cegly_prosty_i_funkcjonalny_dom_z_wanna_w_tarasie_drewnianym_febdc07c19"
-/>
+
+
+
+
+
+{#each projects as {name, image}}
+	<h1>{name}</h1>
+<!-- <pre>
+	{JSON.stringify(image, null, 2)}
+</pre> -->
+
+
+
+	{#each image as { title, alt, caption, hash, imageType }}
+		<p>
+			{#if title && renderLangMessages.renderLang[title]}
+				{renderLangMessages.renderLang[title]()}
+			{:else}
+				{alt}
+			{/if}
+		</p>
+		<p>
+			{hash}
+		</p>
+		<Image size="xl" src={hash} />
+	{/each}
+{/each}

@@ -123,13 +123,15 @@ model Project {
   roofType         RoofType // flat, pitched
   houseType        HouseType // single-family, multi-family, semi-detached, detached, duplex, apartment, studio, loft, penthouse, garden-house, cottage, bungalow, villa, mansion
   status           StatusType @default(DRAFT)
+  index            Int        @default(0)
+  highlighted      Boolean    @default(false)
 
-  option       Option[]
-  currency     Currency[]
-  upload       Upload[]
-  image        Image[]
-  video        Video[]
-  roomSchedule RoomSchedule[]
+  options       Option[]
+  currencies     Currency[]
+  uploads       Upload[]
+  images        Image[]
+  videos        Video[]
+  roomSchedules RoomSchedule[]
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -140,11 +142,11 @@ model HomeType {
   facadeType    FacadeType? // sheet metal, plaster, brick, wood
   variantType   VariantType   @default(DEFAULT) // default, mirror
   dimensionType DimensionType @default(D2) // 2D, 3D
-  image         Image[]
+  images         Image[]
   createdAt     DateTime      @default(now()) @map("created_at")
   updatedAt     DateTime      @updatedAt @map("updated_at")
 
-  @@unique([facadeType, variantType, dimensionType]) 
+  @@unique([facadeType, variantType, dimensionType])
 }
 
 model Option {
@@ -185,37 +187,39 @@ model Upload {
 }
 
 model Image {
-  id         Int       @id @default(autoincrement())
-  title      String?
-  filename   String    @unique
-  mimetype   String
-  url        String
-  hash       String    @unique
-  alt        String?
-  caption    String?
-  imageType  ImageType
-  projectId  Int
-  project    Project   @relation(fields: [projectId], references: [id])
-  homeTypeId Int
-  homeType   HomeType? @relation(fields: [homeTypeId], references: [id])
+  id          Int       @id @default(autoincrement())
+  title       String?
+  filename    String    @unique
+  mimetype    String
+  url         String
+  hash        String    @unique
+  alt         String?
+  caption     String?
+  highlighted Boolean   @default(false)
+  imageType   ImageType
+  projectId   Int
+  project     Project   @relation(fields: [projectId], references: [id])
+  homeTypeId  Int
+  homeType    HomeType? @relation(fields: [homeTypeId], references: [id])
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
 model Video {
-  id        Int      @id @default(autoincrement())
-  title      String?
-  filename   String    @unique
-  mimetype   String
-  url        String
-  hash       String    @unique
-  alt        String?
-  caption    String?
-  projectId Int
-  project   Project  @relation(fields: [projectId], references: [id])
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  id          Int      @id @default(autoincrement())
+  title       String?
+  filename    String   @unique
+  mimetype    String
+  url         String
+  hash        String   @unique
+  alt         String?
+  caption     String?
+  highlighted Boolean  @default(false)
+  projectId   Int
+  project     Project  @relation(fields: [projectId], references: [id])
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
 }
 
 model RoomSchedule {

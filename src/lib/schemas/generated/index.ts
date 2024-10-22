@@ -12,7 +12,7 @@ import type { Prisma } from '@prisma/client';
 
 export const TransactionIsolationLevelSchema = z.enum(['ReadUncommitted','ReadCommitted','RepeatableRead','Serializable']);
 
-export const ProjectScalarFieldEnumSchema = z.enum(['id','name','slug','icon','label','tags','shortDescription','longDescription','mainBenefits','additionalInfo','technicalInfo','usableArea','numPeople','roofType','houseType','status','createdAt','updatedAt']);
+export const ProjectScalarFieldEnumSchema = z.enum(['id','name','slug','icon','label','tags','shortDescription','longDescription','mainBenefits','additionalInfo','technicalInfo','usableArea','numPeople','roofType','houseType','status','index','highlighted','createdAt','updatedAt']);
 
 export const HomeTypeScalarFieldEnumSchema = z.enum(['id','facadeType','variantType','dimensionType','createdAt','updatedAt']);
 
@@ -22,9 +22,9 @@ export const CurrencyScalarFieldEnumSchema = z.enum(['id','name','symbol','excha
 
 export const UploadScalarFieldEnumSchema = z.enum(['id','title','filename','mimetype','url','hash','alt','caption','projectId','createdAt','updatedAt']);
 
-export const ImageScalarFieldEnumSchema = z.enum(['id','title','filename','mimetype','url','hash','alt','caption','imageType','projectId','homeTypeId','createdAt','updatedAt']);
+export const ImageScalarFieldEnumSchema = z.enum(['id','title','filename','mimetype','url','hash','alt','caption','highlighted','imageType','projectId','homeTypeId','createdAt','updatedAt']);
 
-export const VideoScalarFieldEnumSchema = z.enum(['id','title','filename','mimetype','url','hash','alt','caption','projectId','createdAt','updatedAt']);
+export const VideoScalarFieldEnumSchema = z.enum(['id','title','filename','mimetype','url','hash','alt','caption','highlighted','projectId','createdAt','updatedAt']);
 
 export const RoomScheduleScalarFieldEnumSchema = z.enum(['id','floorType','areaType','name','area','unit','projectId','createdAt','updatedAt']);
 
@@ -99,6 +99,8 @@ export const ProjectSchema = z.object({
   technicalInfo: z.string().nullable(),
   usableArea: z.number().nullable(),
   numPeople: z.string().nullable(),
+  index: z.number().int(),
+  highlighted: z.boolean(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
 })
@@ -186,6 +188,7 @@ export const ImageSchema = z.object({
   hash: z.string(),
   alt: z.string().nullable(),
   caption: z.string().nullable(),
+  highlighted: z.boolean(),
   projectId: z.number().int(),
   homeTypeId: z.number().int(),
   createdAt: z.coerce.date(),
@@ -207,6 +210,7 @@ export const VideoSchema = z.object({
   hash: z.string(),
   alt: z.string().nullable(),
   caption: z.string().nullable(),
+  highlighted: z.boolean(),
   projectId: z.number().int(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
@@ -284,6 +288,8 @@ export const ProjectSelectSchema: z.ZodType<Prisma.ProjectSelect> = z.object({
   roofType: z.boolean().optional(),
   houseType: z.boolean().optional(),
   status: z.boolean().optional(),
+  index: z.boolean().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.boolean().optional(),
   updatedAt: z.boolean().optional(),
   option: z.union([z.boolean(),z.lazy(() => OptionFindManyArgsSchema)]).optional(),
@@ -422,6 +428,7 @@ export const ImageSelectSchema: z.ZodType<Prisma.ImageSelect> = z.object({
   hash: z.boolean().optional(),
   alt: z.boolean().optional(),
   caption: z.boolean().optional(),
+  highlighted: z.boolean().optional(),
   imageType: z.boolean().optional(),
   projectId: z.boolean().optional(),
   homeTypeId: z.boolean().optional(),
@@ -452,6 +459,7 @@ export const VideoSelectSchema: z.ZodType<Prisma.VideoSelect> = z.object({
   hash: z.boolean().optional(),
   alt: z.boolean().optional(),
   caption: z.boolean().optional(),
+  highlighted: z.boolean().optional(),
   projectId: z.boolean().optional(),
   createdAt: z.boolean().optional(),
   updatedAt: z.boolean().optional(),
@@ -508,6 +516,8 @@ export const ProjectWhereInputSchema: z.ZodType<Prisma.ProjectWhereInput> = z.ob
   roofType: z.union([ z.lazy(() => EnumRoofTypeFilterSchema),z.lazy(() => RoofTypeSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => EnumHouseTypeFilterSchema),z.lazy(() => HouseTypeSchema) ]).optional(),
   status: z.union([ z.lazy(() => EnumStatusTypeFilterSchema),z.lazy(() => StatusTypeSchema) ]).optional(),
+  index: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
+  highlighted: z.union([ z.lazy(() => BoolFilterSchema),z.boolean() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   option: z.lazy(() => OptionListRelationFilterSchema).optional(),
@@ -535,6 +545,8 @@ export const ProjectOrderByWithRelationInputSchema: z.ZodType<Prisma.ProjectOrde
   roofType: z.lazy(() => SortOrderSchema).optional(),
   houseType: z.lazy(() => SortOrderSchema).optional(),
   status: z.lazy(() => SortOrderSchema).optional(),
+  index: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional(),
   option: z.lazy(() => OptionOrderByRelationAggregateInputSchema).optional(),
@@ -577,6 +589,8 @@ export const ProjectWhereUniqueInputSchema: z.ZodType<Prisma.ProjectWhereUniqueI
   roofType: z.union([ z.lazy(() => EnumRoofTypeFilterSchema),z.lazy(() => RoofTypeSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => EnumHouseTypeFilterSchema),z.lazy(() => HouseTypeSchema) ]).optional(),
   status: z.union([ z.lazy(() => EnumStatusTypeFilterSchema),z.lazy(() => StatusTypeSchema) ]).optional(),
+  index: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
+  highlighted: z.union([ z.lazy(() => BoolFilterSchema),z.boolean() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   option: z.lazy(() => OptionListRelationFilterSchema).optional(),
@@ -604,6 +618,8 @@ export const ProjectOrderByWithAggregationInputSchema: z.ZodType<Prisma.ProjectO
   roofType: z.lazy(() => SortOrderSchema).optional(),
   houseType: z.lazy(() => SortOrderSchema).optional(),
   status: z.lazy(() => SortOrderSchema).optional(),
+  index: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional(),
   _count: z.lazy(() => ProjectCountOrderByAggregateInputSchema).optional(),
@@ -633,6 +649,8 @@ export const ProjectScalarWhereWithAggregatesInputSchema: z.ZodType<Prisma.Proje
   roofType: z.union([ z.lazy(() => EnumRoofTypeWithAggregatesFilterSchema),z.lazy(() => RoofTypeSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => EnumHouseTypeWithAggregatesFilterSchema),z.lazy(() => HouseTypeSchema) ]).optional(),
   status: z.union([ z.lazy(() => EnumStatusTypeWithAggregatesFilterSchema),z.lazy(() => StatusTypeSchema) ]).optional(),
+  index: z.union([ z.lazy(() => IntWithAggregatesFilterSchema),z.number() ]).optional(),
+  highlighted: z.union([ z.lazy(() => BoolWithAggregatesFilterSchema),z.boolean() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeWithAggregatesFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeWithAggregatesFilterSchema),z.coerce.date() ]).optional(),
 }).strict();
@@ -963,6 +981,7 @@ export const ImageWhereInputSchema: z.ZodType<Prisma.ImageWhereInput> = z.object
   hash: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
   caption: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  highlighted: z.union([ z.lazy(() => BoolFilterSchema),z.boolean() ]).optional(),
   imageType: z.union([ z.lazy(() => EnumImageTypeFilterSchema),z.lazy(() => ImageTypeSchema) ]).optional(),
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   homeTypeId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
@@ -981,6 +1000,7 @@ export const ImageOrderByWithRelationInputSchema: z.ZodType<Prisma.ImageOrderByW
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
   caption: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   imageType: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   homeTypeId: z.lazy(() => SortOrderSchema).optional(),
@@ -1030,6 +1050,7 @@ export const ImageWhereUniqueInputSchema: z.ZodType<Prisma.ImageWhereUniqueInput
   url: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
   caption: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  highlighted: z.union([ z.lazy(() => BoolFilterSchema),z.boolean() ]).optional(),
   imageType: z.union([ z.lazy(() => EnumImageTypeFilterSchema),z.lazy(() => ImageTypeSchema) ]).optional(),
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
   homeTypeId: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
@@ -1048,6 +1069,7 @@ export const ImageOrderByWithAggregationInputSchema: z.ZodType<Prisma.ImageOrder
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
   caption: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   imageType: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   homeTypeId: z.lazy(() => SortOrderSchema).optional(),
@@ -1072,6 +1094,7 @@ export const ImageScalarWhereWithAggregatesInputSchema: z.ZodType<Prisma.ImageSc
   hash: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableWithAggregatesFilterSchema),z.string() ]).optional().nullable(),
   caption: z.union([ z.lazy(() => StringNullableWithAggregatesFilterSchema),z.string() ]).optional().nullable(),
+  highlighted: z.union([ z.lazy(() => BoolWithAggregatesFilterSchema),z.boolean() ]).optional(),
   imageType: z.union([ z.lazy(() => EnumImageTypeWithAggregatesFilterSchema),z.lazy(() => ImageTypeSchema) ]).optional(),
   projectId: z.union([ z.lazy(() => IntWithAggregatesFilterSchema),z.number() ]).optional(),
   homeTypeId: z.union([ z.lazy(() => IntWithAggregatesFilterSchema),z.number() ]).optional(),
@@ -1091,6 +1114,7 @@ export const VideoWhereInputSchema: z.ZodType<Prisma.VideoWhereInput> = z.object
   hash: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
   caption: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  highlighted: z.union([ z.lazy(() => BoolFilterSchema),z.boolean() ]).optional(),
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
@@ -1106,6 +1130,7 @@ export const VideoOrderByWithRelationInputSchema: z.ZodType<Prisma.VideoOrderByW
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
   caption: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional(),
@@ -1152,6 +1177,7 @@ export const VideoWhereUniqueInputSchema: z.ZodType<Prisma.VideoWhereUniqueInput
   url: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
   caption: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  highlighted: z.union([ z.lazy(() => BoolFilterSchema),z.boolean() ]).optional(),
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
@@ -1167,6 +1193,7 @@ export const VideoOrderByWithAggregationInputSchema: z.ZodType<Prisma.VideoOrder
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
   caption: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional(),
@@ -1189,6 +1216,7 @@ export const VideoScalarWhereWithAggregatesInputSchema: z.ZodType<Prisma.VideoSc
   hash: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableWithAggregatesFilterSchema),z.string() ]).optional().nullable(),
   caption: z.union([ z.lazy(() => StringNullableWithAggregatesFilterSchema),z.string() ]).optional().nullable(),
+  highlighted: z.union([ z.lazy(() => BoolWithAggregatesFilterSchema),z.boolean() ]).optional(),
   projectId: z.union([ z.lazy(() => IntWithAggregatesFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeWithAggregatesFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeWithAggregatesFilterSchema),z.coerce.date() ]).optional(),
@@ -1290,6 +1318,8 @@ export const ProjectCreateInputSchema: z.ZodType<Prisma.ProjectCreateInput> = z.
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -1317,6 +1347,8 @@ export const ProjectUncheckedCreateInputSchema: z.ZodType<Prisma.ProjectUnchecke
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionUncheckedCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -1343,6 +1375,8 @@ export const ProjectUpdateInputSchema: z.ZodType<Prisma.ProjectUpdateInput> = z.
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -1370,6 +1404,8 @@ export const ProjectUncheckedUpdateInputSchema: z.ZodType<Prisma.ProjectUnchecke
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUncheckedUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -1397,6 +1433,8 @@ export const ProjectCreateManyInputSchema: z.ZodType<Prisma.ProjectCreateManyInp
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
 }).strict();
@@ -1417,6 +1455,8 @@ export const ProjectUpdateManyMutationInputSchema: z.ZodType<Prisma.ProjectUpdat
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict();
@@ -1438,6 +1478,8 @@ export const ProjectUncheckedUpdateManyInputSchema: z.ZodType<Prisma.ProjectUnch
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict();
@@ -1740,6 +1782,7 @@ export const ImageCreateInputSchema: z.ZodType<Prisma.ImageCreateInput> = z.obje
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   imageType: z.lazy(() => ImageTypeSchema),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
@@ -1756,6 +1799,7 @@ export const ImageUncheckedCreateInputSchema: z.ZodType<Prisma.ImageUncheckedCre
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   imageType: z.lazy(() => ImageTypeSchema),
   projectId: z.number().int(),
   homeTypeId: z.number().int(),
@@ -1771,6 +1815,7 @@ export const ImageUpdateInputSchema: z.ZodType<Prisma.ImageUpdateInput> = z.obje
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   imageType: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => EnumImageTypeFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -1787,6 +1832,7 @@ export const ImageUncheckedUpdateInputSchema: z.ZodType<Prisma.ImageUncheckedUpd
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   imageType: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => EnumImageTypeFieldUpdateOperationsInputSchema) ]).optional(),
   projectId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   homeTypeId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
@@ -1803,6 +1849,7 @@ export const ImageCreateManyInputSchema: z.ZodType<Prisma.ImageCreateManyInput> 
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   imageType: z.lazy(() => ImageTypeSchema),
   projectId: z.number().int(),
   homeTypeId: z.number().int(),
@@ -1818,6 +1865,7 @@ export const ImageUpdateManyMutationInputSchema: z.ZodType<Prisma.ImageUpdateMan
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   imageType: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => EnumImageTypeFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -1832,6 +1880,7 @@ export const ImageUncheckedUpdateManyInputSchema: z.ZodType<Prisma.ImageUnchecke
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   imageType: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => EnumImageTypeFieldUpdateOperationsInputSchema) ]).optional(),
   projectId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   homeTypeId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
@@ -1847,6 +1896,7 @@ export const VideoCreateInputSchema: z.ZodType<Prisma.VideoCreateInput> = z.obje
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   project: z.lazy(() => ProjectCreateNestedOneWithoutVideoInputSchema)
@@ -1861,6 +1911,7 @@ export const VideoUncheckedCreateInputSchema: z.ZodType<Prisma.VideoUncheckedCre
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   projectId: z.number().int(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
@@ -1874,6 +1925,7 @@ export const VideoUpdateInputSchema: z.ZodType<Prisma.VideoUpdateInput> = z.obje
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   project: z.lazy(() => ProjectUpdateOneRequiredWithoutVideoNestedInputSchema).optional()
@@ -1888,6 +1940,7 @@ export const VideoUncheckedUpdateInputSchema: z.ZodType<Prisma.VideoUncheckedUpd
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   projectId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -1902,6 +1955,7 @@ export const VideoCreateManyInputSchema: z.ZodType<Prisma.VideoCreateManyInput> 
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   projectId: z.number().int(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
@@ -1915,6 +1969,7 @@ export const VideoUpdateManyMutationInputSchema: z.ZodType<Prisma.VideoUpdateMan
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict();
@@ -1928,6 +1983,7 @@ export const VideoUncheckedUpdateManyInputSchema: z.ZodType<Prisma.VideoUnchecke
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   projectId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -2094,6 +2150,11 @@ export const EnumStatusTypeFilterSchema: z.ZodType<Prisma.EnumStatusTypeFilter> 
   not: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => NestedEnumStatusTypeFilterSchema) ]).optional(),
 }).strict();
 
+export const BoolFilterSchema: z.ZodType<Prisma.BoolFilter> = z.object({
+  equals: z.boolean().optional(),
+  not: z.union([ z.boolean(),z.lazy(() => NestedBoolFilterSchema) ]).optional(),
+}).strict();
+
 export const DateTimeFilterSchema: z.ZodType<Prisma.DateTimeFilter> = z.object({
   equals: z.coerce.date().optional(),
   in: z.coerce.date().array().optional(),
@@ -2187,13 +2248,16 @@ export const ProjectCountOrderByAggregateInputSchema: z.ZodType<Prisma.ProjectCo
   roofType: z.lazy(() => SortOrderSchema).optional(),
   houseType: z.lazy(() => SortOrderSchema).optional(),
   status: z.lazy(() => SortOrderSchema).optional(),
+  index: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional()
 }).strict();
 
 export const ProjectAvgOrderByAggregateInputSchema: z.ZodType<Prisma.ProjectAvgOrderByAggregateInput> = z.object({
   id: z.lazy(() => SortOrderSchema).optional(),
-  usableArea: z.lazy(() => SortOrderSchema).optional()
+  usableArea: z.lazy(() => SortOrderSchema).optional(),
+  index: z.lazy(() => SortOrderSchema).optional()
 }).strict();
 
 export const ProjectMaxOrderByAggregateInputSchema: z.ZodType<Prisma.ProjectMaxOrderByAggregateInput> = z.object({
@@ -2212,6 +2276,8 @@ export const ProjectMaxOrderByAggregateInputSchema: z.ZodType<Prisma.ProjectMaxO
   roofType: z.lazy(() => SortOrderSchema).optional(),
   houseType: z.lazy(() => SortOrderSchema).optional(),
   status: z.lazy(() => SortOrderSchema).optional(),
+  index: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional()
 }).strict();
@@ -2232,13 +2298,16 @@ export const ProjectMinOrderByAggregateInputSchema: z.ZodType<Prisma.ProjectMinO
   roofType: z.lazy(() => SortOrderSchema).optional(),
   houseType: z.lazy(() => SortOrderSchema).optional(),
   status: z.lazy(() => SortOrderSchema).optional(),
+  index: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional()
 }).strict();
 
 export const ProjectSumOrderByAggregateInputSchema: z.ZodType<Prisma.ProjectSumOrderByAggregateInput> = z.object({
   id: z.lazy(() => SortOrderSchema).optional(),
-  usableArea: z.lazy(() => SortOrderSchema).optional()
+  usableArea: z.lazy(() => SortOrderSchema).optional(),
+  index: z.lazy(() => SortOrderSchema).optional()
 }).strict();
 
 export const IntWithAggregatesFilterSchema: z.ZodType<Prisma.IntWithAggregatesFilter> = z.object({
@@ -2337,6 +2406,14 @@ export const EnumStatusTypeWithAggregatesFilterSchema: z.ZodType<Prisma.EnumStat
   _count: z.lazy(() => NestedIntFilterSchema).optional(),
   _min: z.lazy(() => NestedEnumStatusTypeFilterSchema).optional(),
   _max: z.lazy(() => NestedEnumStatusTypeFilterSchema).optional()
+}).strict();
+
+export const BoolWithAggregatesFilterSchema: z.ZodType<Prisma.BoolWithAggregatesFilter> = z.object({
+  equals: z.boolean().optional(),
+  not: z.union([ z.boolean(),z.lazy(() => NestedBoolWithAggregatesFilterSchema) ]).optional(),
+  _count: z.lazy(() => NestedIntFilterSchema).optional(),
+  _min: z.lazy(() => NestedBoolFilterSchema).optional(),
+  _max: z.lazy(() => NestedBoolFilterSchema).optional()
 }).strict();
 
 export const DateTimeWithAggregatesFilterSchema: z.ZodType<Prisma.DateTimeWithAggregatesFilter> = z.object({
@@ -2607,6 +2684,7 @@ export const ImageCountOrderByAggregateInputSchema: z.ZodType<Prisma.ImageCountO
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.lazy(() => SortOrderSchema).optional(),
   caption: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   imageType: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   homeTypeId: z.lazy(() => SortOrderSchema).optional(),
@@ -2629,6 +2707,7 @@ export const ImageMaxOrderByAggregateInputSchema: z.ZodType<Prisma.ImageMaxOrder
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.lazy(() => SortOrderSchema).optional(),
   caption: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   imageType: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   homeTypeId: z.lazy(() => SortOrderSchema).optional(),
@@ -2645,6 +2724,7 @@ export const ImageMinOrderByAggregateInputSchema: z.ZodType<Prisma.ImageMinOrder
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.lazy(() => SortOrderSchema).optional(),
   caption: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   imageType: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   homeTypeId: z.lazy(() => SortOrderSchema).optional(),
@@ -2677,6 +2757,7 @@ export const VideoCountOrderByAggregateInputSchema: z.ZodType<Prisma.VideoCountO
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.lazy(() => SortOrderSchema).optional(),
   caption: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional()
@@ -2696,6 +2777,7 @@ export const VideoMaxOrderByAggregateInputSchema: z.ZodType<Prisma.VideoMaxOrder
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.lazy(() => SortOrderSchema).optional(),
   caption: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional()
@@ -2710,6 +2792,7 @@ export const VideoMinOrderByAggregateInputSchema: z.ZodType<Prisma.VideoMinOrder
   hash: z.lazy(() => SortOrderSchema).optional(),
   alt: z.lazy(() => SortOrderSchema).optional(),
   caption: z.lazy(() => SortOrderSchema).optional(),
+  highlighted: z.lazy(() => SortOrderSchema).optional(),
   projectId: z.lazy(() => SortOrderSchema).optional(),
   createdAt: z.lazy(() => SortOrderSchema).optional(),
   updatedAt: z.lazy(() => SortOrderSchema).optional()
@@ -2940,6 +3023,18 @@ export const EnumStatusTypeFieldUpdateOperationsInputSchema: z.ZodType<Prisma.En
   set: z.lazy(() => StatusTypeSchema).optional()
 }).strict();
 
+export const IntFieldUpdateOperationsInputSchema: z.ZodType<Prisma.IntFieldUpdateOperationsInput> = z.object({
+  set: z.number().optional(),
+  increment: z.number().optional(),
+  decrement: z.number().optional(),
+  multiply: z.number().optional(),
+  divide: z.number().optional()
+}).strict();
+
+export const BoolFieldUpdateOperationsInputSchema: z.ZodType<Prisma.BoolFieldUpdateOperationsInput> = z.object({
+  set: z.boolean().optional()
+}).strict();
+
 export const DateTimeFieldUpdateOperationsInputSchema: z.ZodType<Prisma.DateTimeFieldUpdateOperationsInput> = z.object({
   set: z.coerce.date().optional()
 }).strict();
@@ -3026,14 +3121,6 @@ export const RoomScheduleUpdateManyWithoutProjectNestedInputSchema: z.ZodType<Pr
   update: z.union([ z.lazy(() => RoomScheduleUpdateWithWhereUniqueWithoutProjectInputSchema),z.lazy(() => RoomScheduleUpdateWithWhereUniqueWithoutProjectInputSchema).array() ]).optional(),
   updateMany: z.union([ z.lazy(() => RoomScheduleUpdateManyWithWhereWithoutProjectInputSchema),z.lazy(() => RoomScheduleUpdateManyWithWhereWithoutProjectInputSchema).array() ]).optional(),
   deleteMany: z.union([ z.lazy(() => RoomScheduleScalarWhereInputSchema),z.lazy(() => RoomScheduleScalarWhereInputSchema).array() ]).optional(),
-}).strict();
-
-export const IntFieldUpdateOperationsInputSchema: z.ZodType<Prisma.IntFieldUpdateOperationsInput> = z.object({
-  set: z.number().optional(),
-  increment: z.number().optional(),
-  decrement: z.number().optional(),
-  multiply: z.number().optional(),
-  divide: z.number().optional()
 }).strict();
 
 export const OptionUncheckedUpdateManyWithoutProjectNestedInputSchema: z.ZodType<Prisma.OptionUncheckedUpdateManyWithoutProjectNestedInput> = z.object({
@@ -3361,6 +3448,11 @@ export const NestedEnumStatusTypeFilterSchema: z.ZodType<Prisma.NestedEnumStatus
   not: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => NestedEnumStatusTypeFilterSchema) ]).optional(),
 }).strict();
 
+export const NestedBoolFilterSchema: z.ZodType<Prisma.NestedBoolFilter> = z.object({
+  equals: z.boolean().optional(),
+  not: z.union([ z.boolean(),z.lazy(() => NestedBoolFilterSchema) ]).optional(),
+}).strict();
+
 export const NestedDateTimeFilterSchema: z.ZodType<Prisma.NestedDateTimeFilter> = z.object({
   equals: z.coerce.date().optional(),
   in: z.coerce.date().array().optional(),
@@ -3488,6 +3580,14 @@ export const NestedEnumStatusTypeWithAggregatesFilterSchema: z.ZodType<Prisma.Ne
   _count: z.lazy(() => NestedIntFilterSchema).optional(),
   _min: z.lazy(() => NestedEnumStatusTypeFilterSchema).optional(),
   _max: z.lazy(() => NestedEnumStatusTypeFilterSchema).optional()
+}).strict();
+
+export const NestedBoolWithAggregatesFilterSchema: z.ZodType<Prisma.NestedBoolWithAggregatesFilter> = z.object({
+  equals: z.boolean().optional(),
+  not: z.union([ z.boolean(),z.lazy(() => NestedBoolWithAggregatesFilterSchema) ]).optional(),
+  _count: z.lazy(() => NestedIntFilterSchema).optional(),
+  _min: z.lazy(() => NestedBoolFilterSchema).optional(),
+  _max: z.lazy(() => NestedBoolFilterSchema).optional()
 }).strict();
 
 export const NestedDateTimeWithAggregatesFilterSchema: z.ZodType<Prisma.NestedDateTimeWithAggregatesFilter> = z.object({
@@ -3720,6 +3820,7 @@ export const ImageCreateWithoutProjectInputSchema: z.ZodType<Prisma.ImageCreateW
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   imageType: z.lazy(() => ImageTypeSchema),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
@@ -3735,6 +3836,7 @@ export const ImageUncheckedCreateWithoutProjectInputSchema: z.ZodType<Prisma.Ima
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   imageType: z.lazy(() => ImageTypeSchema),
   homeTypeId: z.number().int(),
   createdAt: z.coerce.date().optional(),
@@ -3759,6 +3861,7 @@ export const VideoCreateWithoutProjectInputSchema: z.ZodType<Prisma.VideoCreateW
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
 }).strict();
@@ -3772,6 +3875,7 @@ export const VideoUncheckedCreateWithoutProjectInputSchema: z.ZodType<Prisma.Vid
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
 }).strict();
@@ -3936,6 +4040,7 @@ export const ImageScalarWhereInputSchema: z.ZodType<Prisma.ImageScalarWhereInput
   hash: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
   caption: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  highlighted: z.union([ z.lazy(() => BoolFilterSchema),z.boolean() ]).optional(),
   imageType: z.union([ z.lazy(() => EnumImageTypeFilterSchema),z.lazy(() => ImageTypeSchema) ]).optional(),
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   homeTypeId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
@@ -3971,6 +4076,7 @@ export const VideoScalarWhereInputSchema: z.ZodType<Prisma.VideoScalarWhereInput
   hash: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   alt: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
   caption: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  highlighted: z.union([ z.lazy(() => BoolFilterSchema),z.boolean() ]).optional(),
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
@@ -4015,6 +4121,7 @@ export const ImageCreateWithoutHomeTypeInputSchema: z.ZodType<Prisma.ImageCreate
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   imageType: z.lazy(() => ImageTypeSchema),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
@@ -4030,6 +4137,7 @@ export const ImageUncheckedCreateWithoutHomeTypeInputSchema: z.ZodType<Prisma.Im
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   imageType: z.lazy(() => ImageTypeSchema),
   projectId: z.number().int(),
   createdAt: z.coerce.date().optional(),
@@ -4078,6 +4186,8 @@ export const ProjectCreateWithoutOptionInputSchema: z.ZodType<Prisma.ProjectCrea
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   currency: z.lazy(() => CurrencyCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4104,6 +4214,8 @@ export const ProjectUncheckedCreateWithoutOptionInputSchema: z.ZodType<Prisma.Pr
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   currency: z.lazy(() => CurrencyUncheckedCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4145,6 +4257,8 @@ export const ProjectUpdateWithoutOptionInputSchema: z.ZodType<Prisma.ProjectUpda
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   currency: z.lazy(() => CurrencyUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4171,6 +4285,8 @@ export const ProjectUncheckedUpdateWithoutOptionInputSchema: z.ZodType<Prisma.Pr
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   currency: z.lazy(() => CurrencyUncheckedUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4196,6 +4312,8 @@ export const ProjectCreateWithoutCurrencyInputSchema: z.ZodType<Prisma.ProjectCr
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4222,6 +4340,8 @@ export const ProjectUncheckedCreateWithoutCurrencyInputSchema: z.ZodType<Prisma.
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionUncheckedCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4263,6 +4383,8 @@ export const ProjectUpdateWithoutCurrencyInputSchema: z.ZodType<Prisma.ProjectUp
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4289,6 +4411,8 @@ export const ProjectUncheckedUpdateWithoutCurrencyInputSchema: z.ZodType<Prisma.
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUncheckedUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4314,6 +4438,8 @@ export const ProjectCreateWithoutUploadInputSchema: z.ZodType<Prisma.ProjectCrea
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4340,6 +4466,8 @@ export const ProjectUncheckedCreateWithoutUploadInputSchema: z.ZodType<Prisma.Pr
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionUncheckedCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4381,6 +4509,8 @@ export const ProjectUpdateWithoutUploadInputSchema: z.ZodType<Prisma.ProjectUpda
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4407,6 +4537,8 @@ export const ProjectUncheckedUpdateWithoutUploadInputSchema: z.ZodType<Prisma.Pr
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUncheckedUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4432,6 +4564,8 @@ export const ProjectCreateWithoutImageInputSchema: z.ZodType<Prisma.ProjectCreat
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4458,6 +4592,8 @@ export const ProjectUncheckedCreateWithoutImageInputSchema: z.ZodType<Prisma.Pro
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionUncheckedCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4521,6 +4657,8 @@ export const ProjectUpdateWithoutImageInputSchema: z.ZodType<Prisma.ProjectUpdat
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4547,6 +4685,8 @@ export const ProjectUncheckedUpdateWithoutImageInputSchema: z.ZodType<Prisma.Pro
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUncheckedUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4600,6 +4740,8 @@ export const ProjectCreateWithoutVideoInputSchema: z.ZodType<Prisma.ProjectCreat
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4626,6 +4768,8 @@ export const ProjectUncheckedCreateWithoutVideoInputSchema: z.ZodType<Prisma.Pro
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionUncheckedCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4667,6 +4811,8 @@ export const ProjectUpdateWithoutVideoInputSchema: z.ZodType<Prisma.ProjectUpdat
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4693,6 +4839,8 @@ export const ProjectUncheckedUpdateWithoutVideoInputSchema: z.ZodType<Prisma.Pro
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUncheckedUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4718,6 +4866,8 @@ export const ProjectCreateWithoutRoomScheduleInputSchema: z.ZodType<Prisma.Proje
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4744,6 +4894,8 @@ export const ProjectUncheckedCreateWithoutRoomScheduleInputSchema: z.ZodType<Pri
   roofType: z.lazy(() => RoofTypeSchema),
   houseType: z.lazy(() => HouseTypeSchema),
   status: z.lazy(() => StatusTypeSchema).optional(),
+  index: z.number().int().optional(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional(),
   option: z.lazy(() => OptionUncheckedCreateNestedManyWithoutProjectInputSchema).optional(),
@@ -4785,6 +4937,8 @@ export const ProjectUpdateWithoutRoomScheduleInputSchema: z.ZodType<Prisma.Proje
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4811,6 +4965,8 @@ export const ProjectUncheckedUpdateWithoutRoomScheduleInputSchema: z.ZodType<Pri
   roofType: z.union([ z.lazy(() => RoofTypeSchema),z.lazy(() => EnumRoofTypeFieldUpdateOperationsInputSchema) ]).optional(),
   houseType: z.union([ z.lazy(() => HouseTypeSchema),z.lazy(() => EnumHouseTypeFieldUpdateOperationsInputSchema) ]).optional(),
   status: z.union([ z.lazy(() => StatusTypeSchema),z.lazy(() => EnumStatusTypeFieldUpdateOperationsInputSchema) ]).optional(),
+  index: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   option: z.lazy(() => OptionUncheckedUpdateManyWithoutProjectNestedInputSchema).optional(),
@@ -4860,6 +5016,7 @@ export const ImageCreateManyProjectInputSchema: z.ZodType<Prisma.ImageCreateMany
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   imageType: z.lazy(() => ImageTypeSchema),
   homeTypeId: z.number().int(),
   createdAt: z.coerce.date().optional(),
@@ -4875,6 +5032,7 @@ export const VideoCreateManyProjectInputSchema: z.ZodType<Prisma.VideoCreateMany
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   createdAt: z.coerce.date().optional(),
   updatedAt: z.coerce.date().optional()
 }).strict();
@@ -4988,6 +5146,7 @@ export const ImageUpdateWithoutProjectInputSchema: z.ZodType<Prisma.ImageUpdateW
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   imageType: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => EnumImageTypeFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -5003,6 +5162,7 @@ export const ImageUncheckedUpdateWithoutProjectInputSchema: z.ZodType<Prisma.Ima
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   imageType: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => EnumImageTypeFieldUpdateOperationsInputSchema) ]).optional(),
   homeTypeId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -5018,6 +5178,7 @@ export const ImageUncheckedUpdateManyWithoutProjectInputSchema: z.ZodType<Prisma
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   imageType: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => EnumImageTypeFieldUpdateOperationsInputSchema) ]).optional(),
   homeTypeId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -5032,6 +5193,7 @@ export const VideoUpdateWithoutProjectInputSchema: z.ZodType<Prisma.VideoUpdateW
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict();
@@ -5045,6 +5207,7 @@ export const VideoUncheckedUpdateWithoutProjectInputSchema: z.ZodType<Prisma.Vid
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict();
@@ -5058,6 +5221,7 @@ export const VideoUncheckedUpdateManyWithoutProjectInputSchema: z.ZodType<Prisma
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
 }).strict();
@@ -5103,6 +5267,7 @@ export const ImageCreateManyHomeTypeInputSchema: z.ZodType<Prisma.ImageCreateMan
   hash: z.string(),
   alt: z.string().optional().nullable(),
   caption: z.string().optional().nullable(),
+  highlighted: z.boolean().optional(),
   imageType: z.lazy(() => ImageTypeSchema),
   projectId: z.number().int(),
   createdAt: z.coerce.date().optional(),
@@ -5117,6 +5282,7 @@ export const ImageUpdateWithoutHomeTypeInputSchema: z.ZodType<Prisma.ImageUpdate
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   imageType: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => EnumImageTypeFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
   updatedAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -5132,6 +5298,7 @@ export const ImageUncheckedUpdateWithoutHomeTypeInputSchema: z.ZodType<Prisma.Im
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   imageType: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => EnumImageTypeFieldUpdateOperationsInputSchema) ]).optional(),
   projectId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),
@@ -5147,6 +5314,7 @@ export const ImageUncheckedUpdateManyWithoutHomeTypeInputSchema: z.ZodType<Prism
   hash: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   alt: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
   caption: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  highlighted: z.union([ z.boolean(),z.lazy(() => BoolFieldUpdateOperationsInputSchema) ]).optional(),
   imageType: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => EnumImageTypeFieldUpdateOperationsInputSchema) ]).optional(),
   projectId: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   createdAt: z.union([ z.coerce.date(),z.lazy(() => DateTimeFieldUpdateOperationsInputSchema) ]).optional(),

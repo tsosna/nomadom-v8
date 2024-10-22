@@ -1,6 +1,7 @@
-import { dev } from '$app/environment'
-// const { PrismaClient } = dev ? await import('@prisma/client') : await import('@prisma/client/edge');
-import { PrismaClient } from '@prisma/client/edge'
+// import { dev } from '$app/environment'
+
+//import { PrismaClient } from '@prisma/client/edge' // Vercel compatible
+import { PrismaClient } from '@prisma/client' // Local compatible
 import { withAccelerate } from '@prisma/extension-accelerate'
 
 // 	// @ts-expect-error __prisma does exist globally declaration in src/app.d.ts

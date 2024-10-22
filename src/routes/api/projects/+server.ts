@@ -1,14 +1,18 @@
 import { json, type RequestHandler } from '@sveltejs/kit'
 
-import  {prisma}  from '@/server/prisma'
+import { prisma } from '@/server/prisma'
 
 export const GET: RequestHandler = async (event) => {
 	const projects = await prisma.project.findMany({
-		cacheStrategy: { ttl: 60 },
-		include: { image: { select: { alt: true, caption: true, hash: true, url: true } } }
+		cacheStrategy: { swr: 60, ttl: 60 },
+		include: {
+			image: {
+				include: { homeType: {} }
+			}
+		}
 	})
 
-	// event.setHeaders({ 'Cache-control': 'public, max-age=0, s-maxage=60' })
+	event.setHeaders({ 'Cache-control': 'public, max-age=0, s-maxage=60' })
 
 	return json(projects)
 }

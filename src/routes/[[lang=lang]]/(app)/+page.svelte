@@ -9,10 +9,6 @@
 	import { currentLanguageTag, projects } from '$paraglide/messages'
 	import {  languageTag } from '$paraglide/runtime'
 
-	import type { PageData } from '../$types'
-
-
-
 	function createCounter() {
 		let counter = $state({ count: 0 })
 		return counter

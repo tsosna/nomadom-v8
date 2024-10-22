@@ -59,7 +59,7 @@ e.g.
 
 <CldImage
 	class={cn('object-cover', CLASS)}
-	src="n_M_TECHO_domy_modulowe_projekt_domu_z_elewacja_z_cegly_prosty_i_funkcjonalny_dom_z_wanna_w_tarasie_drewnianym_febdc07c19"
+	src={src}
 	alt="Paraglide logo"
 	width={Math.floor(sizeIMGSchema[size] )}
 	height={Math.floor(sizeIMGSchema[size]/ 1.8181818182)}
