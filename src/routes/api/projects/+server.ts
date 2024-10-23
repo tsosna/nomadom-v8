@@ -6,7 +6,7 @@ export const GET: RequestHandler = async (event) => {
 	const projects = await prisma.project.findMany({
 		cacheStrategy: { swr: 60, ttl: 60 },
 		include: {
-			image: {
+			images: {
 				include: { homeType: {} }
 			}
 		}

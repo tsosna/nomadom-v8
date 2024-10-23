@@ -30,7 +30,7 @@
 {currentLanguageTag({ languageTag: languageTag() })}
 
 <!-- <pre>
-  {JSON.stringify(projects[0].image, null, 2)}
+  {JSON.stringify(data, null, 2)}
 </pre> -->
 
 <CldImage
@@ -47,28 +47,26 @@
 
 
 
-
-
-
-{#each projects as {name, image}}
+{#each projects as {name, images}}
 	<h1>{name}</h1>
 <!-- <pre>
-	{JSON.stringify(image, null, 2)}
+	{JSON.stringify(images, null, 2)}
 </pre> -->
 
 
 
-	{#each image as { title, alt, caption, hash, imageType }}
-		<p>
-			{#if title && renderLangMessages.renderLang[title]}
-				{renderLangMessages.renderLang[title]()}
-			{:else}
-				{alt}
-			{/if}
-		</p>
-		<p>
-			{hash}
-		</p>
-		<Image size="xl" src={hash} />
+	{#each images as { title, alt, caption, hash, imageType }}
+	<p>
+		HASH: {hash}
+	</p>
+	<Image size="xl" src={hash} />
+	<p>
+		{#if title && renderLangMessages.renderLang[title]}
+			{renderLangMessages.renderLang[title]()}
+		{:else}
+			{alt}
+		{/if}
+	</p>
+	<hr>
 	{/each}
 {/each}

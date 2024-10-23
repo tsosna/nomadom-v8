@@ -5,7 +5,7 @@ import type { ProjectWithImages } from '$lib/schemas/type'
 
 export const load = async ({ fetch }) => {
   const response = await fetch('/api/projects')
-  const projects: Array<ProjectWithImages> = await response.json()
+  const projects = await response.json()
   return {projects}
 };
 
