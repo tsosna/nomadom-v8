@@ -7,7 +7,9 @@
 	import { Timer } from '@/utils.svelte'
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
 	import { currentLanguageTag, projects } from '$paraglide/messages'
-	import {  languageTag } from '$paraglide/runtime'
+	import { languageTag } from '$paraglide/runtime'
+
+	import App from '$lib/components/App.svelte'
 
 	function createCounter() {
 		let counter = $state({ count: 0 })
@@ -46,15 +48,12 @@
 	})
 </script>
 
-
 <Breadcrumb />
-
 
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
-<p>{currentLanguageTag({ languageTag: languageTag() })}
-</p>
+<p>{currentLanguageTag({ languageTag: languageTag() })}</p>
 
 <Button onclick={() => (counter.count += 2)}>{counter.count}</Button>
 
@@ -85,3 +84,16 @@
 
 <h1>{timer.count * 10} second</h1>
 <h1>{$page.data.theme}</h1>
+
+<div class="threlte">
+	<App />
+</div>
+
+<style>
+	.threlte {
+		width: 100vw;
+		height: 100vh;
+		background: rgb(13, 19, 32);
+		background: linear-gradient(180deg, rgba(13, 19, 32, 1) 0%, rgba(8, 12, 21, 1) 100%);
+	}
+</style>

@@ -7,8 +7,10 @@
 	import { languageTag } from '$paraglide/runtime'
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
 	import * as renderLangMessages from '@/messages'
+	import {Scene, SphereViewer} from '@/components/sphere-viewer'
 
 
+	import App from '$lib/components/App.svelte'
 
 	export let data: PageData
 	const { projects } = data
@@ -33,6 +35,15 @@
   {JSON.stringify(data, null, 2)}
 </pre> -->
 
+<h2>
+	Spher-Viever
+</h2>
+
+<div class="threlte">
+	<SphereViewer />
+</div>
+
+
 <CldImage
 	src="n_M_CLARO_elewacja_tylna_prawa_7790090327"
 	alt="Paraglide logo"
@@ -44,7 +55,6 @@
 	loading="lazy"
 	class="rounded-full"
 />
-
 
 
 {#each projects as {name, images}}
@@ -70,3 +80,14 @@
 	<hr>
 	{/each}
 {/each}
+
+
+<style>
+	.threlte {
+		width: 100vw;
+		height: 50vh;
+		background: rgb(13, 19, 32);
+		background: linear-gradient(180deg, rgba(13, 19, 32, 1) 0%, rgba(8, 12, 21, 1) 100%);
+	}
+</style>
+
