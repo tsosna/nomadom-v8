@@ -59,9 +59,9 @@
 
 {#each projects as {name, images}}
 	<h1>{name}</h1>
-<!-- <pre>
+<pre>
 	{JSON.stringify(images, null, 2)}
-</pre> -->
+</pre>
 
 
 
