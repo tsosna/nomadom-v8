@@ -70,7 +70,7 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5(@sveltejs/kit@2.6.1(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.2)(vite@5.4.9(@types/node@22.7.6)))(svelte@5.1.2)(vite@5.4.9(@types/node@22.7.6)))
       '@sveltejs/kit':
-        specifier: 2.6.1
+        specifier: ^2.6.1
         version: 2.6.1(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.2)(vite@5.4.9(@types/node@22.7.6)))(svelte@5.1.2)(vite@5.4.9(@types/node@22.7.6))
       '@sveltejs/vite-plugin-svelte':
         specifier: ^4.0.0
