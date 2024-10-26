@@ -7,10 +7,10 @@
 	import { languageTag } from '$paraglide/runtime'
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
 	import * as renderLangMessages from '@/messages'
-	import {Scene, SphereViewer} from '@/components/sphere-viewer'
+	import { SphereViewer } from '@/components/sphere-viewer'
+	import 'reveal.js/dist/reveal.css'
 
-
-	import App from '$lib/components/App.svelte'
+	import { Presentation, Slide } from '@/components/animation'
 
 	export let data: PageData
 	const { projects } = data
@@ -35,15 +35,20 @@
   {JSON.stringify(data, null, 2)}
 </pre> -->
 
-<h2>
-	Spher-Viever
-</h2>
+<h2>Animation</h2>
 
-<div class="threlte">
-	<SphereViewer />
+<div class="h-[900px]">
+
+	<Presentation>
+		<Slide >
+			<div class="threlte">
+				<SphereViewer />
+			</div>
+		</Slide>
+		<Slide class="h-full place-content-center place-items-center">Slide 2</Slide>
+	</Presentation>
 </div>
-
-
+	
 <CldImage
 	src="n_M_CLARO_elewacja_tylna_prawa_7790090327"
 	alt="Paraglide logo"
@@ -56,31 +61,27 @@
 	class="rounded-full"
 />
 
-
-{#each projects as {name, images}}
+{#each projects as { name, images }}
 	<h1>{name}</h1>
-<pre>
+	<!-- <pre>
 	{JSON.stringify(images, null, 2)}
-</pre>
-
-
+</pre> -->
 
 	{#each images as { title, alt, caption, hash, imageType }}
-	<p>
-		HASH: {hash}
-	</p>
-	<Image size="xl" src={hash} />
-	<p>
-		{#if title && renderLangMessages.renderLang[title]}
-			{renderLangMessages.renderLang[title]()}
-		{:else}
-			{alt}
-		{/if}
-	</p>
-	<hr>
+		<p>
+			HASH: {hash}
+		</p>
+		<Image size="xl" src={hash} />
+		<p>
+			{#if title && renderLangMessages.renderLang[title]}
+				{renderLangMessages.renderLang[title]()}
+			{:else}
+				{alt}
+			{/if}
+		</p>
+		<hr />
 	{/each}
 {/each}
-
 
 <style>
 	.threlte {
@@ -90,4 +91,3 @@
 		background: linear-gradient(180deg, rgba(13, 19, 32, 1) 0%, rgba(8, 12, 21, 1) 100%);
 	}
 </style>
-

@@ -1,11 +1,13 @@
 //TODO: chack if prerender is needed for Vercel deployment
 // export const prerender = true
 
+
 // import type { ProjectWithImages } from '$lib/schemas/type'
 
 export const load = async ({ fetch }) => {
   const response = await fetch('/api/projects')
   const projects = await response.json()
+    
   return {projects}
 };
 

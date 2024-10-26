@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "pnpx prisma generate && vite dev",
 		"build": "pnpx prisma generate --no-engine && paraglide-js compile --project ./project.inlang && vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -20,6 +20,7 @@
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@tailwindcss/typography": "^0.5.15",
 		"@types/eslint": "^8.56.12",
+		"@types/reveal.js": "^5.0.4",
 		"@types/three": "^0.169.0",
 		"autoprefixer": "^10.4.20",
 		"eslint": "^9.13.0",
@@ -41,6 +42,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@animotion/core": "*",
+		"@animotion/motion": "*",
 		"@fontsource/inter": "^5.1.0",
 		"@fontsource/jetbrains-mono": "^5.1.1",
 		"@inlang/paraglide-sveltekit": "0.11.0",
@@ -56,6 +59,7 @@
 		"lucia": "^3.2.2",
 		"lucide-svelte": "^0.399.0",
 		"oslo": "^1.2.1",
+		"reveal.js": "^5.1.0",
 		"svelte-cloudinary": "^1.3.2",
 		"tailwind-merge": "^2.5.4",
 		"tailwind-variants": "^0.2.1",

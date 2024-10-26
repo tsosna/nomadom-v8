@@ -1,0 +1,21 @@
+import type { Snippet } from 'svelte';
+declare const Slide: import("svelte").Component<{
+    children?: Snippet;
+    in?: () => void;
+    out?: () => void;
+    animate?: boolean;
+    animateEasing?: string;
+    animateUnmatched?: boolean;
+    animateId?: string;
+    animateRestart?: boolean;
+    stepDuration?: number;
+    background?: string;
+    gradient?: string;
+    image?: string;
+    video?: string;
+    iframe?: string;
+    interactive?: boolean;
+    transition?: "none" | "fade" | "slide" | "convex" | "concave" | "zoom";
+    class?: string;
+}, {}, "">;
+export default Slide;
