@@ -30,5 +30,3 @@
 <Button variant="changing" onclick={() => goto(i18n.resolveRoute(base + '/'))}>
 	{home()}
 </Button>
-
-

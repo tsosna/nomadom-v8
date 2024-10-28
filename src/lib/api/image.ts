@@ -39,7 +39,7 @@ export const images: Array<Image> = [
 	{
 		id: 3,
 		title: 'rearElevation',
-		url: 'ttps://res.cloudinary.com/tomasz-sosi-ski/image/upload/v1712678803/n_M_CLARO_elewacja_tylna_lewa_f9b84111fb.webp',
+		url: 'https://res.cloudinary.com/tomasz-sosi-ski/image/upload/v1712678803/n_M_CLARO_elewacja_tylna_lewa_f9b84111fb.webp',
 		hash: 'n_M_CLARO_elewacja_tylna_lewa_f9b84111fb',
 		alt: 'rearElevation',
 		caption: null,

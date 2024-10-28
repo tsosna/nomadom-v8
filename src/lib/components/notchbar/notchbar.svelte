@@ -13,14 +13,15 @@
 </script>
 
 <div
-	class=
-		'sticky left-1/2 top-0 z-10 lg:hidden flex max-w-min -translate-x-1/2 items-center justify-center rounded-b-lg border border-nomadom px-2  ' 
+	class="sticky left-1/2 top-0 z-10 flex max-w-min -translate-x-1/2 items-center justify-center rounded-b-lg border border-nomadom px-2 lg:hidden"
 >
-
-<button onclick={() => goto(i18n.resolveRoute(base + '/about'))} class={cn('hover:text-nomadom text-primary decoration-nomadom underline underline-offset-1 capitalize',
-  CLASS
-)}>
-  {@render children()}</button
->
-
+	<button
+		onclick={() => goto(i18n.resolveRoute(base + '/about'))}
+		class={cn(
+			'capitalize text-primary underline decoration-nomadom underline-offset-1 hover:text-nomadom',
+			CLASS
+		)}
+	>
+		{@render children()}</button
+	>
 </div>

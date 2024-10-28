@@ -4,12 +4,10 @@
 // import type { ProjectWithImages } from '$lib/schemas/type'
 
 export const load = async ({ fetch }) => {
-  const response = await fetch('/api/projects')
-  const projects = await response.json()
-  return {projects}
-};
-
-
+	const response = await fetch('/api/projects')
+	const projects = await response.json()
+	return { projects }
+}
 
 // async function getProjects() {
 //   const response = await fetch('http://localhost:5173/api/projects')

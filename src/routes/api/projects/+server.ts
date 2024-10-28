@@ -1,10 +1,10 @@
+import { dev } from '$app/environment' // Local compatible
 import { json, type RequestHandler } from '@sveltejs/kit'
-
 import { prisma } from '@/server/prisma'
 
 export const GET: RequestHandler = async (event) => {
 	const projects = await prisma.project.findMany({
-		cacheStrategy: { swr: 60, ttl: 60 },
+		...(dev ? {} : { cacheStrategy: { swr: 60, ttl: 60 } }), // Add cache strategy only for Vercel deployment
 		include: {
 			images: {
 				include: { homeType: {} }

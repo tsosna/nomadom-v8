@@ -1,6 +1,6 @@
 export class Timer {
 	count = $state(0)
-	interval: NodeJS.Timeout | number  = 0
+	interval: NodeJS.Timeout | number = 0
 
 	constructor() {
 		$effect(() => {

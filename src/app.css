@@ -52,7 +52,7 @@
 
 		--warning: 43.3 96.4% 56.3%; /* ⬅ #fbbf24 */
 		--warning-foreground: 222.2 84% 4.9%;
-	  --warning-background: 34.9 100% 35.1%;/* ⬅ #b36800 */
+		--warning-background: 34.9 100% 35.1%; /* ⬅ #b36800 */
 
 		--surface: 220 38 38; /* ⬅ #3c5586 */
 		--surface-foreground: 210 40% 98%;
@@ -105,7 +105,7 @@
 
 		--warning: 43.3 96.4% 56.3%; /* ⬅ #fbbf24 */
 		--warning-foreground: 222.2 84% 4.9%;
-	  --warning-background: 34.8 100% 50%;/* ⬅ #ff9400 */
+		--warning-background: 34.8 100% 50%; /* ⬅ #ff9400 */
 
 		--surface: 220 38 38; /* ⬅ #3c5586 */
 		--surface-foreground: 210 40% 98%;

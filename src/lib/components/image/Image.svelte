@@ -56,13 +56,12 @@ e.g.
 
 -->
 
-
 <CldImage
 	class={cn('object-cover', CLASS)}
-	src={src}
+	{src}
 	alt="Paraglide logo"
-	width={Math.floor(sizeIMGSchema[size] )}
-	height={Math.floor(sizeIMGSchema[size]/ 1.8181818182)}
+	width={Math.floor(sizeIMGSchema[size])}
+	height={Math.floor(sizeIMGSchema[size] / 1.8181818182)}
 	crop="fill"
 	quality="auto"
 	fetchpriority="high"

@@ -3,10 +3,7 @@
 	import { page } from '$app/stores'
 	import { CldImage } from 'svelte-cloudinary'
 	import * as renderLangMessages from '@/messages'
-	import {
-		projects,
-		currentLanguageTag,
-	} from '$paraglide/messages'
+	import { projects, currentLanguageTag } from '$paraglide/messages'
 
 	// import { projects as pro } from '@/api/project'
 	import { Image } from '@/components/image'
@@ -41,7 +38,6 @@
 		window.addEventListener('resize', checkOrientation)
 		return () => window.removeEventListener('resize', checkOrientation)
 	})
-
 </script>
 
 <svelte:window bind:innerWidth />
@@ -50,7 +46,7 @@
 
 <h1>{projects()} Page {slug}</h1>
 
-{#each images as {  title, alt }}
+{#each images as { title, alt }}
 	<p>
 		{#if title && renderLangMessages.renderLang[title]}
 			{renderLangMessages.renderLang[title]()}
@@ -71,7 +67,6 @@
 <pre>
   {JSON.stringify($page, null, 2)}
 </pre>
-
 
 <div class={isPortrait && isMobile ? 'portrait' : 'landscape'}>
 	<CldImage

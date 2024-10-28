@@ -2,11 +2,10 @@
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
 	import type { PageData } from '../$types'
 
-	type Props = {data: PageData}
+	type Props = { data: PageData }
 
-	let { data }: Props = $props();
-	const { slug } = data;
-
+	let { data }: Props = $props()
+	const { slug } = data
 </script>
 
 <Breadcrumb />

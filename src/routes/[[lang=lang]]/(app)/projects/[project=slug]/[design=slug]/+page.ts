@@ -1,5 +1,5 @@
-import type { Load } from '@sveltejs/kit';
+import type { Load } from '@sveltejs/kit'
 
 export const load: Load = async ({ params }) => {
-    return {slug: params.design}
-  };
+	return { slug: params.design }
+}

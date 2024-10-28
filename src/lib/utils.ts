@@ -110,9 +110,9 @@ export const generateRandomString = (length: number) => {
 
 /**
  * extract a hash (unique name file ) part of a URL string
- * 
- * @param url 
- * @returns 
+ *
+ * @param url
+ * @returns
  */
 
 export const hash = (url: string) => {

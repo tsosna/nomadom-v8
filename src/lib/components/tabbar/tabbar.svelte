@@ -10,10 +10,10 @@
 		src: string[]
 	}
 
-	let { icon, src,}: Props = $props()
+	let { icon, src }: Props = $props()
 </script>
 
-<section class="flex lg:hidden items-center justify-between bg-nomadom md:container md:mx-auto  ">
+<section class="flex items-center justify-between bg-nomadom md:container md:mx-auto lg:hidden">
 	{#each src as item}
 		<Button
 			variant="nomadom"

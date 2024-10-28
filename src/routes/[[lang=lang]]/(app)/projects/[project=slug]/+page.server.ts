@@ -1,5 +1,3 @@
-
-export const load = async ({ params}) => {
-    return {slug: params.project}
-  };
-  
+export const load = async ({ params }) => {
+	return { slug: params.project }
+}
