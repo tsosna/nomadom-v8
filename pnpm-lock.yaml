@@ -8,12 +8,18 @@ importers:
 
   .:
     dependencies:
-      '@fontsource/inter':
-        specifier: ^5.1.0
-        version: 5.1.0
-      '@fontsource/jetbrains-mono':
+      '@fontsource-variable/eb-garamond':
         specifier: ^5.1.1
         version: 5.1.1
+      '@fontsource/dm-serif-display':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/fira-mono':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/fira-sans':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@inlang/paraglide-sveltekit':
         specifier: 0.11.0
         version: 0.11.0(@sveltejs/kit@2.7.3(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.2)(vite@5.4.10(@types/node@22.8.0)))(svelte@5.1.2)(vite@5.4.10(@types/node@22.8.0)))
@@ -364,11 +370,17 @@ packages:
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
 
-  '@fontsource/inter@5.1.0':
-    resolution: {integrity: sha512-zKZR3kf1G0noIes1frLfOHP5EXVVm0M7sV/l9f/AaYf+M/DId35FO4LkigWjqWYjTJZGgplhdv4cB+ssvCqr5A==}
+  '@fontsource-variable/eb-garamond@5.1.1':
+    resolution: {integrity: sha512-8rSdgPsFk96vvJPL7i47VsEaTOdhKvoSOFPSizrX5JcrLuWvTRngT2p9cPFL4WROGCA5TDNa+m68w7pdk4HYoQ==}
 
-  '@fontsource/jetbrains-mono@5.1.1':
-    resolution: {integrity: sha512-5rwvmdQQpXev4LlBX1P+7h2dguu6iwW/9Npjde4+DEq+HgpVJI/7QY8DI1NVVFdvLtXZNP+vO2L/5BQED6FUhA==}
+  '@fontsource/dm-serif-display@5.1.0':
+    resolution: {integrity: sha512-8IGBpTOn2XRA09plE6iAlZajL09iwCdSTd60FiM9NsD7VV4Nqseo9tgqiZLyuLC9D1jht5i39I2IYI/o2+Q0Kg==}
+
+  '@fontsource/fira-mono@5.1.0':
+    resolution: {integrity: sha512-6+nftSKApXyN0I9FC5GJuG5TUCh+in5OehtrXRIsHJvq38Pm//oA1kZZYNdXv99JYzLzJ3lzsTAavmS+xGLGDw==}
+
+  '@fontsource/fira-sans@5.1.0':
+    resolution: {integrity: sha512-qfAjF5WcrL6qQh9eIWLK7lOh9wbCgCnVWh2Nu2gozrTgsUgYBLR8sbCGYwlK1K0yZoQsR2i9VSiQ16wwPCBkSw==}
 
   '@humanfs/core@0.19.0':
     resolution: {integrity: sha512-2cbWIHbZVEweE853g8jymffCA+NCMiuqeECeBBLm8dg2oFdjuGJhgN4UAbI+6v0CKbbhvtXA4qV8YR5Ji86nmw==}
@@ -2980,9 +2992,13 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
-  '@fontsource/inter@5.1.0': {}
+  '@fontsource-variable/eb-garamond@5.1.1': {}
 
-  '@fontsource/jetbrains-mono@5.1.1': {}
+  '@fontsource/dm-serif-display@5.1.0': {}
+
+  '@fontsource/fira-mono@5.1.0': {}
+
+  '@fontsource/fira-sans@5.1.0': {}
 
   '@humanfs/core@0.19.0': {}
 

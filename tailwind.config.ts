@@ -100,8 +100,10 @@ const config: Config = {
 			},
 			fontFamily: {
 				sans: [...fontFamily.sans],
-				inter: [`"Inter"`, 'sans-serif'],
-				jetbrains: [`"JetBrains Mono Variable"`, 'sans-serif'],
+				"dm-head": [`"DM Serif Display"`, 'serif'],
+				"eb-body": [`"EB Garamond Variable"`, 'serif'],
+				"fira-ui": [`"Fira Sans"`, 'sans-serif'],
+				"fira-mono": [`"Fira Mono"`, 'monospace'],
 				accent: ['Variable', '"sans-serif"']
 			},
 			keyframes: {
