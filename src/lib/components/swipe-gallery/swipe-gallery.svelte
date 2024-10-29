@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { spring } from 'svelte/motion'
 	import { Image } from '@/components/image'
+	import { dev } from '$app/environment'
 
 	const images = [
 		'n_M_CLARO_elewacja_prawa_84330413ae.webp',
@@ -174,15 +175,16 @@
 
 		<!--  image above   -->
 		<Image size="lg" src={nextImage} class="absolute z-20 h-full" style={nextImageStyle} />
-
-		<pre
-			class="pointer-events-none fixed bottom-0 left-0 z-50 bg-gray-800 p-3 text-left text-white opacity-75">
-			<br />diffX: {diffX}<br />swipingLeft: {swipingLeft}<br />nextImageStyle: {nextImageStyle}<br
-			/>dragging: {dragging}<br />animating: {animating}<br
-			/>imagesIndexes: {previousImageIndex} {currentImageIndex} {nextImageIndex}<br
-			/>cursorStartX: {cursorStartX}<br />cursorCurrentX: {cursorCurrentX}<br
-			/>nextImagePosition(): {nextImagePosition} <br />$coords.x: {$coords.x} <br
-			/>currentImagePosition(): {currentImagePosition}  </pre>
+		{#if dev}
+			<pre
+				class="pointer-events-none fixed bottom-0 left-0 z-50 bg-gray-800 p-3 text-left text-white opacity-75">
+				<br />diffX: {diffX}<br />swipingLeft: {swipingLeft}<br />nextImageStyle: {nextImageStyle}<br
+				/>dragging: {dragging}<br />animating: {animating}<br
+				/>imagesIndexes: {previousImageIndex} {currentImageIndex} {nextImageIndex}<br
+				/>cursorStartX: {cursorStartX}<br />cursorCurrentX: {cursorCurrentX}<br
+				/>nextImagePosition(): {nextImagePosition} <br />$coords.x: {$coords.x} <br
+				/>currentImagePosition(): {currentImagePosition} </pre>
+		{/if}
 	</div>
 </button>
 
