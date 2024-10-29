@@ -58,11 +58,11 @@
 {#snippet labelSnip()}
 	{#if label}
 		{#if typeof label === 'string'}
-			<p class="font-jetbrains text-sm font-normal {labelClass}">
+			<p class="font-fira-ui text-sm font-normal {labelClass}">
 				{label}
 			</p>
 		{:else if typeof label === 'function'}
-			<p class="text-gra font-jetbrains text-sm font-normal {labelClass}">
+			<p class="text-gra font-fira-ui text-sm font-normal {labelClass}">
 				{@render label()}
 			</p>
 		{/if}
@@ -96,7 +96,7 @@
 
 <div class="w-full">
 	<aside
-		class=" z-30 flex min-h-[40px] w-full translate-y-[-1px] items-center justify-center gap-x-2 border-b border-t py-2 font-jetbrains text-[14px] leading-5 {asideClass} "
+		class=" z-30 flex min-h-[40px] w-full translate-y-[-1px] items-center justify-center gap-x-2 border-b border-t py-2 font-fira-ui text-[14px] leading-5 {asideClass} "
 	>
 		<div class="flex w-full flex-col gap-2 px-6 md:flex-row md:items-center md:justify-center">
 			<div class="flex items-center gap-2">

@@ -43,8 +43,8 @@
 
 <div class="{CLASSToast} {toast.background} {toast.CLASS}" role="alert" aria-live="polite">
 	<div class="flex-1">
-		<p class="font-inter text-lg font-semibold">{@html toast.title}</p>
-		<p class="font-inter text-base">{@html toast.message}</p>
+		<p class="font-fira-mono text-lg font-semibold">{@html toast.title}</p>
+		<p class="font-fira-mono text-base">{@html toast.message}</p>
 	</div>
 	<div class={cToastActions}>
 		<Button variant="default" size="sm" onclick={() => toastState.remove(toast.id)}>
