@@ -56,13 +56,13 @@
 </script>
 
 <Popover bind:open>
-	<Trigger asChild let:builder>
-		<Button builders={[builder]} {variant} role="combobox" type="button" class="gap-x-1">
+	<Trigger class={`${buttonVariants({ variant })} "gap-x-1"`} >
+		<!-- <Button builders={[builder]} {variant} role="combobox" type="button"  > -->
 			<Languages />
 			{#if label}
 				{languageNames[languageTag()]} {$page.url.pathname}
 			{/if}
-		</Button>
+		<!-- </Button> -->
 	</Trigger>
 	<Content class="w-min p-0">
 		<Command>

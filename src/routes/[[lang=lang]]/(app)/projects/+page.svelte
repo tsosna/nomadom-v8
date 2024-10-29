@@ -29,9 +29,9 @@
 
 {currentLanguageTag({ languageTag: languageTag() })}
 
-<!-- <pre>
+<pre>
   {JSON.stringify(data, null, 2)}
-</pre>  -->
+</pre> 
 
 <h2>Swipe</h2>
 <SwipeGallery />

@@ -2,7 +2,7 @@
 	import type { VariantProps } from 'tailwind-variants'
 	import { page } from '$app/stores'
 
-	import { Button, type buttonVariants } from '@/components/ui/button'
+	import { Button, buttonVariants } from '@/components/ui/button'
 	import { Command, Group, Item } from '@/components/ui/command'
 	import { Content, Popover, Trigger } from '@/components/ui/popover'
 	import { themeState } from './theme-state.svelte'
@@ -24,15 +24,16 @@
 </script>
 
 <Popover bind:open>
-	<Trigger asChild let:builder>
-		<Button {variant} builders={[builder]} role="combobox" type="button" class="gap-x-1">
+	<Trigger class={`${buttonVariants({ variant })} "gap-x-1"`} >
+
+		<!-- <Button {variant} builders={[builder]} role="combobox" type="button" class="gap-x-1"> -->
 			<svelte:component this={themeState.Icon[theme]} />
 			{#if label}
 				<span class="w-16">
 					{themeState.preferTheme.tag}
 				</span>
 			{/if}
-		</Button>
+		<!-- </Button> -->
 	</Trigger>
 	<Content class="flex w-min p-0.5">
 		<Command>

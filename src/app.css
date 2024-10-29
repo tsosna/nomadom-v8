@@ -203,25 +203,25 @@
 		@apply h-screen;
 	}
 	h1 {
-		@apply font-inter text-4xl font-extrabold uppercase tracking-tight lg:text-5xl;
+		@apply font-dm-head text-4xl font-extrabold uppercase tracking-tight lg:text-5xl;
 	}
 	h2 {
-		@apply font-inter border-b pb-2 text-3xl font-semibold tracking-tight first:mt-3;
+		@apply font-dm-head border-b pb-2 text-3xl font-semibold tracking-tight first:mt-3;
 	}
 	h3 {
-		@apply font-inter text-2xl font-semibold tracking-tight;
+		@apply font-dm-head text-2xl font-semibold tracking-tight;
 	}
 	h4 {
-		@apply font-inter text-xl font-semibold tracking-tight;
+		@apply font-dm-head text-xl font-semibold tracking-tight;
 	}
 	p {
-		@apply font-inter leading-7 [&:not(:first-child)]:mt-2;
+		@apply font-dm-head leading-7 [&:not(:first-child)]:mt-2;
 	}
 	blockquote {
-		@apply font-inter mt-6 border-l-2 pl-6 italic;
+		@apply font-dm-head mt-6 border-l-2 pl-6 italic;
 	}
 	ul {
-		@apply font-inter my-6 ml-6 list-disc [&>li]:mt-2;
+		@apply font-dm-head my-6 ml-6 list-disc [&>li]:mt-2;
 	}
 
 	.divider {
