@@ -24,15 +24,14 @@
 </script>
 
 <Popover bind:open>
-	<Trigger class={`${buttonVariants({ variant })} "gap-x-1"`} >
-
+	<Trigger class={`${buttonVariants({ variant })} "gap-x-1"`}>
 		<!-- <Button {variant} builders={[builder]} role="combobox" type="button" class="gap-x-1"> -->
-			<svelte:component this={themeState.Icon[theme]} />
-			{#if label}
-				<span class="w-16">
-					{themeState.preferTheme.tag}
-				</span>
-			{/if}
+		<svelte:component this={themeState.Icon[theme]} />
+		{#if label}
+			<span class="w-16">
+				{themeState.preferTheme.tag}
+			</span>
+		{/if}
 		<!-- </Button> -->
 	</Trigger>
 	<Content class="flex w-min p-0.5">

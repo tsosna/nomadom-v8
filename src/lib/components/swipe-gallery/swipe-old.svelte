@@ -167,12 +167,10 @@
 	ontouchmove={drag}
 	onmouseup={stopDrag}
 	ontouchend={stopDrag}
-	class="flex h-screen w-screen items-center justify-center cursor-auto"
+	class="flex h-screen w-screen cursor-auto items-center justify-center"
 	aria-label="Swipe Gallery"
 >
-	<div class="mobile-container relative overflow-hidden cursor-pointer"
-	role="button"
-	>
+	<div class="mobile-container relative cursor-pointer overflow-hidden" role="button">
 		<!--  image below   -->
 		<img class="absolute z-0 h-full" src={previousImage} style={prevImageStyle} alt="" />
 

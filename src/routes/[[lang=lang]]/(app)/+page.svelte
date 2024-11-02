@@ -39,7 +39,7 @@
 	const toastState = getToastState()
 
 	const timer = new Timer()
-	timer.increment(10)
+	// timer.increment(10)
 
 	$effect(() => {
 		console.log(timer.count)
@@ -83,5 +83,7 @@
 <h1>{timer.count * 10} second</h1>
 <h1>{$page.data.theme}</h1>
 
+<Button onclick={() => timer.increment(0.1)}>Start timer</Button>
 
-
+<Button onclick={() => timer.stop()}>Stop timer</Button>
+<Button onclick={() => timer.reset()}>Reset timer</Button>

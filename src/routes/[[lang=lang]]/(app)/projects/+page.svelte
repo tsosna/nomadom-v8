@@ -8,7 +8,7 @@
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
 	import * as renderLangMessages from '@/messages'
 	import { SphereViewer } from '@/components/sphere-viewer'
-	import { SwipeGallery} from '@/components/swipe-gallery'
+	import { SwipeGallery } from '@/components/swipe-gallery'
 
 	export let data: PageData
 	const { projects } = data
@@ -31,7 +31,7 @@
 
 <pre>
   {JSON.stringify(data, null, 2)}
-</pre> 
+</pre>
 
 <h2>Swipe</h2>
 <SwipeGallery />
@@ -75,4 +75,3 @@
 		<hr />
 	{/each}
 {/each}
-

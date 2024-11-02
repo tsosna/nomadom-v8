@@ -33,7 +33,6 @@
 		--sidebar-border: 220 13% 91%;
 		--sidebar-ring: 217.2 91.2% 59.8%;
 
-
 		--nomadom: 119 53% 43%;
 		--nomadom-foreground: 210 40% 98%;
 
@@ -55,7 +54,6 @@
 
 		--surface: 220 38 38; /* ⬅ #3c5586 */
 		--surface-foreground: 210 40% 98%;
-
 	}
 
 	.Moon {
@@ -206,7 +204,7 @@
 		@apply font-dm-head text-4xl font-extrabold uppercase tracking-tight lg:text-5xl;
 	}
 	h2 {
-		@apply font-dm-head border-b pb-2 text-3xl font-semibold tracking-tight first:mt-3;
+		@apply border-b pb-2 font-dm-head text-3xl font-semibold tracking-tight first:mt-3;
 	}
 	h3 {
 		@apply font-dm-head text-2xl font-semibold tracking-tight;
@@ -218,10 +216,10 @@
 		@apply font-dm-head leading-7 [&:not(:first-child)]:mt-2;
 	}
 	blockquote {
-		@apply font-dm-head mt-6 border-l-2 pl-6 italic;
+		@apply mt-6 border-l-2 pl-6 font-dm-head italic;
 	}
 	ul {
-		@apply font-dm-head my-6 ml-6 list-disc [&>li]:mt-2;
+		@apply my-6 ml-6 list-disc font-dm-head [&>li]:mt-2;
 	}
 
 	.divider {

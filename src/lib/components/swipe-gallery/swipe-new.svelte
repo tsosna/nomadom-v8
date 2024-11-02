@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { tweened } from 'svelte/motion'
 	import { cubicOut } from 'svelte/easing'
-	import {  onMount } from 'svelte'
+	import { onMount } from 'svelte'
 	const images = [
 		'https://res.cloudinary.com/ederchrono/image/upload/v1556684546/wotw-013/nature-1.jpg',
 		'https://res.cloudinary.com/ederchrono/image/upload/v1556684546/wotw-013/nature-2.jpg',
@@ -39,8 +39,6 @@
 		return MAX_BLUR * (1 - position / DEVICE_WIDTH)
 	}
 
-
-
 	let dragging = $state(false)
 	let animating = $state(false)
 	let cursorStartX = $state(0)
@@ -56,7 +54,7 @@
 		cursorCurrentX = cursorStartX
 		// clearInterval(intervalId); // Clear the interval when dragging starts
 	}
-	
+
 	const drag = (e: MouseEvent | TouchEvent) => {
 		if (!dragging) return
 		cursorCurrentX = getCursorX(e)
@@ -128,46 +126,45 @@
 	)
 	let nextImageStyle = $derived(`left: ${nextImagePosition}px`)
 
-	let intervalId: ReturnType<typeof setInterval>;
+	let intervalId: ReturnType<typeof setInterval>
 
 	const moveToNextImage = () => {
-  currentImageIndex = (currentImageIndex + 1) % images.length;
-};
-const startInterval = () => {
-  intervalId = setInterval(moveToNextImage, 10000); // Move to the next image every 5 seconds
-};
+		currentImageIndex = (currentImageIndex + 1) % images.length
+	}
+	const startInterval = () => {
+		intervalId = setInterval(moveToNextImage, 10000) // Move to the next image every 5 seconds
+	}
 
 	onMount(() => {
-        // startInterval(); // Start the interval when the component mounts
-        window.addEventListener('mousemove', drag);
-        window.addEventListener('touchmove', drag);
-        window.addEventListener('mouseup', stopDrag);
-        window.addEventListener('touchend', stopDrag);
-        window.addEventListener('mouseup', startDrag);
-        window.addEventListener('touchend', startDrag);
-        return () => {
-            // clearInterval(intervalId); // Clear the interval when the component is destroyed
-            window.removeEventListener('mousemove', drag);
-            window.removeEventListener('touchmove', drag);
-            window.removeEventListener('mouseup', stopDrag);
-            window.removeEventListener('touchend', stopDrag);
-            window.removeEventListener('mouseup', startDrag);
-            window.removeEventListener('touchend', startDrag);
-        };
-    });
+		// startInterval(); // Start the interval when the component mounts
+		window.addEventListener('mousemove', drag)
+		window.addEventListener('touchmove', drag)
+		window.addEventListener('mouseup', stopDrag)
+		window.addEventListener('touchend', stopDrag)
+		window.addEventListener('mouseup', startDrag)
+		window.addEventListener('touchend', startDrag)
+		return () => {
+			// clearInterval(intervalId); // Clear the interval when the component is destroyed
+			window.removeEventListener('mousemove', drag)
+			window.removeEventListener('touchmove', drag)
+			window.removeEventListener('mouseup', stopDrag)
+			window.removeEventListener('touchend', stopDrag)
+			window.removeEventListener('mouseup', startDrag)
+			window.removeEventListener('touchend', startDrag)
+		}
+	})
 
-function preventDefault(fn: (event: MouseEvent | TouchEvent) => void) {
-  return function (this: unknown, event: MouseEvent | TouchEvent) {
-	event.preventDefault(); // Prevent the default action
-	fn.call(this, event); // Call the original handler
-  };
-}
-
+	function preventDefault(fn: (event: MouseEvent | TouchEvent) => void) {
+		return function (this: unknown, event: MouseEvent | TouchEvent) {
+			event.preventDefault() // Prevent the default action
+			fn.call(this, event) // Call the original handler
+		}
+	}
 </script>
 
 <div
 	id="app"
-	class="flex h-screen w-screen items-center justify-center "
+	class="flex h-screen w-screen items-center justify-center"
 	role="application"
 	tabindex="0"
 	onmousemove={drag}
@@ -175,7 +172,7 @@ function preventDefault(fn: (event: MouseEvent | TouchEvent) => void) {
 	ontouchmove={drag}
 	ontouchend={stopDrag}
 >
-	<div class="mobile-container relative overflow-hidden cursor-move">
+	<div class="mobile-container relative cursor-move overflow-hidden">
 		<img class="absolute z-0 h-full" style={prevImageStyle} src={previousImage} alt="" />
 		<button
 			class="absolute z-10 h-full"
@@ -184,11 +181,7 @@ function preventDefault(fn: (event: MouseEvent | TouchEvent) => void) {
 			style={currentImageStyle}
 			tabindex="0"
 		>
-			<img
-				class="h-full"
-				src={currentImage}
-				alt=""
-			/>
+			<img class="h-full" src={currentImage} alt="" />
 		</button>
 		<img class="absolute z-20 h-full" style={nextImageStyle} src={nextImage} alt="" />
 

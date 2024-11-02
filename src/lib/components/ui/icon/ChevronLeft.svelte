@@ -21,9 +21,8 @@
  - children: Snippet
 -->
 <Icon {...props}>
-	<path d="m15 18-6-6 6-6"/>
+	<path d="m15 18-6-6 6-6" />
 </Icon>
 {#if children}
 	{@render children()}
 {/if}
-

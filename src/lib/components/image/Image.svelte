@@ -16,6 +16,13 @@
 		'5xl': 2432
 	}
 
+
+	
+	Object.keys(sizeIMGSchema).forEach(key => {
+		sizeIMGSchema[key + 'px'] = sizeIMGSchema[key];
+	});
+
+
 	type Props = {
 		class?: string | undefined | null
 		size?: EnumIMGSize
@@ -62,7 +69,7 @@ e.g.
 	alt="Paraglide logo"
 	width={Math.floor(sizeIMGSchema[size])}
 	height={Math.floor(sizeIMGSchema[size] / 1.8181818182)}
-	crop="fill"
+	crop="auto_pad"
 	quality="auto"
 	fetchpriority="high"
 	loading="lazy"
