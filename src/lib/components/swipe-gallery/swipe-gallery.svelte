@@ -171,6 +171,7 @@
 		}
 	}
 
+
 	onMount(() => {
 		if (autoSwipe) {
 			timer.increment(8)
@@ -205,17 +206,6 @@
 </script>
 
 <svelte:window bind:innerWidth />
-
-{innerWidth}
-
-<Button
-	onclick={() => {
-		timer.increment(8)
-		autoSwipe = true
-	}}>Start timer</Button
->
-
-<Button onclick={() => timer.stop()}>Stop timer</Button>
 
 <button
 	onmousemove={drag}

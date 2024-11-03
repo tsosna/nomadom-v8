@@ -10,8 +10,9 @@
 	import { SphereViewer } from '@/components/sphere-viewer'
 	import { SwipeGallery } from '@/components/swipe-gallery'
 
-	export let data: PageData
-	const { projects } = data
+	export let data: PageData;
+
+	const { projects } = data;
 </script>
 
 <svelte:head>

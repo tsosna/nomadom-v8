@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores'
 	import { CldImage } from 'svelte-cloudinary'
 	import { cn } from '$lib/utils'
 
@@ -16,12 +17,9 @@
 		'5xl': 2432
 	}
 
-
-	
-	Object.keys(sizeIMGSchema).forEach(key => {
-		sizeIMGSchema[key + 'px'] = sizeIMGSchema[key];
-	});
-
+	Object.keys(sizeIMGSchema).forEach((key) => {
+		sizeIMGSchema[key + 'px'] = sizeIMGSchema[key]
+	})
 
 	type Props = {
 		class?: string | undefined | null
@@ -31,45 +29,23 @@
 
 	let { class: CLASS, size = 'md', src, ...props }: Props = $props()
 
-	// $: get(image, size)
+	const {
+		data: { isMobile }
+	} = $page
+
+	let innerWidth = $state(0)
+
 </script>
 
-<!-- height="550" -->
-
-<!-- <CldImage
-	effects={[
-		{
-			opacity: 100,
-			border: '10px_solid_grey',
-			radius: 25,
-			flags: 'layer_apply',
-			gravity: 'south_west',
-			y: 15,
-			x: 15
-		}
-	]}
-
-/> -->
-
-<!-- Przy crop jako obiekt jest konieczne przeładowanie strony np. przy zmianie języka
-e.g.
-	crop={{
-		type: 'crop',
-		gravity: 'center',
-		source: true,
-		width: 1080,
-		height: 1920,
-	}}
-
--->
+<svelte:window bind:innerWidth />
 
 <CldImage
 	class={cn('object-cover', CLASS)}
 	{src}
 	alt="Paraglide logo"
-	width={Math.floor(sizeIMGSchema[size])}
+	width={isMobile ? innerWidth : Math.floor(sizeIMGSchema[size])}
 	height={Math.floor(sizeIMGSchema[size] / 1.8181818182)}
-	crop="auto_pad"
+	crop="auto"
 	quality="auto"
 	fetchpriority="high"
 	loading="lazy"
