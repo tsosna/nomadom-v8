@@ -6,7 +6,7 @@
 	import { getToastState } from '@/components/ui/toast/toast-state.svelte'
 	import { Timer } from '@/utils.svelte'
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
-	import { currentLanguageTag, projects } from '$paraglide/messages'
+	import { currentLanguageTag } from '$paraglide/messages'
 	import { languageTag } from '$paraglide/runtime'
 
 	function createCounter() {

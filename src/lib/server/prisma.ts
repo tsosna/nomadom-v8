@@ -1,5 +1,3 @@
-//TODO before deploy to Vercel, change DATABASE_URL="postgresql in .vnc" to DATABASE_URL="prisma in .env"
-
 import { withAccelerate } from '@prisma/extension-accelerate' // Vercel compatible
 
 import { dev } from '$app/environment' // Local compatible

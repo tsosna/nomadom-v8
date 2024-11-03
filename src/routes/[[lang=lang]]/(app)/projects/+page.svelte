@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types'
+	import { dev } from '$app/environment'
 	import { CldImage } from 'svelte-cloudinary'
 	import { projects as projectsLang, currentLanguageTag } from '$paraglide/messages'
 	import { Image } from '@/components/image'
@@ -9,10 +10,16 @@
 	import * as renderLangMessages from '@/messages'
 	import { SphereViewer } from '@/components/sphere-viewer'
 	import { SwipeGallery } from '@/components/swipe-gallery'
+	import type { Project,Image as ImageType } from '@/schemas/generated'
 
 	export let data: PageData;
+	type ExtendedProject = Project & { images: Array<ImageType> }
 
 	const { projects } = data;
+	const highlightedImages = projects.flatMap((project: ExtendedProject) => 
+		project.highlighted && project.images.filter((image: { highlighted: boolean }) => image.highlighted)
+	);
+
 </script>
 
 <svelte:head>
@@ -30,12 +37,15 @@
 
 {currentLanguageTag({ languageTag: languageTag() })}
 
-<pre>
-  {JSON.stringify(data, null, 2)}
-</pre>
+{#if dev}
+	<pre>
+		{JSON.stringify(highlightedImages, null, 2)}
+	</pre>
+{/if}
 
 <h2>Swipe</h2>
-<SwipeGallery />
+
+	<SwipeGallery images={highlightedImages}/>
 
 <h2>Spher-Viever</h2>
 

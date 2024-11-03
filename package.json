@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "pnpx prisma generate --no-engine && vite dev",
 		"build": "pnpx prisma generate --no-engine && paraglide-js compile --project ./project.inlang && vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

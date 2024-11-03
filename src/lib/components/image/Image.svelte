@@ -17,17 +17,14 @@
 		'5xl': 2432
 	}
 
-	Object.keys(sizeIMGSchema).forEach((key) => {
-		sizeIMGSchema[key + 'px'] = sizeIMGSchema[key]
-	})
-
 	type Props = {
 		class?: string | undefined | null
 		size?: EnumIMGSize
 		src: string
+		alt?: string | undefined | null
 	}
 
-	let { class: CLASS, size = 'md', src, ...props }: Props = $props()
+	let { class: CLASS, size = 'md', src, alt, ...props }: Props = $props()
 
 	const {
 		data: { isMobile }
@@ -42,7 +39,7 @@
 <CldImage
 	class={cn('object-cover', CLASS)}
 	{src}
-	alt="Paraglide logo"
+	{alt}
 	width={isMobile ? innerWidth : Math.floor(sizeIMGSchema[size])}
 	height={Math.floor(sizeIMGSchema[size] / 1.8181818182)}
 	crop="auto"

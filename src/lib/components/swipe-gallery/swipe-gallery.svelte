@@ -4,17 +4,15 @@
 	import { dev } from '$app/environment'
 	import { Timer } from '@/utils.svelte'
 	import { onDestroy, onMount } from 'svelte'
-	import { Button } from '@/components/ui/button'
 	import { CirclePlay, ChevronLeft, ChevronRight, CircleStop } from 'lucide-svelte'
+	import type { Image as ImageType } from '@/schemas/generated'
+	
+	type Props = {
+		images: ImageType[]
+		autoSwipe?: boolean
+	}
 
-	const images = [
-		'n_M_CLARO_elewacja_prawa_84330413ae.webp',
-		'n_M_CLARO_elewacja_frontowa_lewa_ebf368c46b.webp',
-		'n_M_CLARO_elewacja_frontowa_prawa_4ec1a4c970.webp',
-		'n_M_CLARO_elewacja_tylna_lewa_f9b84111fb.webp',
-		'n_M_CLARO_elewacja_frontowa_616e365307.webp',
-		'n_M_CLARO_elewacja_tylna_2708952937.webp'
-	]
+	let { images, autoSwipe=false }:Props = $props()
 
 	let innerWidth = $state(0)
 
@@ -33,7 +31,7 @@
 	let previousImage = $derived(images[previousImageIndex])
 	let nextImageIndex = $derived((currentImageIndex + 1) % images.length)
 	let nextImage = $derived(images[nextImageIndex])
-	let autoSwipe = $state(true)
+	// let autoSwipe = $state(true)
 	let timerCount = 0
 
 	const getCursorX = (event: MouseEvent | TouchEvent) => {
@@ -205,6 +203,14 @@
 	})
 </script>
 
+<!-- 
+{#if dev}
+	<pre>
+		{JSON.stringify(images, null, 2)}
+	</pre>
+{/if} -->
+
+
 <svelte:window bind:innerWidth />
 
 <button
@@ -212,7 +218,7 @@
 	ontouchmove={drag}
 	onmouseup={stopDrag}
 	ontouchend={stopDrag}
-	class="flex h-screen w-full cursor-auto items-center justify-center"
+	class="flex  w-full cursor-auto items-center justify-center"
 	aria-label="Swipe Gallery"
 >
 	<div class="mobile-container relative cursor-pointer overflow-hidden">
@@ -259,7 +265,7 @@
 				autoSwipe = false
 			}}
 		/>
-		<Image size="lg" src={previousImage} class="absolute z-0 h-full" style={prevImageStyle} />
+		<Image size="lg" src={previousImage.hash} alt={previousImage.alt} class="absolute z-0 h-full" style={prevImageStyle} />
 
 		<!--  interactive image   -->
 		<div>
@@ -267,14 +273,15 @@
 				onmousedown={preventDefault(startDrag)}
 				ontouchstart={startDrag}
 				size="lg"
-				src={currentImage}
+				src={currentImage.hash}
+				alt={currentImage.alt}
 				class="absolute z-10 h-full "
 				style={currentImageStyle}
 			/>
 		</div>
 
 		<!--  image above   -->
-		<Image size="lg" src={nextImage} class="absolute z-20 h-full" style={nextImageStyle} />
+		<Image size="lg" src={nextImage.hash} alt={nextImage.alt} class="absolute z-20 h-full" style={nextImageStyle} />
 		{#if dev}
 			<pre
 				class="pointer-events-none fixed bottom-0 left-0 z-50 bg-gray-800 p-3 text-left text-white opacity-75">
