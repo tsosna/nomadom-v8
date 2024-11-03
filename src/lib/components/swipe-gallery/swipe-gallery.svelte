@@ -218,7 +218,7 @@
 	ontouchmove={drag}
 	onmouseup={stopDrag}
 	ontouchend={stopDrag}
-	class="flex  w-full cursor-auto items-center justify-center"
+	class="flex w-full cursor-auto items-center justify-center"
 	aria-label="Swipe Gallery"
 >
 	<div class="mobile-container relative cursor-pointer overflow-hidden">
