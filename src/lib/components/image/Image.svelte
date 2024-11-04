@@ -50,8 +50,8 @@
 	background="rgb:666"
 	overlays={[
 		{
-			publicId: 'default/Aero_Vector_Art_No_Signal_TV_2560x1600_f979b5a75f',
-			width: Math.floor(sizeIMGSchema[size] / 10),
+			publicId: 'v1676376448/nM-watermark-logo_os2hkj.webp',
+			width: Math.floor(sizeIMGSchema[size] / 6),
 			crop: 'auto',
 			position: {
 				x: 10,
@@ -87,7 +87,7 @@
 			},
 			effects: [
 				{
-					opacity: 40
+					opacity: 15
 				}
 			]
 		}

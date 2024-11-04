@@ -7,13 +7,20 @@
 	import { CirclePlay, ChevronLeft, ChevronRight, CircleStop } from 'lucide-svelte'
 	import type { Image as ImageType } from '@/schemas/generated'
 	import * as renderLangMessages from '@/messages'
+	import { CLARO_mainBenefits, CLARO_label, companySlogan } from '$paraglide/messages'
+
+	const technicalData = CLARO_mainBenefits().trim().split('\n').map(line => line.replace(/[*_~`#-]/g, ''))
+
+	console.log({ technicalData });
+	
+	// const technicalDataHTML = technicalData.map((data) => marked(data)).join('')
 
 	type Props = {
 		images: ImageType[]
 		autoSwipe?: boolean
 	}
 
-	let { images, autoSwipe = false }: Props = $props()
+	let { images, autoSwipe = true }: Props = $props()
 
 	let innerWidth = $state(0)
 
@@ -33,7 +40,6 @@
 	let nextImageIndex = $derived((currentImageIndex + 1) % images.length)
 	let nextImage = $derived(images[nextImageIndex])
 	let timerCount = 0
-
 
 	const getCursorX = (event: MouseEvent | TouchEvent) => {
 		if (event instanceof TouchEvent && event.touches && event.touches.length) {
@@ -190,31 +196,45 @@
 	})
 
 	$effect(() => {
-
 		if (autoSwipe && timerAutoSwipe.count === innerWidth) {
 			timerAutoSwipe.stop()
 			timerAutoSwipe.reset()
 			currentImageIndex = nextImageIndex
 		}
-
+		
 		if (timer.count > timerCount) {
 			timerCount = timer.count
 			timerAutoSwipe.increment(0)
 		}
+		// return () => {
+		// 	timerAutoSwipe.stop()
+		// 	timerAutoSwipe.reset()
+		// };
+
 	})
-
-
-
-
 </script>
-
-{previousImage.alt ? renderLangMessages.renderLang.bedroom({ languageTag: "pl" }) : ''}
 
 <!-- 
 {#if dev}
 	<pre>
 		{JSON.stringify(images, null, 2)}
 	</pre>
+{/if} -->
+
+<p class="font-fira-mono"> 
+
+	Fira mono
+</p>
+
+
+<!-- {#if technicalData}
+	<div class="absolute z-40 bg-gray-800 p-3 font-fira-mono text-left text-orange-600 opacity-75">
+		Fira mono
+		
+		<div class=""> {technicalData}</div>
+
+
+	</div>
 {/if} -->
 
 <svelte:window bind:innerWidth />
@@ -228,40 +248,45 @@
 	aria-label="Swipe Gallery"
 >
 	<div class="mobile-container relative cursor-pointer overflow-hidden">
-		<!--  image below   -->
-
+		<div class="absolute inset-0 flex items-center justify-center text-nomadom z-30">
+			<div class="flex flex-col">
+				<h1 class="text-slate-200">{companySlogan()}</h1>
+				<h2 class="text-nomadom">{CLARO_label()}</h2>
+			</div>
+		</div>
+		
 		<ChevronLeft
-			size="32"
-			class="absolute bottom-4 right-20 z-30 opacity-50"
-			onclick={() => {
-				currentImageIndex = nextImageIndex
-				timer.stop
-				timer.reset()
-				autoSwipe = false
-			}}
+		size="32"
+		class="absolute bottom-4 right-20 z-30 opacity-50"
+		onclick={() => {
+			currentImageIndex = nextImageIndex
+			timer.stop
+			timer.reset()
+			autoSwipe = false
+		}}
 		/>
 		{#if autoSwipe}
-			<CircleStop
-				size="32"
-				class="absolute bottom-4 right-12 z-30 opacity-50"
-				onclick={() => {
-					timer.stop
-					timer.reset()
-					autoSwipe = false
-				}}
+		<CircleStop
+		size="32"
+		class="absolute bottom-4 right-12 z-30 opacity-50"
+		onclick={() => {
+			timer.stop
+			timer.reset()
+			autoSwipe = false
+		}}
 			/>
-		{:else}
+			{:else}
 			<CirclePlay
-				size="32"
-				class="absolute bottom-4 right-12 z-30 opacity-50"
-				onclick={() => {
-					timer.increment(8)
-					autoSwipe = true
-				}}
+			size="32"
+			class="absolute bottom-4 right-12 z-30 opacity-50"
+			onclick={() => {
+				timer.increment(8)
+				autoSwipe = true
+			}}
 			/>
-		{/if}
-
-		<ChevronRight
+			{/if}
+			
+			<ChevronRight
 			size="32"
 			class="absolute bottom-4 right-4 z-30 opacity-50"
 			onclick={() => {
@@ -271,10 +296,11 @@
 				autoSwipe = false
 			}}
 		/>
+		<!--  image below   -->
 		<Image
-			size="lg"
+		size="lg"
 			src={previousImage.hash}
-			alt={''}
+			alt={previousImage.alt ? renderLangMessages.renderLang[previousImage.alt]() : ''}
 			class="absolute z-0 h-full"
 			style={prevImageStyle}
 		/>
@@ -286,7 +312,7 @@
 				ontouchstart={startDrag}
 				size="lg"
 				src={currentImage.hash}
-				alt={''}
+				alt={currentImage.alt ? renderLangMessages.renderLang[currentImage.alt]() : ''}
 				class="absolute z-10 h-full "
 				style={currentImageStyle}
 			/>
@@ -296,7 +322,7 @@
 		<Image
 			size="lg"
 			src={nextImage.hash}
-			alt={''}
+			alt={nextImage.alt ? renderLangMessages.renderLang[nextImage.alt]() : ''}
 			class="absolute z-20 h-full"
 			style={nextImageStyle}
 		/>

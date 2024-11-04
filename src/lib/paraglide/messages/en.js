@@ -465,3 +465,11 @@ export const CLARO_technicalInfo = () => `### **Technical data:**
  */
 /* @__NO_SIDE_EFFECTS__ */
 export const assemblyGuide = () => `Modular Home Construction: Wall Assembly Guide`
+
+
+/**
+ * 
+ * @returns {string}
+ */
+/* @__NO_SIDE_EFFECTS__ */
+export const companySlogan = () => `Your home, your rules`
