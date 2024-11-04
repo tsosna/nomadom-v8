@@ -1,4 +1,11 @@
-import { rightElevation, frontElevation, rearElevation, leftElevation } from '$paraglide/messages'
+import {
+	rightElevation,
+	frontElevation,
+	rearElevation,
+	leftElevation,
+	showerRoom,
+	bedroom
+} from '$paraglide/messages'
 
 export const renderLang: {
 	[key: string]: (
@@ -9,6 +16,10 @@ export const renderLang: {
 	rightElevation: rightElevation,
 	frontElevation: frontElevation,
 	rearElevation: rearElevation,
-	leftElevation: leftElevation
+	leftElevation: leftElevation,
+	showerRoom: showerRoom,
+	bedroom: bedroom
 	// Add other functions as needed
 }
+
+

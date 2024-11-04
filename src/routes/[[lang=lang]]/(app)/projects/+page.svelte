@@ -16,6 +16,8 @@
 	type ExtendedProject = Project & { images: Array<ImageType> }
 
 	const { projects } = data;
+	// console.log({projects});
+	
 	const highlightedImages = projects.flatMap((project: ExtendedProject) => 
 		project.highlighted && project.images.filter((image: { highlighted: boolean }) => image.highlighted)
 	);
@@ -37,15 +39,18 @@
 
 {currentLanguageTag({ languageTag: languageTag() })}
 
-{#if dev}
+<!-- {#if dev}
 	<pre>
 		{JSON.stringify(highlightedImages, null, 2)}
 	</pre>
-{/if}
+{/if} -->
 
 <h2>Swipe</h2>
 
-	<SwipeGallery images={highlightedImages}/>
+{renderLangMessages.renderLang.bedroom({ languageTag: 'pl' }) }
+
+
+	<!-- <SwipeGallery images={highlightedImages}/> -->
 
 <h2>Spher-Viever</h2>
 
@@ -65,12 +70,11 @@
 	class="rounded-full"
 />
 
-{#each projects as { name, images }}
+<!-- {#each projects as { name, images }}
 	<h1>{name}</h1>
-	<!-- <pre>
+<pre>
 	{JSON.stringify(images, null, 2)}
-</pre> -->
-
+</pre> 
 	{#each images as { title, alt, caption, hash, imageType }}
 		<p>
 			HASH: {hash}
@@ -85,4 +89,4 @@
 		</p>
 		<hr />
 	{/each}
-{/each}
+{/each} -->

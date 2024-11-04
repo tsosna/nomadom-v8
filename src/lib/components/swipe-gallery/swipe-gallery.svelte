@@ -6,13 +6,14 @@
 	import { onDestroy, onMount } from 'svelte'
 	import { CirclePlay, ChevronLeft, ChevronRight, CircleStop } from 'lucide-svelte'
 	import type { Image as ImageType } from '@/schemas/generated'
-	
+	import * as renderLangMessages from '@/messages'
+
 	type Props = {
 		images: ImageType[]
 		autoSwipe?: boolean
 	}
 
-	let { images, autoSwipe=false }:Props = $props()
+	let { images, autoSwipe = false }: Props = $props()
 
 	let innerWidth = $state(0)
 
@@ -23,16 +24,16 @@
 	const HALF_WIDTH = $derived(DEVICE_WIDTH / 2.5)
 	const DRAGGING_SPEED = 1.2
 	const MAX_BLUR = 8
-	let currentImageIndex = $state(0)
-	let coordX: number
 
+	let coordX: number
+	let currentImageIndex = $state(0)
 	let currentImage = $derived(images[currentImageIndex])
 	let previousImageIndex = $derived((currentImageIndex - 1 + images.length) % images.length)
 	let previousImage = $derived(images[previousImageIndex])
 	let nextImageIndex = $derived((currentImageIndex + 1) % images.length)
 	let nextImage = $derived(images[nextImageIndex])
-	// let autoSwipe = $state(true)
 	let timerCount = 0
+
 
 	const getCursorX = (event: MouseEvent | TouchEvent) => {
 		if (event instanceof TouchEvent && event.touches && event.touches.length) {
@@ -169,7 +170,6 @@
 		}
 	}
 
-
 	onMount(() => {
 		if (autoSwipe) {
 			timer.increment(8)
@@ -183,13 +183,14 @@
 			window.removeEventListener('touchend', startDrag)
 		}
 	})
-	
+
 	onDestroy(() => {
 		timer.stop()
 		timerAutoSwipe.stop()
 	})
 
 	$effect(() => {
+
 		if (autoSwipe && timerAutoSwipe.count === innerWidth) {
 			timerAutoSwipe.stop()
 			timerAutoSwipe.reset()
@@ -201,7 +202,13 @@
 			timerAutoSwipe.increment(0)
 		}
 	})
+
+
+
+
 </script>
+
+{previousImage.alt ? renderLangMessages.renderLang.bedroom({ languageTag: "pl" }) : ''}
 
 <!-- 
 {#if dev}
@@ -209,7 +216,6 @@
 		{JSON.stringify(images, null, 2)}
 	</pre>
 {/if} -->
-
 
 <svelte:window bind:innerWidth />
 
@@ -265,7 +271,13 @@
 				autoSwipe = false
 			}}
 		/>
-		<Image size="lg" src={previousImage.hash} alt={previousImage.alt} class="absolute z-0 h-full" style={prevImageStyle} />
+		<Image
+			size="lg"
+			src={previousImage.hash}
+			alt={''}
+			class="absolute z-0 h-full"
+			style={prevImageStyle}
+		/>
 
 		<!--  interactive image   -->
 		<div>
@@ -274,14 +286,20 @@
 				ontouchstart={startDrag}
 				size="lg"
 				src={currentImage.hash}
-				alt={currentImage.alt}
+				alt={''}
 				class="absolute z-10 h-full "
 				style={currentImageStyle}
 			/>
 		</div>
 
 		<!--  image above   -->
-		<Image size="lg" src={nextImage.hash} alt={nextImage.alt} class="absolute z-20 h-full" style={nextImageStyle} />
+		<Image
+			size="lg"
+			src={nextImage.hash}
+			alt={''}
+			class="absolute z-20 h-full"
+			style={nextImageStyle}
+		/>
 		{#if dev}
 			<pre
 				class="pointer-events-none fixed bottom-0 left-0 z-50 bg-gray-800 p-3 text-left text-white opacity-75">
@@ -291,7 +309,10 @@
 				/>cursorStartX: {cursorStartX}<br />cursorCurrentX: {cursorCurrentX}<br
 				/>nextImagePosition(): {nextImagePosition} <br />$coords.x: {$coords.x} <br
 				/>currentImagePosition(): {currentImagePosition}<br
-				/>currentImageIndex:{currentImageIndex} </pre>
+				/>currentImageIndex:{currentImageIndex}<br />currentAlt: {currentImage.alt
+					? renderLangMessages.renderLang[currentImage.alt]()
+					: ''}
+				 </pre>
 		{/if}
 	</div>
 </button>
