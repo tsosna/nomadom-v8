@@ -20,8 +20,8 @@
 	/>
 	<Theme />
 	<Language />
-	<div class="flex-non 2xl:hidden">
-		<Burger bind:open size="32" strokeWidth="8" />
+	<div class="flex-non md:hidden ">
+		<Burger bind:open size="40" strokeWidth="8" />
 	</div>
 </section>
-<NavSide {open} />
+<NavSide {open}/>

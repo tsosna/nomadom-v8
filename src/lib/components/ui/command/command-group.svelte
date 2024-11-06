@@ -19,7 +19,7 @@
 	{...restProps}
 >
 	{#if heading}
-		<CommandPrimitive.GroupHeading class="px-2 py-1.5 text-xs font-medium text-muted-foreground">
+		<CommandPrimitive.GroupHeading class="px-2 py-1.5 text-xs font-fira-ui text-muted-foreground">
 			{heading}
 		</CommandPrimitive.GroupHeading>
 	{/if}

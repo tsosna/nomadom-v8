@@ -4,7 +4,8 @@ import {
 	rearElevation,
 	leftElevation,
 	showerRoom,
-	bedroom
+	bedroom,
+	CLARO_mainBenefits
 } from '$paraglide/messages'
 
 export const renderLang: {
@@ -18,7 +19,8 @@ export const renderLang: {
 	rearElevation: rearElevation,
 	leftElevation: leftElevation,
 	showerRoom: showerRoom,
-	bedroom: bedroom
+	bedroom: bedroom,
+	CLARO_mainBenefits: CLARO_mainBenefits
 	// Add other functions as needed
 }
 

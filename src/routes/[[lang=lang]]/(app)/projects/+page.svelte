@@ -22,6 +22,10 @@
 		project.highlighted && project.images.filter((image: { highlighted: boolean }) => image.highlighted)
 	);
 
+// 	{
+//   "message": "Ups! Something went wrong. Internal error in hooks. \nInvalid `prisma.project.findMany()` invocation:\n\n\nError occurred during query execution:\nConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(PostgresError { code: \"42P05\", message: \"prepared statement \\\"s9\\\" already exists\", severity: \"ERROR\", detail: None, column: None, hint: None }), transient: false })",
+//   "errorId": "undefined"
+// }
 </script>
 
 <svelte:head>
@@ -69,9 +73,11 @@
 
 {#each projects as { name, images }}
 	<h1>{name}</h1>
-<!-- <pre>
-	{JSON.stringify(images, null, 2)}
-</pre>  -->
+<!-- {#if dev}
+	<pre>
+		{JSON.stringify(images, null, 2)}
+	</pre>  
+{/if} -->
 	{#each images as { title, alt, caption, hash, imageType }}
 		<p>
 			HASH: {hash}

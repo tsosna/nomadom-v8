@@ -13,7 +13,7 @@
 </script>
 
 <div
-	class="sticky left-1/2 top-0 z-10 flex max-w-min -translate-x-1/2 items-center justify-center rounded-b-lg border border-nomadom px-2 lg:hidden"
+	class="sticky left-1/2 top-0 z-10 flex max-w-min -translate-x-1/2 items-center justify-center rounded-b-lg border border-nomadom px-2 md:hidden"
 >
 	<button
 		onclick={() => goto(i18n.resolveRoute(base + '/about'))}

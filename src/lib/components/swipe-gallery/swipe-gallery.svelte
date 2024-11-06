@@ -7,20 +7,15 @@
 	import { CirclePlay, ChevronLeft, ChevronRight, CircleStop } from 'lucide-svelte'
 	import type { Image as ImageType } from '@/schemas/generated'
 	import * as renderLangMessages from '@/messages'
-	import { CLARO_mainBenefits, CLARO_label, companySlogan } from '$paraglide/messages'
-
-	const technicalData = CLARO_mainBenefits().trim().split('\n').map(line => line.replace(/[*_~`#-]/g, ''))
-
-	console.log({ technicalData });
-	
-	// const technicalDataHTML = technicalData.map((data) => marked(data)).join('')
+	import { CLARO_label, companySlogan } from '$paraglide/messages'
+	import { typewriter } from '@/utils'
 
 	type Props = {
 		images: ImageType[]
 		autoSwipe?: boolean
 	}
 
-	let { images, autoSwipe = true }: Props = $props()
+	let { images, autoSwipe = false }: Props = $props()
 
 	let innerWidth = $state(0)
 
@@ -201,16 +196,29 @@
 			timerAutoSwipe.reset()
 			currentImageIndex = nextImageIndex
 		}
-		
+
 		if (timer.count > timerCount) {
 			timerCount = timer.count
 			timerAutoSwipe.increment(0)
 		}
-		// return () => {
-		// 	timerAutoSwipe.stop()
-		// 	timerAutoSwipe.reset()
-		// };
+	})
 
+	const mainBenefitsData = renderLangMessages.renderLang['CLARO_mainBenefits']()
+		.trim()
+		.split('\n')
+		.map((line) => line.replace(/[*_~`#-]/g, ''))
+
+	let i = $state(-1)
+
+	$effect(() => {
+		const interval = setInterval(() => {
+			i += 1
+			i %= mainBenefitsData.length
+		}, 3500)
+
+		return () => {
+			clearInterval(interval)
+		}
 	})
 </script>
 
@@ -219,22 +227,6 @@
 	<pre>
 		{JSON.stringify(images, null, 2)}
 	</pre>
-{/if} -->
-
-<p class="font-fira-mono"> 
-
-	Fira mono
-</p>
-
-
-<!-- {#if technicalData}
-	<div class="absolute z-40 bg-gray-800 p-3 font-fira-mono text-left text-orange-600 opacity-75">
-		Fira mono
-		
-		<div class=""> {technicalData}</div>
-
-
-	</div>
 {/if} -->
 
 <svelte:window bind:innerWidth />
@@ -248,45 +240,55 @@
 	aria-label="Swipe Gallery"
 >
 	<div class="mobile-container relative cursor-pointer overflow-hidden">
-		<div class="absolute inset-0 flex items-center justify-center text-nomadom z-30">
-			<div class="flex flex-col">
+		<div class="absolute inset-0 z-30 flex items-center justify-center text-nomadom">
+			<div class="block">
 				<h1 class="text-slate-200">{companySlogan()}</h1>
 				<h2 class="text-nomadom">{CLARO_label()}</h2>
+				&nbsp;
+				{#key i}
+					<span
+						class=" px-2 py-1 font-fira-mono text-sm font-bold tracking-widest text-orange-600 md:text-lg lg:text-xl"
+						style="background-color: rgba(128, 128, 128, 0.45);"
+						in:typewriter={{ speed: 2 }}
+					>
+						{mainBenefitsData[i] || ''}
+					</span>
+				{/key}
 			</div>
 		</div>
-		
+
 		<ChevronLeft
-		size="32"
-		class="absolute bottom-4 right-20 z-30 opacity-50"
-		onclick={() => {
-			currentImageIndex = nextImageIndex
-			timer.stop
-			timer.reset()
-			autoSwipe = false
-		}}
+			size="32"
+			class="absolute bottom-4 right-20 z-30 opacity-50"
+			onclick={() => {
+				currentImageIndex = nextImageIndex
+				timer.stop
+				timer.reset()
+				autoSwipe = false
+			}}
 		/>
 		{#if autoSwipe}
-		<CircleStop
-		size="32"
-		class="absolute bottom-4 right-12 z-30 opacity-50"
-		onclick={() => {
-			timer.stop
-			timer.reset()
-			autoSwipe = false
-		}}
+			<CircleStop
+				size="32"
+				class="absolute bottom-4 right-12 z-30 opacity-50"
+				onclick={() => {
+					timer.stop
+					timer.reset()
+					autoSwipe = false
+				}}
 			/>
-			{:else}
+		{:else}
 			<CirclePlay
-			size="32"
-			class="absolute bottom-4 right-12 z-30 opacity-50"
-			onclick={() => {
-				timer.increment(8)
-				autoSwipe = true
-			}}
+				size="32"
+				class="absolute bottom-4 right-12 z-30 opacity-50"
+				onclick={() => {
+					timer.increment(8)
+					autoSwipe = true
+				}}
 			/>
-			{/if}
-			
-			<ChevronRight
+		{/if}
+
+		<ChevronRight
 			size="32"
 			class="absolute bottom-4 right-4 z-30 opacity-50"
 			onclick={() => {
@@ -298,7 +300,7 @@
 		/>
 		<!--  image below   -->
 		<Image
-		size="lg"
+			size="lg"
 			src={previousImage.hash}
 			alt={previousImage.alt ? renderLangMessages.renderLang[previousImage.alt]() : ''}
 			class="absolute z-0 h-full"
@@ -326,7 +328,7 @@
 			class="absolute z-20 h-full"
 			style={nextImageStyle}
 		/>
-		{#if dev}
+		<!-- {#if dev}
 			<pre
 				class="pointer-events-none fixed bottom-0 left-0 z-50 bg-gray-800 p-3 text-left text-white opacity-75">
 				<br />diffX: {diffX}<br />swipingLeft: {swipingLeft}<br />nextImageStyle: {nextImageStyle}<br
@@ -339,7 +341,7 @@
 					? renderLangMessages.renderLang[currentImage.alt]()
 					: ''}
 				 </pre>
-		{/if}
+		{/if} -->
 	</div>
 </button>
 

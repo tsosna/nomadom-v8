@@ -2,11 +2,12 @@
 	import type { VariantProps } from 'tailwind-variants'
 	import { page } from '$app/stores'
 
-	import { Button, buttonVariants } from '@/components/ui/button'
+	import { buttonVariants } from '@/components/ui/button'
 	import { Command, Group, Item } from '@/components/ui/command'
 	import { Content, Popover, Trigger } from '@/components/ui/popover'
 	import { themeState } from './theme-state.svelte'
 	import { setCookie } from '@/utils'
+	import { Moon } from '@/components/ui/icon'
 
 	type Variant = VariantProps<typeof buttonVariants>['variant']
 	type Props = {
@@ -24,7 +25,7 @@
 </script>
 
 <Popover bind:open>
-	<Trigger class={`${buttonVariants({ variant })} "gap-x-1"`}>
+	<Trigger class={`${buttonVariants({ variant, size: 'icon' })} gap-x-2 [&_svg]:size-6`}>
 		<!-- <Button {variant} builders={[builder]} role="combobox" type="button" class="gap-x-1"> -->
 		<svelte:component this={themeState.Icon[theme]} />
 		{#if label}

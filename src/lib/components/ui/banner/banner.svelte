@@ -76,7 +76,7 @@
 			<div class="ml-6 md:ml-0">
 				<a
 					href={callToAction.href}
-					class="rounded-xs my-[-1px] h-6 cursor-pointer border-none bg-transparent px-0 py-1 font-medium capitalize underline underline-offset-[5px] outline-none {callToActionClass}"
+					class="rounded-xs my-[-1px] h-6 cursor-pointer border-none bg-transparent px-0 py-1 font-fira-ui capitalize underline underline-offset-[5px] outline-none {callToActionClass}"
 				>
 					{callToAction.label}
 				</a>
@@ -85,7 +85,7 @@
 			<div class="ml-6 md:ml-0">
 				<button
 					onclick={callToAction.onClick}
-					class="rounded-xs my-[-1px] h-6 cursor-pointer border-none bg-transparent px-0 py-1 font-medium capitalize underline underline-offset-[2px] outline-none {callToActionClass}"
+					class="rounded-xs my-[-1px] h-6 cursor-pointer border-none bg-transparent px-0 py-1 font-fira-ui capitalize underline underline-offset-[2px] outline-none {callToActionClass}"
 				>
 					{callToAction.label}
 				</button>

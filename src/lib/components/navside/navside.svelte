@@ -12,7 +12,7 @@
 </script>
 
 {#if open}
-	<section class="flex justify-end opacity-95">
+	<section class="flex justify-end opacity-95 z-50">
 		<nav
 			transition:fly={{ duration: 500, x: 500, opacity: 15, easing: quintOut }}
 			class="fixed flex h-screen w-3/4 flex-col items-start gap-2 border-l border-nomadom bg-nomadom p-4 shadow-lg sm:max-w-sm"

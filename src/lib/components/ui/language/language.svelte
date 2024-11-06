@@ -56,7 +56,7 @@
 </script>
 
 <Popover bind:open>
-	<Trigger class={`${buttonVariants({ variant })} "gap-x-1"`}>
+	<Trigger class={`${buttonVariants({ variant, size:'icon' })} gap-x-2 [&_svg]:size-6 p-1`}>
 		<!-- <Button builders={[builder]} {variant} role="combobox" type="button"  > -->
 		<Languages />
 		{#if label}
