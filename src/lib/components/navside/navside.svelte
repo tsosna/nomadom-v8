@@ -12,10 +12,11 @@
 </script>
 
 {#if open}
-	<section class="flex justify-end opacity-95 z-50">
+	<section class="flex justify-end" >
 		<nav
 			transition:fly={{ duration: 500, x: 500, opacity: 15, easing: quintOut }}
-			class="fixed flex h-screen w-3/4 flex-col items-start gap-2 border-l border-nomadom bg-nomadom p-4 shadow-lg sm:max-w-sm"
+			class="fixed flex h-screen w-3/4 flex-col items-start gap-2 border-l border-nomadom p-4 shadow-lg sm:max-w-sm"
+			style="background-color: rgba(55, 167, 52, 0.95);"
 		>
 			<div class=" divider divider-nomadom w-full text-center font-bold uppercase">
 				<Home>{modules()}</Home>

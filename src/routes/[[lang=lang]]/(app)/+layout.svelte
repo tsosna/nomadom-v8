@@ -2,7 +2,7 @@
 	import type { Snippet } from 'svelte'
 	import { AppShell } from '@/components/ui/app-shell'
 	import { Footer } from '@/components/footer'
-	import { Navbar } from '@/components/navbar'
+	import { NavBar } from '@/components/navbar'
 	import { disable, useCookies } from '$paraglide/messages'
 	import { getCookie, setCookie } from '@/utils'
 	import { onMount } from 'svelte'
@@ -37,7 +37,7 @@
 </svelte:head>
 
 {#snippet header()}
-	<Navbar />
+	<NavBar />
 {/snippet}
 {#snippet pageHeader()}
 	<!-- TODO: this area can be used to display a banner, e.g. with information on cookies -->
