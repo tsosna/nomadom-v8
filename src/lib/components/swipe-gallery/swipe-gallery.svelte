@@ -3,7 +3,7 @@
 	import { Image } from '@/components/image'
 	import { dev } from '$app/environment'
 	import { Timer } from '@/utils.svelte'
-	import { onDestroy, onMount } from 'svelte'
+	import { onMount } from 'svelte'
 	import { CirclePlay, ChevronLeft, ChevronRight, CircleStop } from 'lucide-svelte'
 	import type { Image as ImageType } from '@/schemas/generated'
 	import * as renderLangMessages from '@/messages'
@@ -185,10 +185,10 @@
 		}
 	})
 
-	onDestroy(() => {
-		timer.stop()
-		timerAutoSwipe.stop()
-	})
+	// onDestroy(() => {
+	// 	timer.stop()
+	// 	timerAutoSwipe.stop()
+	// })
 
 	$effect(() => {
 		if (autoSwipe && timerAutoSwipe.count === innerWidth) {
@@ -263,8 +263,7 @@
 			onclick={() => {
 				currentImageIndex = nextImageIndex
 				timer.stop
-				timer.reset()
-				autoSwipe = false
+				timerCount= 0
 			}}
 		/>
 		{#if autoSwipe}
@@ -273,7 +272,6 @@
 				class="absolute bottom-4 right-12 z-30 opacity-50"
 				onclick={() => {
 					timer.stop
-					timer.reset()
 					autoSwipe = false
 				}}
 			/>
@@ -294,7 +292,6 @@
 			onclick={() => {
 				currentImageIndex = previousImageIndex
 				timer.stop
-				timer.reset()
 				autoSwipe = false
 			}}
 		/>

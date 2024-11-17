@@ -4,9 +4,16 @@
 	import { NavSide } from '@/components/navside'
 	import { Burger } from '@/components/ui/icon'
 	import { LogoTitle } from '@/components/ui/icon'
+	import { getOpenNavSideState } from '@/components/ui/app-shell/app-shell.state.svelte'
 
+	const openNavSide = getOpenNavSideState()
+	
 	let open = $state(false)
 	let innerWidth = $state(0)
+	
+	$effect(()=>{
+		openNavSide.toggleNavSide(open)
+	})
 </script>
 
 <svelte:window bind:innerWidth />

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { PageData } from './$types'
 	import type { Snippet } from 'svelte'
 	import { AppShell } from '@/components/ui/app-shell'
 	import { Footer } from '@/components/footer'
@@ -9,8 +10,10 @@
 	import { Banner } from '@/components/ui/banner'
 	import { Cookie } from '@/components/ui/icon'
 	import { fly } from 'svelte/transition'
+	import { getOpenNavSideState } from '@/components/ui/app-shell/app-shell.state.svelte'
 
-	import type { PageData } from './$types'
+	const openNavSide = getOpenNavSideState()
+
 
 	let {
 		data,
@@ -27,6 +30,7 @@
 			cookieConsent = getCookie('cookieConsent')
 		}
 	})
+
 </script>
 
 <svelte:head>
@@ -82,7 +86,7 @@
 	classPageHeader="text-blue-500 font-extrabold text-xl text-center"
 	classSidebarRight="flex flex-col pr-2  "
 	classFooter="hidden md:flex"
-	openNavSide={false}
+	openNavSide={openNavSide.openNavSide}
 />
 
 <style lang="postcss">

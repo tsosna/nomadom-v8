@@ -7,7 +7,6 @@
 	import { Content, Popover, Trigger } from '@/components/ui/popover'
 	import { themeState } from './theme-state.svelte'
 	import { setCookie } from '@/utils'
-	import { Moon } from '@/components/ui/icon'
 
 	type Variant = VariantProps<typeof buttonVariants>['variant']
 	type Props = {

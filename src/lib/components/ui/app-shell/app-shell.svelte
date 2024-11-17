@@ -44,7 +44,7 @@
 		classPageFooter,
 		classFooter,
 
-		openNavSide = $bindable(),
+		openNavSide,
 		onscroll
 	}: Props = $props()
 
@@ -125,7 +125,7 @@
 			<main
 				id="page-content"
 				class={cn('flex-auto', classPageContent)}
-				class:opacity-15={openNavSide}
+				class:blur-sm={openNavSide}
 			>
 				{#if pageContent}
 					{@render pageContent()}
