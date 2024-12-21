@@ -4,7 +4,7 @@
 	import { NavSide } from '@/components/navside'
 	import { Burger } from '@/components/ui/icon'
 	import { LogoTitle } from '@/components/ui/icon'
-	import { getOpenNavSideState } from '@/components/ui/app-shell/app-shell.state.svelte'
+	import { getOpenNavSideState } from '@/state/app-shell.svelte'
 
 	const openNavSide = getOpenNavSideState()
 	

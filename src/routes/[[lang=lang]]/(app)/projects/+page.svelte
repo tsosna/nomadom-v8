@@ -12,10 +12,13 @@
 	import { SwipeGallery } from '@/components/swipe-gallery'
 	import type { Project,Image as ImageType } from '@/schemas/generated'
 
-	export let data: PageData;
+	type Props = { data: PageData}
+
 	type ExtendedProject = Project & { images: Array<ImageType> }
 
-	const { projects } = data;
+		let { data }: Props = $props()
+	
+		const { projects } = data;
 	// console.log({projects});
 	
 	const highlightedImages = projects.flatMap((project: ExtendedProject) => 
@@ -26,8 +29,11 @@
 //   "message": "Ups! Something went wrong. Internal error in hooks. \nInvalid `prisma.project.findMany()` invocation:\n\n\nError occurred during query execution:\nConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(PostgresError { code: \"42P05\", message: \"prepared statement \\\"s9\\\" already exists\", severity: \"ERROR\", detail: None, column: None, hint: None }), transient: false })",
 //   "errorId": "undefined"
 // }
+
+let innerWidth = $state(0)
 </script>
 
+<svelte:window bind:innerWidth />
 <svelte:head>
 	<title>{projectsLang()}</title>
 </svelte:head>
@@ -37,9 +43,9 @@
 
 <Logo size="48" color="#34A836" />
 
-<LogoTitle size="48" strokeWidth="4" color="blue" colorAccent="" />
+<LogoTitle size="48" strokeWidth="4" color="#34A836" colorAccent="" />
 
-<LogoName size="48" strokeWidth="4" class="text-primary" />
+<LogoName size="24" strokeWidth="4" class="text-primary" />
 
 {currentLanguageTag({ languageTag: languageTag() })}
 

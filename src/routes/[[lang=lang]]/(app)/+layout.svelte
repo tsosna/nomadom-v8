@@ -10,7 +10,7 @@
 	import { Banner } from '@/components/ui/banner'
 	import { Cookie } from '@/components/ui/icon'
 	import { fly } from 'svelte/transition'
-	import { getOpenNavSideState } from '@/components/ui/app-shell/app-shell.state.svelte'
+	import { getOpenNavSideState } from '@/state/app-shell.svelte'
 
 	const openNavSide = getOpenNavSideState()
 

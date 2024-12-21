@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types'
 	import { page } from '$app/stores'
+	import { getCheckDisplayState, setCheckDisplayState } from '@/state/layout.svelte'
+
 	import { CldImage } from 'svelte-cloudinary'
 	import * as renderLangMessages from '@/messages'
 	import { projects, currentLanguageTag } from '$paraglide/messages'
@@ -10,7 +12,6 @@
 	import { Logo, LogoName, LogoTitle } from '@/components/ui/icon'
 	import { languageTag } from '$paraglide/runtime'
 	import { Breadcrumb } from '@/components/ui/breadcrumb'
-	import { onMount } from 'svelte'
 	import { images } from '@/api/image'
 
 	// export let data: PageData
@@ -21,25 +22,33 @@
 	const { slug, isMobile: mobile } = data
 
 	let innerWidth = $state(0)
-	let isPortrait = $state(false)
-	let isMobile = $state(false)
+	let displayState = $state({ isMobile: false, isPortrait: false })
+	// let isPortrait = $state(false)
+	// let isMobile = $state(false)
 
-	function checkOrientation() {
-		isPortrait = window.matchMedia('(orientation: portrait)').matches
-	}
+	// function checkOrientation() {
+	// 	isPortrait = window.matchMedia('(orientation: portrait)').matches
+	// }
 
-	function checkIfMobile() {
-		isMobile = innerWidth <= 768
-	}
+	// function checkIfMobile() {
+	// 	isMobile = innerWidth <= 768
+	// }
 
-	onMount(() => {
-		checkIfMobile()
-		checkOrientation()
-		window.addEventListener('resize', checkOrientation)
-		return () => window.removeEventListener('resize', checkOrientation)
+	// onMount(() => {
+	// 	checkIfMobile()
+	// 	checkOrientation()
+	// 	window.addEventListener('resize', checkOrientation)
+	// 	return () => window.removeEventListener('resize', checkOrientation)
+	// })
+	// displayState =
+	$effect(() => {
+		setCheckDisplayState().checkIfMobile(innerWidth)
+		displayState = getCheckDisplayState()
 	})
 </script>
 
+display: {displayState.isPortrait}
+{displayState.isMobile}
 <svelte:window bind:innerWidth />
 
 <Breadcrumb />
@@ -68,7 +77,7 @@
   {JSON.stringify($page, null, 2)}
 </pre>
 
-<div class={isPortrait && isMobile ? 'portrait' : 'landscape'}>
+<div class={displayState.isPortrait && displayState.isMobile ? 'portrait' : 'landscape'}>
 	<CldImage
 		src="n_M_TECHO_domy_modulowe_projekt_domu_z_elewacja_z_cegly_prosty_i_funkcjonalny_dom_z_wanna_w_tarasie_drewnianym_febdc07c19"
 		alt="Paraglide logo"
