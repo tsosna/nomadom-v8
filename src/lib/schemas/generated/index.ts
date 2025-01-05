@@ -741,7 +741,7 @@ export const OptionWhereInputSchema: z.ZodType<Prisma.OptionWhereInput> = z.obje
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
 }).strict();
 
 export const OptionOrderByWithRelationInputSchema: z.ZodType<Prisma.OptionOrderByWithRelationInput> = z.object({
@@ -769,7 +769,7 @@ export const OptionWhereUniqueInputSchema: z.ZodType<Prisma.OptionWhereUniqueInp
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
 }).strict());
 
 export const OptionOrderByWithAggregationInputSchema: z.ZodType<Prisma.OptionOrderByWithAggregationInput> = z.object({
@@ -811,7 +811,7 @@ export const CurrencyWhereInputSchema: z.ZodType<Prisma.CurrencyWhereInput> = z.
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
 }).strict();
 
 export const CurrencyOrderByWithRelationInputSchema: z.ZodType<Prisma.CurrencyOrderByWithRelationInput> = z.object({
@@ -839,7 +839,7 @@ export const CurrencyWhereUniqueInputSchema: z.ZodType<Prisma.CurrencyWhereUniqu
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
 }).strict());
 
 export const CurrencyOrderByWithAggregationInputSchema: z.ZodType<Prisma.CurrencyOrderByWithAggregationInput> = z.object({
@@ -885,7 +885,7 @@ export const UploadWhereInputSchema: z.ZodType<Prisma.UploadWhereInput> = z.obje
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
 }).strict();
 
 export const UploadOrderByWithRelationInputSchema: z.ZodType<Prisma.UploadOrderByWithRelationInput> = z.object({
@@ -930,7 +930,7 @@ export const UploadWhereUniqueInputSchema: z.ZodType<Prisma.UploadWhereUniqueInp
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
 }).strict());
 
 export const UploadOrderByWithAggregationInputSchema: z.ZodType<Prisma.UploadOrderByWithAggregationInput> = z.object({
@@ -987,8 +987,8 @@ export const ImageWhereInputSchema: z.ZodType<Prisma.ImageWhereInput> = z.object
   homeTypeId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
-  homeType: z.union([ z.lazy(() => HomeTypeNullableRelationFilterSchema),z.lazy(() => HomeTypeWhereInputSchema) ]).optional().nullable(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  homeType: z.union([ z.lazy(() => HomeTypeNullableScalarRelationFilterSchema),z.lazy(() => HomeTypeWhereInputSchema) ]).optional().nullable(),
 }).strict();
 
 export const ImageOrderByWithRelationInputSchema: z.ZodType<Prisma.ImageOrderByWithRelationInput> = z.object({
@@ -1056,8 +1056,8 @@ export const ImageWhereUniqueInputSchema: z.ZodType<Prisma.ImageWhereUniqueInput
   homeTypeId: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
-  homeType: z.union([ z.lazy(() => HomeTypeNullableRelationFilterSchema),z.lazy(() => HomeTypeWhereInputSchema) ]).optional().nullable(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  homeType: z.union([ z.lazy(() => HomeTypeNullableScalarRelationFilterSchema),z.lazy(() => HomeTypeWhereInputSchema) ]).optional().nullable(),
 }).strict());
 
 export const ImageOrderByWithAggregationInputSchema: z.ZodType<Prisma.ImageOrderByWithAggregationInput> = z.object({
@@ -1118,7 +1118,7 @@ export const VideoWhereInputSchema: z.ZodType<Prisma.VideoWhereInput> = z.object
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
 }).strict();
 
 export const VideoOrderByWithRelationInputSchema: z.ZodType<Prisma.VideoOrderByWithRelationInput> = z.object({
@@ -1181,7 +1181,7 @@ export const VideoWhereUniqueInputSchema: z.ZodType<Prisma.VideoWhereUniqueInput
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
 }).strict());
 
 export const VideoOrderByWithAggregationInputSchema: z.ZodType<Prisma.VideoOrderByWithAggregationInput> = z.object({
@@ -1235,7 +1235,7 @@ export const RoomScheduleWhereInputSchema: z.ZodType<Prisma.RoomScheduleWhereInp
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
 }).strict();
 
 export const RoomScheduleOrderByWithRelationInputSchema: z.ZodType<Prisma.RoomScheduleOrderByWithRelationInput> = z.object({
@@ -1267,7 +1267,7 @@ export const RoomScheduleWhereUniqueInputSchema: z.ZodType<Prisma.RoomScheduleWh
   projectId: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
   createdAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
   updatedAt: z.union([ z.lazy(() => DateTimeFilterSchema),z.coerce.date() ]).optional(),
-  project: z.union([ z.lazy(() => ProjectRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
+  project: z.union([ z.lazy(() => ProjectScalarRelationFilterSchema),z.lazy(() => ProjectWhereInputSchema) ]).optional(),
 }).strict());
 
 export const RoomScheduleOrderByWithAggregationInputSchema: z.ZodType<Prisma.RoomScheduleOrderByWithAggregationInput> = z.object({
@@ -2522,7 +2522,7 @@ export const EnumDimensionTypeWithAggregatesFilterSchema: z.ZodType<Prisma.EnumD
   _max: z.lazy(() => NestedEnumDimensionTypeFilterSchema).optional()
 }).strict();
 
-export const ProjectRelationFilterSchema: z.ZodType<Prisma.ProjectRelationFilter> = z.object({
+export const ProjectScalarRelationFilterSchema: z.ZodType<Prisma.ProjectScalarRelationFilter> = z.object({
   is: z.lazy(() => ProjectWhereInputSchema).optional(),
   isNot: z.lazy(() => ProjectWhereInputSchema).optional()
 }).strict();
@@ -2670,7 +2670,7 @@ export const EnumImageTypeFilterSchema: z.ZodType<Prisma.EnumImageTypeFilter> = 
   not: z.union([ z.lazy(() => ImageTypeSchema),z.lazy(() => NestedEnumImageTypeFilterSchema) ]).optional(),
 }).strict();
 
-export const HomeTypeNullableRelationFilterSchema: z.ZodType<Prisma.HomeTypeNullableRelationFilter> = z.object({
+export const HomeTypeNullableScalarRelationFilterSchema: z.ZodType<Prisma.HomeTypeNullableScalarRelationFilter> = z.object({
   is: z.lazy(() => HomeTypeWhereInputSchema).optional().nullable(),
   isNot: z.lazy(() => HomeTypeWhereInputSchema).optional().nullable()
 }).strict();

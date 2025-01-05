@@ -1,5 +1,4 @@
-import { getContext,  setContext } from 'svelte'
-
+import { getContext, setContext } from 'svelte'
 
 export class OpenNavSide {
   openNavSide = $state(false)
@@ -7,12 +6,11 @@ export class OpenNavSide {
   // constructor() {
   //   $effect(() => {
   //     console.log('openNavSide', this.openNavSide);
-      
   //   })
   // }
 
-  toggleNavSide = (open:boolean) => {
-    this.openNavSide = open
+  toggleNavSide = (open: boolean) => {
+    this.openNavSide.set(open);
   }
 }
 
@@ -23,9 +21,9 @@ const OPEN_NAV_SIDE_KEY = Symbol('OPEN_NAV_SIDE')
  * @returns {void}
  */
 export function setOpenNavSideState() {
-	return setContext(OPEN_NAV_SIDE_KEY, new OpenNavSide())
+  return setContext(OPEN_NAV_SIDE_KEY, new OpenNavSide())
 }
 
 export function getOpenNavSideState() {
-	return getContext<ReturnType<typeof setOpenNavSideState>>(OPEN_NAV_SIDE_KEY)
+  return getContext<ReturnType<typeof setOpenNavSideState>>(OPEN_NAV_SIDE_KEY)
 }
