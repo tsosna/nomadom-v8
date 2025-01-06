@@ -23,24 +23,7 @@
 
 	let innerWidth = $state(0)
 	let displayState = $state({ isMobile: false, isPortrait: false })
-	// let isPortrait = $state(false)
-	// let isMobile = $state(false)
 
-	// function checkOrientation() {
-	// 	isPortrait = window.matchMedia('(orientation: portrait)').matches
-	// }
-
-	// function checkIfMobile() {
-	// 	isMobile = innerWidth <= 768
-	// }
-
-	// onMount(() => {
-	// 	checkIfMobile()
-	// 	checkOrientation()
-	// 	window.addEventListener('resize', checkOrientation)
-	// 	return () => window.removeEventListener('resize', checkOrientation)
-	// })
-	// displayState =
 	$effect(() => {
 		setCheckDisplayState().checkIfMobile(innerWidth)
 		displayState = getCheckDisplayState()

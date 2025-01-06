@@ -15,21 +15,14 @@
 
 	let src = ['Visualization', 'Plan', 'Interior', 'Elevation', 'Implementation']
 
-	let innerWidth = $state(0)
 	const { slug } = data
 </script>
-
-<svelte:window bind:innerWidth />
 
 <Notchbar>
 	{slug}
 </Notchbar>
 
-<pre>
-	{JSON.stringify(data, null, 2)}
-</pre>
 
-{innerWidth}
 <AppShell
 	class=""
 	classPageHeader="text-blue-500 font-extrabold text-xl text-center"

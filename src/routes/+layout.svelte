@@ -36,5 +36,5 @@
 	{@render children()}
 </ParaglideJS>
 
-{displayState.isPortrait}
-{displayState.isMobile}
+<!-- {displayState.isPortrait}
+{displayState.isMobile} -->
